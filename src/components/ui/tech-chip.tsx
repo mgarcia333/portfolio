@@ -1,4 +1,4 @@
-import type { StackIcon } from "@/data/content";
+import type { StackIcon } from "@/i18n";
 import { cn } from "@/lib/utils";
 
 interface TechChipProps {

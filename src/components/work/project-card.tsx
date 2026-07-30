@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { TiltCard } from "@/components/ui/tilt-card";
 import { CornerBrackets } from "@/components/ui/corner-brackets";
 import { TechChip } from "@/components/ui/tech-chip";
-import type { Project } from "@/data/content";
+import type { Project } from "@/i18n";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (

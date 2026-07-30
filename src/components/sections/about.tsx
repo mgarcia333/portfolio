@@ -1,9 +1,14 @@
+"use client";
+
 import { SectionHeading } from "@/components/ui/section-heading";
 import { TiltCard } from "@/components/ui/tilt-card";
 import { CornerBrackets } from "@/components/ui/corner-brackets";
-import { dossier, profile } from "@/data/content";
+import { useLanguage } from "@/i18n/language-context";
 
 export function About() {
+  const { content } = useLanguage();
+  const { dossier, profile } = content;
+
   return (
     <section id="about" className="scroll-mt-24 border-t border-outline-variant py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
@@ -45,7 +50,7 @@ export function About() {
                 <span className="absolute inline-flex size-1.5 animate-ping rounded-full bg-primary/60" />
                 <span className="relative inline-flex size-1.5 rounded-full bg-primary" />
               </span>
-              SIGNAL ACTIVE
+              {dossier.signalActive}
             </div>
           </TiltCard>
         </div>

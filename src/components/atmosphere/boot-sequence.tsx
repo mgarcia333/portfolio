@@ -3,19 +3,15 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { useLanguage } from "@/i18n/language-context";
 
 const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
-
-const LINES = [
-  "PORTFOLIO_OS v2.6 — BOOT SEQUENCE",
-  "MOUNTING INTERFACE... OK",
-  "LOADING PROFILE: M.GARCIA_POVEDA... OK",
-  "STATUS: READY",
-];
 
 type Phase = "boot" | "collapse" | "done";
 
 export function BootSequence() {
+  const { content } = useLanguage();
+  const lines = content.boot;
   const reduceMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
   const [skip, setSkip] = useState(true);
   const [phase, setPhase] = useState<Phase>("boot");
@@ -33,13 +29,13 @@ export function BootSequence() {
 
   useEffect(() => {
     if (skip || phase !== "boot") return;
-    if (lineIndex >= LINES.length) {
+    if (lineIndex >= lines.length) {
       const t = setTimeout(() => setPhase("collapse"), 260);
       return () => clearTimeout(t);
     }
     const t = setTimeout(() => setLineIndex((i) => i + 1), 210);
     return () => clearTimeout(t);
-  }, [lineIndex, phase, skip]);
+  }, [lineIndex, phase, skip, lines.length]);
 
   useEffect(() => {
     if (phase !== "collapse") return;
@@ -70,7 +66,7 @@ export function BootSequence() {
       transition={{ duration: 0.45, ease: [0.7, 0, 0.84, 0] }}
     >
       <div className="w-full max-w-md px-6">
-        {LINES.slice(0, lineIndex).map((line, i) => (
+        {lines.slice(0, lineIndex).map((line, i) => (
           <p key={line} className="text-tag py-0.5 text-xs text-primary sm:text-sm">
             <span className="text-on-surface-muted">{">"}</span> {line}
             {i === lineIndex - 1 && <span className="animate-blink">_</span>}

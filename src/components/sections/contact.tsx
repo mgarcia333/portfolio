@@ -1,17 +1,22 @@
+"use client";
+
 import { Mail } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { LiveClock } from "@/components/ui/live-clock";
-import { profile, socials } from "@/data/content";
+import { useLanguage } from "@/i18n/language-context";
 
 export function Contact() {
+  const { content } = useLanguage();
+  const { profile, contact } = content;
+
   return (
     <section id="contact" className="scroll-mt-24 border-t border-outline-variant py-24 sm:py-32">
       <div className="mx-auto max-w-4xl px-6 text-center">
         <SectionHeading
-          kicker="04 — CONTACT"
-          title="Let's build something"
-          description="Based in Barcelona, ES — open to remote and on-site work."
+          kicker={contact.kicker}
+          title={contact.title}
+          description={contact.description}
           align="center"
         />
 
@@ -26,9 +31,9 @@ export function Contact() {
         <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
           <MagneticButton href={`mailto:${profile.email}`} variant="solid">
             <Mail className="size-4" />
-            Email me
+            {contact.emailCta}
           </MagneticButton>
-          {socials.map((social) => (
+          {content.socials.map((social) => (
             <MagneticButton
               key={social.label}
               href={social.href}
@@ -46,7 +51,7 @@ export function Contact() {
           <span>{profile.location}</span>
           <span className="hidden sm:inline">·</span>
           <span className="flex items-center gap-2">
-            LOCAL TIME <LiveClock timeZone={profile.timeZone} className="text-primary" />
+            {contact.localTime} <LiveClock timeZone={profile.timeZone} className="text-primary" />
           </span>
         </div>
       </div>

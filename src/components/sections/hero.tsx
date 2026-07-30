@@ -1,10 +1,11 @@
+"use client";
+
 import { useId } from "react";
-import { profile } from "@/data/content";
+import { useLanguage } from "@/i18n/language-context";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 
-function RotatingBadge() {
+function RotatingBadge({ text }: { text: string }) {
   const pathId = useId();
-  const text = "FULL-STACK DEVELOPER • BARCELONA, ES • ";
 
   return (
     <div className="relative hidden size-56 shrink-0 lg:block">
@@ -30,6 +31,9 @@ function RotatingBadge() {
 }
 
 export function Hero() {
+  const { content } = useLanguage();
+  const { profile, hero } = content;
+
   return (
     <section
       id="hero"
@@ -57,22 +61,19 @@ export function Hero() {
             <span className="animate-blink text-primary">_</span>
           </p>
 
-          <p className="mt-6 max-w-xl text-pretty text-on-surface-variant">
-            I design and ship products end to end — Vue and React interfaces on top of
-            Node, PHP and Java services, deployed on infrastructure I run myself.
-          </p>
+          <p className="mt-6 max-w-xl text-pretty text-on-surface-variant">{hero.tagline}</p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <MagneticButton href="/work" variant="solid">
-              View the work
+              {hero.ctaWork}
             </MagneticButton>
             <MagneticButton href="/#contact" variant="outline">
-              Get in touch
+              {hero.ctaContact}
             </MagneticButton>
           </div>
         </div>
 
-        <RotatingBadge />
+        <RotatingBadge text={hero.badge} />
       </div>
     </section>
   );

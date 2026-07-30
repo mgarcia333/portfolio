@@ -5,6 +5,7 @@ import { CustomCursor } from "@/components/atmosphere/custom-cursor";
 import { BootSequence } from "@/components/atmosphere/boot-sequence";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { LanguageProvider } from "@/i18n/language-context";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -61,18 +62,20 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="es"
       data-scroll-behavior="smooth"
       suppressHydrationWarning
       className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <body className="bg-surface text-on-surface antialiased" suppressHydrationWarning>
-        <BootSequence />
-        <Atmosphere />
-        <CustomCursor />
-        <Navbar />
-        {children}
-        <Footer />
+        <LanguageProvider>
+          <BootSequence />
+          <Atmosphere />
+          <CustomCursor />
+          <Navbar />
+          {children}
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

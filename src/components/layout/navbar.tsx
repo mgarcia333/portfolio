@@ -5,11 +5,15 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { nav, profile } from "@/data/content";
+import { useLanguage } from "@/i18n/language-context";
 import { MagneticButton } from "@/components/ui/magnetic-button";
+import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
+  const { content } = useLanguage();
+  const { nav, profile } = content;
+  const contactLabel = nav.find((item) => item.href === "/#contact")?.label ?? "Contact";
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [activeHref, setActiveHref] = useState("");
@@ -45,7 +49,7 @@ export function Navbar() {
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
-  }, [pathname]);
+  }, [pathname, nav]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -102,19 +106,23 @@ export function Navbar() {
             {profile.status}
           </span>
           <MagneticButton href="/#contact" variant="outline" className="px-4 py-2 text-xs">
-            Contact
+            {contactLabel}
           </MagneticButton>
+          <LanguageSwitcher />
         </div>
 
-        <button
-          type="button"
-          onClick={() => setMenuOpen((v) => !v)}
-          className="text-on-surface lg:hidden"
-          aria-label="Toggle menu"
-          data-cursor-hover
-        >
-          {menuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
-        </button>
+        <div className="flex items-center gap-3 lg:hidden">
+          <LanguageSwitcher />
+          <button
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            className="text-on-surface"
+            aria-label={content.menuToggle}
+            data-cursor-hover
+          >
+            {menuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>

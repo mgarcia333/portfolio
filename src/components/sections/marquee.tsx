@@ -1,7 +1,10 @@
-import { heroTicker } from "@/data/content";
+"use client";
+
+import { useLanguage } from "@/i18n/language-context";
 
 export function Marquee() {
-  const loopItems = [...heroTicker, ...heroTicker];
+  const { content } = useLanguage();
+  const loopItems = [...content.heroTicker, ...content.heroTicker];
 
   return (
     <div className="relative border-y border-outline-variant bg-surface-container-low py-4">

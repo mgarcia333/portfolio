@@ -1,8 +1,12 @@
+"use client";
+
 import { ArrowUp } from "lucide-react";
-import { profile } from "@/data/content";
+import { useLanguage } from "@/i18n/language-context";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 
 export function Footer() {
+  const { content } = useLanguage();
+  const { profile, footer } = content;
   const year = new Date().getFullYear();
 
   return (
@@ -11,11 +15,9 @@ export function Footer() {
         <p className="text-tag">
           © {year} {profile.name.toUpperCase()}
         </p>
-        <p className="text-tag text-center">
-          BUILT WITH NEXT.JS + TAILWIND — DEPLOYED ON CLOUDFLARE
-        </p>
+        <p className="text-tag text-center">{footer.builtWith}</p>
         <MagneticButton href="#" variant="ghost" className="px-3 py-1.5 text-[11px]">
-          TOP
+          {footer.top}
           <ArrowUp className="size-3.5" />
         </MagneticButton>
       </div>

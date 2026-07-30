@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Moisés García Poveda
 
-## Getting Started
+Personal portfolio and CV site, built as a single scrolling dossier plus a dedicated case-study page for selected projects. Available in Spanish, Catalan, and English.
 
-First, run the development server:
+**Live:** [portfolio.mgarciap.workers.dev](https://portfolio.mgarciap.workers.dev)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Sections
+
+- **Hero** — name, role, and a status/ticker line, framed with a boot-sequence intro animation.
+- **Dossier** — short bio and a field/value profile block (location, time zone, availability).
+- **Stack** — technology categories, each with its set of tools and icons.
+- **Experience** — timeline of roles, with tags and status per entry.
+- **Work** — featured projects on the home page, with a `/work` page listing the full set, each with description, stack, and links.
+- **Contact** — direct email call-to-action and local time.
+
+The whole layout leans into a Y2K/retro-futurist interface language: corner brackets, a custom cursor, magnetic buttons, tilt cards, and a monospace/marquee ticker running through it.
+
+## Content and localization
+
+There is no CMS: all copy lives in three parallel, fully-typed files — `src/i18n/content.es.ts`, `content.ca.ts`, `content.en.ts` — conforming to the shared `SiteContent` interface (`src/i18n/types.ts`). The active locale is picked via `LanguageProvider` (`src/i18n/language-context.tsx`) and persisted in `localStorage`. Editing or adding content means updating all three files; TypeScript will flag anything left out.
+
+## Stack
+
+- [Next.js 16](https://nextjs.org) (App Router) / [React 19](https://react.dev) / TypeScript
+- [Tailwind CSS 4](https://tailwindcss.com)
+- [Framer Motion](https://www.framer.com/motion/) for the scroll, hover, and page transitions
+- Hand-rolled i18n layer, no external library
+
+## Project structure
+
+```
+src/
+├── app/                  # Routes: home, /work, metadata, icons
+├── components/
+│   ├── atmosphere/       # Background effects, boot sequence, custom cursor
+│   ├── layout/           # Navbar, footer
+│   ├── sections/         # Home page sections
+│   ├── ui/               # Reusable primitives (tech chips, tilt card, magnetic button, flags...)
+│   └── work/             # Project cards and the /work page content
+├── hooks/                # useMagnetic, useTilt, useMediaQuery
+├── i18n/                 # Locale types, provider, and per-language content
+└── lib/                  # Shared utilities
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Requires Node 20+.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000).
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Script          | Description                       |
+| ---------------- | ------------------------------------ |
+| `npm run dev`    | Start the local dev server           |
+| `npm run build`  | Production build                      |
+| `npm run start`  | Serve the production build locally    |
+| `npm run lint`   | Run ESLint                            |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deployed as a Cloudflare Worker via the OpenNext adapter and Wrangler (`npm run deploy`); configuration lives in `wrangler.jsonc` and `open-next.config.ts`.
