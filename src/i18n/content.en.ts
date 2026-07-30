@@ -8,13 +8,14 @@ export const contentEn: SiteContent = {
     status: "Open to select work",
   },
   nav: [
-    { label: "About", href: "/#about", type: "anchor" },
-    { label: "Stack", href: "/#stack", type: "anchor" },
+    { label: "About", href: "/about", type: "route" },
+    { label: "Stack", href: "/stack", type: "route" },
     { label: "Work", href: "/work", type: "route" },
-    { label: "Experience", href: "/#experience", type: "anchor" },
+    { label: "Experience", href: "/experience", type: "route" },
     { label: "Contact", href: "/#contact", type: "anchor" },
   ],
   menuToggle: "Toggle menu",
+  themeToggle: "Toggle theme",
   heroTicker: [
     "FULL-STACK DEVELOPER",
     "BARCELONA, ES",
@@ -45,6 +46,7 @@ export const contentEn: SiteContent = {
       { label: "Status", value: "Online" },
     ],
     signalActive: "SIGNAL ACTIVE",
+    viewMore: "View full dossier",
   },
   homeWork: {
     kicker: "02 — WORK",
@@ -64,10 +66,12 @@ export const contentEn: SiteContent = {
       { id: "backend", label: "Backend", items: stackItemsByCategory.backend },
       { id: "tools", label: "Tools", items: stackItemsByCategory.tools },
     ],
+    viewMore: "View full stack",
   },
   experience: {
     kicker: "04 — EXPERIENCE",
     title: "Trajectory",
+    viewMore: "View full trajectory",
     entries: [
       {
         tag: "02",
@@ -130,6 +134,146 @@ export const contentEn: SiteContent = {
           "A video editor that runs entirely in the browser — cut clips, apply cinematic effects and export to MP4, MOV or WebM, no install required. A downloadable app version is in the works.",
       },
     }),
+  },
+  aboutPage: {
+    metaTitle: "About — Moisés García Poveda",
+    metaDescription:
+      "Full-stack developer based in Barcelona with end-to-end experience: Vue and React interfaces, Node, PHP and Java services, and self-managed infrastructure on Docker, Oracle Cloud and Cloudflare.",
+    backHome: "BACK HOME",
+    kicker: "01 — ABOUT",
+    title: "Full dossier",
+    intro: [
+      "I build across the full stack — from Vue and React interfaces to Node, PHP and Java services underneath. Currently shipping at Seven Sector Technologies, with previous hands-on experience at Reset Soluciones.",
+      "I hold a Higher Degree in Web Application Development and Multiplatform Application Development, and I run my own Dockerized infrastructure on Oracle Cloud behind Cloudflare — so I care as much about how a product ships and scales as how it looks on screen.",
+      "I prefer to understand the whole problem before writing the first line of code. That's why I move just as comfortably between the interface, the API and the server behind it: seeing the system end to end is what lets me diagnose and fix issues fast, instead of treating each layer as a black box.",
+    ],
+    fields: [
+      { label: "Name", value: "Moisés García Poveda" },
+      { label: "Role", value: "Full-Stack Developer" },
+      { label: "Base", value: "Barcelona, ES" },
+      { label: "Currently", value: "Seven Sector Technologies" },
+      { label: "Education", value: "DAW + DAM Higher Degree" },
+      { label: "Status", value: "Online" },
+    ],
+    principles: [
+      {
+        heading: "From interface to infrastructure",
+        body: "I don't stop at application code — I deploy, monitor and maintain the infrastructure it runs on, with Docker containers on Oracle Cloud behind Cloudflare. Understanding the full path, from a user's click to the server's response, is what lets me diagnose and fix problems fast.",
+      },
+      {
+        heading: "Full-stack by conviction, not by resume",
+        body: "Working with Vue, React, Node, PHP and Java isn't a list of collected technologies — it's the natural consequence of owning a product end to end. I pick the tool for the problem in front of me, not the other way around.",
+      },
+      {
+        heading: "Every project, shipped to production",
+        body: "The projects you can see in the Work section aren't local demos — they're deployed and live right now, on the same infrastructure I manage for the rest of my work.",
+      },
+    ],
+    education: {
+      heading: "Education",
+      body: "Higher Degree in Web Application Development (DAW) and Multiplatform Application Development (DAM) — a foundation that covers both web application development and desktop / mobile application development, and that underpins how I work across every layer of a product.",
+    },
+  },
+  stackPage: {
+    metaTitle: "Stack — Moisés García Poveda",
+    metaDescription:
+      "Technologies I work with day to day, from interface to infrastructure: Vue, React, Node, PHP, Java, Docker, Oracle Cloud and Cloudflare.",
+    backHome: "BACK HOME",
+    kicker: "03 — STACK",
+    title: "Full loadout",
+    description:
+      "Technologies I reach for, sorted by layer — from interface down to the infrastructure it runs on, with the reasoning behind each choice.",
+    categories: [
+      {
+        id: "frontend",
+        label: "Frontend",
+        items: stackItemsByCategory.frontend,
+        description:
+          "Where the user experience lives. Vue and React to build the interface; Tailwind and Framer Motion give it shape and motion without leaving the browser.",
+      },
+      {
+        id: "databases",
+        label: "Databases",
+        items: stackItemsByCategory.databases,
+        description:
+          "Persistence is picked to fit the shape of the data: MongoDB when the schema is flexible, MySQL and PostgreSQL when the relationships between entities matter as much as the data itself.",
+      },
+      {
+        id: "infra",
+        label: "Infra & DevOps",
+        items: stackItemsByCategory.infra,
+        description:
+          "I manage my own infrastructure: Docker containers running on Oracle Cloud, with Cloudflare in front for CDN, security and deployment of the projects you see in Work.",
+      },
+      {
+        id: "backend",
+        label: "Backend",
+        items: stackItemsByCategory.backend,
+        description:
+          "Node, PHP and Java cover server logic and APIs; Sockets come in whenever the product needs real-time communication.",
+      },
+      {
+        id: "tools",
+        label: "Tools",
+        items: stackItemsByCategory.tools,
+        description:
+          "Git for day-to-day version control, Android Studio for native mobile development, and Unity whenever a project calls for a graphics engine.",
+      },
+    ],
+  },
+  experiencePage: {
+    metaTitle: "Experience — Moisés García Poveda",
+    metaDescription:
+      "Professional trajectory of Moisés García Poveda as a full-stack developer, from DAW and DAM training to his current role at Seven Sector Technologies.",
+    backHome: "BACK HOME",
+    kicker: "04 — EXPERIENCE",
+    title: "Full trajectory",
+    description: "Every stage, with the role, the context and the technologies I worked with.",
+    entries: [
+      {
+        tag: "02",
+        status: "Current",
+        current: true,
+        org: "Seven Sector Technologies",
+        role: "Software Developer",
+        description:
+          "Building and maintaining web platforms end to end — UI, APIs and the infrastructure they run on.",
+        highlights: [
+          "Building and maintaining web platforms end to end, from interface to API.",
+          "Managing the deployment and infrastructure the projects run on, without relying on a separate DevOps team.",
+          "Working directly with the production stack: Docker on Oracle Cloud, behind Cloudflare.",
+        ],
+        stack: ["Vue.js", "Node.js", "Docker", "Oracle Cloud", "Cloudflare"],
+      },
+      {
+        tag: "01",
+        status: "Previous",
+        current: false,
+        org: "Reset Soluciones",
+        role: "Software Developer",
+        description:
+          "Developed web and multiplatform applications, working across the full delivery lifecycle.",
+        highlights: [
+          "Developed web and multiplatform applications end to end.",
+          "Took part in the full delivery lifecycle, from development through to production release.",
+        ],
+        stack: ["PHP", "JavaScript", "MySQL"],
+      },
+      {
+        tag: "00",
+        status: "Education",
+        current: false,
+        org: "Higher Degree · DAW & DAM",
+        role: "Web & Multiplatform Application Development",
+        description:
+          "Formal training across web application development and multiplatform / mobile application development.",
+        highlights: [
+          "Formal training in web application development (DAW).",
+          "Formal training in multiplatform and mobile application development (DAM).",
+        ],
+        stack: ["HTML", "CSS", "Java", "Android Studio"],
+      },
+    ],
   },
   footer: {
     builtWith: "BUILT WITH NEXT.JS + TAILWIND — DEPLOYED ON CLOUDFLARE",

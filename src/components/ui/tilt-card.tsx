@@ -11,12 +11,13 @@ interface TiltCardProps {
   className?: string;
   glow?: boolean;
   max?: number;
+  disabled?: boolean;
 }
 
-export function TiltCard({ children, className, glow = true, max = 6 }: TiltCardProps) {
+export function TiltCard({ children, className, glow = true, max = 6, disabled: forceDisabled = false }: TiltCardProps) {
   const reduceMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
   const coarsePointer = useMediaQuery("(pointer: coarse)");
-  const disabled = reduceMotion || coarsePointer;
+  const disabled = forceDisabled || reduceMotion || coarsePointer;
 
   const { ref, rotateX, rotateY, scale, glowX, glowY, onPointerMove, onPointerEnter, onPointerLeave } =
     useTilt<HTMLDivElement>({ disabled, max });

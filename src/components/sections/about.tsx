@@ -3,6 +3,7 @@
 import { SectionHeading } from "@/components/ui/section-heading";
 import { TiltCard } from "@/components/ui/tilt-card";
 import { CornerBrackets } from "@/components/ui/corner-brackets";
+import { MagneticButton } from "@/components/ui/magnetic-button";
 import { useLanguage } from "@/i18n/language-context";
 
 export function About() {
@@ -21,6 +22,12 @@ export function About() {
                   {paragraph}
                 </p>
               ))}
+            </div>
+
+            <div className="mt-8">
+              <MagneticButton href="/about" variant="outline">
+                {dossier.viewMore}
+              </MagneticButton>
             </div>
           </div>
 

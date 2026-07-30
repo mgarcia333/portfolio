@@ -1,12 +1,27 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import { Atmosphere } from "@/components/atmosphere/atmosphere";
 import { CustomCursor } from "@/components/atmosphere/custom-cursor";
 import { BootSequence } from "@/components/atmosphere/boot-sequence";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { LanguageProvider } from "@/i18n/language-context";
+import { ThemeProvider } from "@/theme/theme-context";
+import { THEME_STORAGE_KEY } from "@/theme/constants";
 import "./globals.css";
+
+const NO_FLASH_THEME_SCRIPT = `
+(function () {
+  try {
+    var stored = localStorage.getItem("${THEME_STORAGE_KEY}");
+    var theme = stored === "dark" || stored === "light"
+      ? stored
+      : window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+`;
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -68,14 +83,21 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <body className="bg-surface text-on-surface antialiased" suppressHydrationWarning>
-        <LanguageProvider>
-          <BootSequence />
-          <Atmosphere />
-          <CustomCursor />
-          <Navbar />
-          {children}
-          <Footer />
-        </LanguageProvider>
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: NO_FLASH_THEME_SCRIPT }}
+        />
+        <ThemeProvider>
+          <LanguageProvider>
+            <BootSequence />
+            <Atmosphere />
+            <CustomCursor />
+            <Navbar />
+            {children}
+            <Footer />
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

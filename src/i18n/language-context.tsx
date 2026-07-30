@@ -19,6 +19,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const stored = window.localStorage.getItem(STORAGE_KEY);
     if (stored && isLocale(stored)) {
+      // One-time correction from the SSR default once localStorage is available;
+      // reading it during render instead would desync server/client hydration output.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLocaleState(stored);
     }
   }, []);

@@ -62,6 +62,7 @@ export interface SiteContent {
   };
   nav: NavItem[];
   menuToggle: string;
+  themeToggle: string;
   heroTicker: string[];
   hero: {
     badge: string;
@@ -75,6 +76,7 @@ export interface SiteContent {
     bio: string[];
     fields: { label: string; value: string }[];
     signalActive: string;
+    viewMore: string;
   };
   homeWork: {
     kicker: string;
@@ -87,11 +89,13 @@ export interface SiteContent {
     title: string;
     description: string;
     categories: StackCategory[];
+    viewMore: string;
   };
   experience: {
     kicker: string;
     title: string;
     entries: ExperienceEntry[];
+    viewMore: string;
   };
   contact: {
     kicker: string;
@@ -108,6 +112,35 @@ export interface SiteContent {
     title: string;
     description: string;
     projects: Project[];
+  };
+  aboutPage: {
+    metaTitle: string;
+    metaDescription: string;
+    backHome: string;
+    kicker: string;
+    title: string;
+    intro: string[];
+    fields: { label: string; value: string }[];
+    principles: { heading: string; body: string }[];
+    education: { heading: string; body: string };
+  };
+  stackPage: {
+    metaTitle: string;
+    metaDescription: string;
+    backHome: string;
+    kicker: string;
+    title: string;
+    description: string;
+    categories: (StackCategory & { description: string })[];
+  };
+  experiencePage: {
+    metaTitle: string;
+    metaDescription: string;
+    backHome: string;
+    kicker: string;
+    title: string;
+    description: string;
+    entries: (ExperienceEntry & { highlights: string[]; stack: string[] })[];
   };
   footer: {
     builtWith: string;

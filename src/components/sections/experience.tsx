@@ -1,6 +1,7 @@
 "use client";
 
 import { SectionHeading } from "@/components/ui/section-heading";
+import { MagneticButton } from "@/components/ui/magnetic-button";
 import { useLanguage } from "@/i18n/language-context";
 import { cn } from "@/lib/utils";
 
@@ -55,6 +56,12 @@ export function Experience() {
             </li>
           ))}
         </ol>
+
+        <div className="mt-4 flex justify-center">
+          <MagneticButton href="/experience" variant="outline">
+            {experience.viewMore}
+          </MagneticButton>
+        </div>
       </div>
     </section>
   );

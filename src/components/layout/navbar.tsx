@@ -8,6 +8,7 @@ import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/i18n/language-context";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -68,9 +69,12 @@ export function Navbar() {
       )}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link href="/" className="font-display text-tag text-sm text-on-surface" data-cursor-hover>
-          [ M_G ]
-        </Link>
+        <div className="flex items-center gap-4">
+          <ThemeToggle />
+          <Link href="/" className="font-display text-tag text-sm text-on-surface" data-cursor-hover>
+            [ M_G ]
+          </Link>
+        </div>
 
         <nav className="hidden items-center gap-8 lg:flex">
           {nav.map((item) => {
@@ -135,16 +139,27 @@ export function Navbar() {
             className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto border-t border-outline-variant bg-surface lg:hidden"
           >
             <nav className="flex flex-col gap-1 px-6 py-10">
-              {nav.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="font-display py-3 text-2xl text-on-surface"
-                >
-                  {item.label}
-                </a>
-              ))}
+              {nav.map((item) =>
+                item.type === "route" ? (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="font-display py-3 text-2xl text-on-surface"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="font-display py-3 text-2xl text-on-surface"
+                  >
+                    {item.label}
+                  </a>
+                )
+              )}
             </nav>
           </motion.div>
         )}
