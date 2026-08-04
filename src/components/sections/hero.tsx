@@ -53,7 +53,9 @@ export function Hero() {
 
           <h1 className="font-display text-6xl leading-[0.95] font-semibold tracking-tight sm:text-7xl lg:text-[5.5rem]">
             <span className="text-chrome block">{profile.nameLines[0]}</span>
-            <span className="text-chrome-accent block">{profile.nameLines[1]}</span>
+            <span className="text-chrome-accent -mt-1 ml-6 block sm:-mt-2 lg:ml-10">
+              {profile.nameLines[1]}
+            </span>
           </h1>
 
           <p className="font-display mt-5 text-xl text-on-surface-variant sm:text-2xl">

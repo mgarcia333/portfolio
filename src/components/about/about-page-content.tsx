@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { TiltCard } from "@/components/ui/tilt-card";
 import { CornerBrackets } from "@/components/ui/corner-brackets";
+import { DossierBento } from "@/components/about/dossier-bento";
 import { useLanguage } from "@/i18n/language-context";
 
 export function AboutPageContent() {
@@ -39,27 +40,13 @@ export function AboutPageContent() {
             ))}
           </div>
 
-          <TiltCard className="self-start" max={4}>
-            <CornerBrackets />
-            <div className="flex items-center gap-4 border-b border-outline-variant p-6">
-              <div className="text-tag flex size-12 shrink-0 items-center justify-center border border-outline text-sm text-primary">
-                {profile.initials}
-              </div>
-              <div>
-                <p className="font-display text-on-surface">{profile.name}</p>
-                <p className="text-tag text-xs text-on-surface-muted">{profile.role}</p>
-              </div>
-            </div>
-
-            <dl className="grid grid-cols-2 gap-x-4 gap-y-5 p-6">
-              {aboutPage.fields.map((field) => (
-                <div key={field.label}>
-                  <dt className="text-tag text-[10px] text-on-surface-muted">{field.label}</dt>
-                  <dd className="mt-1 text-sm text-on-surface">{field.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </TiltCard>
+          <DossierBento
+            className="self-start"
+            name={profile.name}
+            role={profile.role}
+            initials={profile.initials}
+            fields={aboutPage.fields}
+          />
         </div>
 
         <div className="mt-24 grid grid-cols-1 gap-6 md:grid-cols-3">

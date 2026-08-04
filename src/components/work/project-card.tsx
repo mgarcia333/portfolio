@@ -6,6 +6,8 @@ import { TechChip } from "@/components/ui/tech-chip";
 import type { Project } from "@/i18n";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const displayUrl = project.url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+
   return (
     <a
       href={project.url}
@@ -16,6 +18,16 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
     >
       <TiltCard max={3} className="h-full">
         <CornerBrackets />
+        <div className="flex items-center gap-2 border-b border-outline-variant px-3 py-2">
+          <span className="flex shrink-0 gap-1.5">
+            <span className="size-2 rounded-full border border-outline bg-surface-container-high" />
+            <span className="size-2 rounded-full border border-outline bg-surface-container-high" />
+            <span className="size-2 rounded-full border border-outline bg-surface-container-high" />
+          </span>
+          <span className="min-w-0 flex-1 truncate border border-outline-variant bg-surface px-2 py-0.5 font-mono text-[10px] text-on-surface-muted">
+            {displayUrl}
+          </span>
+        </div>
         <div className="overflow-hidden border-b border-outline-variant">
           <Image
             src={project.preview}
