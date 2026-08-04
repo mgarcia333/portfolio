@@ -52,16 +52,24 @@ export function CustomCursor() {
       <motion.div
         aria-hidden="true"
         style={{ x, y, translate: "-50% -50%", opacity: visible ? 1 : 0 }}
-        className="pointer-events-none fixed top-0 left-0 z-[100] size-1.5 rounded-full bg-primary transition-opacity duration-300"
-      />
+        className="pointer-events-none fixed top-0 left-0 z-[100] size-2.5 transition-opacity duration-300"
+      >
+        <span className="absolute top-1/2 left-0 h-px w-full -translate-y-1/2 bg-primary" />
+        <span className="absolute top-0 left-1/2 h-full w-px -translate-x-1/2 bg-primary" />
+      </motion.div>
       <motion.div
         aria-hidden="true"
         style={{ x: ringX, y: ringY, translate: "-50% -50%", opacity: visible ? 1 : 0 }}
         className={cn(
-          "pointer-events-none fixed top-0 left-0 z-[100] rounded-full border border-primary/70 transition-[width,height,background-color,opacity] duration-300 ease-out",
-          hovering ? "size-14 bg-primary/10" : "size-7 bg-transparent"
+          "pointer-events-none fixed top-0 left-0 z-[100] transition-[width,height,opacity] duration-300 ease-out",
+          hovering ? "size-11" : "size-5"
         )}
-      />
+      >
+        <span className="absolute top-0 left-0 size-2 border-t border-l border-primary/80" />
+        <span className="absolute top-0 right-0 size-2 border-t border-r border-primary/80" />
+        <span className="absolute bottom-0 left-0 size-2 border-b border-l border-primary/80" />
+        <span className="absolute bottom-0 right-0 size-2 border-b border-r border-primary/80" />
+      </motion.div>
     </>
   );
 }
