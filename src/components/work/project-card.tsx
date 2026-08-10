@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import { SiGithub } from "react-icons/si";
 import { TiltCard } from "@/components/ui/tilt-card";
 import { CornerBrackets } from "@/components/ui/corner-brackets";
 import { TechChip } from "@/components/ui/tech-chip";
@@ -27,6 +28,29 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           <span className="min-w-0 flex-1 truncate border border-outline-variant bg-surface px-2 py-0.5 font-mono text-[10px] text-on-surface-muted">
             {displayUrl}
           </span>
+          {project.github && (
+            <span
+              role="link"
+              tabIndex={0}
+              aria-label="View source on GitHub"
+              data-cursor-hover
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                window.open(project.github, "_blank", "noreferrer");
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  window.open(project.github, "_blank", "noreferrer");
+                }
+              }}
+              className="flex shrink-0 items-center justify-center rounded-full border border-outline-variant p-1 text-on-surface-muted transition-colors hover:border-primary hover:text-primary"
+            >
+              <SiGithub className="size-3" />
+            </span>
+          )}
         </div>
         <div className="overflow-hidden border-b border-outline-variant">
           <Image

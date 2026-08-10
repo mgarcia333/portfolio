@@ -133,6 +133,21 @@ export const contentEn: SiteContent = {
         description:
           "A video editor that runs entirely in the browser — cut clips, apply cinematic effects and export to MP4, MOV or WebM, no install required. A downloadable app version is in the works.",
       },
+      "clothes-template": {
+        title: "NOIR",
+        description:
+          "A minimalist fashion e-commerce template — dark editorial aesthetic, multi-language storefront, built for a seasonal collection drop.",
+      },
+      "restaurant-template": {
+        title: "VØID Gastrobar",
+        description:
+          "A site for an experimental fine-dining concept — bold typography, dark mode by default, menu, gallery and a built-in reservation flow.",
+      },
+      nightfallpain: {
+        title: "Nightfall Pain",
+        description:
+          "A 2D cyberpunk shooter built in Unity, single-player and co-op over Mirror Networking — recovered from a compiled build and shipped to WebGL so it plays straight from the browser.",
+      },
     }),
   },
   aboutPage: {

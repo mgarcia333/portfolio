@@ -81,6 +81,7 @@ interface ProjectShared {
   stack: string[];
   url: string;
   preview: string;
+  github?: string;
 }
 
 export const projectsShared: Record<string, ProjectShared> = {
@@ -101,6 +102,25 @@ export const projectsShared: Record<string, ProjectShared> = {
     stack: ["Video Editor", "Web App", "Cloudflare Workers"],
     url: "https://2kedit.mgarciap.workers.dev/",
     preview: "/projects/2kedit.png",
+  },
+  "clothes-template": {
+    tag: "CASE_04",
+    stack: ["E-commerce", "Next.js", "Cloudflare Workers"],
+    url: "https://clothes-template.mgarciap.workers.dev/",
+    preview: "/projects/clothes-template.webp",
+  },
+  "restaurant-template": {
+    tag: "CASE_05",
+    stack: ["Restaurant", "Next.js", "Cloudflare Workers"],
+    url: "https://restaurant-template.mgarciap.workers.dev/",
+    preview: "/projects/restaurant-template.webp",
+  },
+  nightfallpain: {
+    tag: "CASE_06",
+    stack: ["Unity", "WebGL", "Next.js"],
+    url: "https://nightfallpain-web.mgarciap.workers.dev/",
+    preview: "/projects/nightfallpain.webp",
+    github: "https://github.com/mgarcia333/nightfallpain",
   },
 };
 

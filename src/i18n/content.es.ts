@@ -133,6 +133,21 @@ export const contentEs: SiteContent = {
         description:
           "Un editor de vídeo que funciona íntegramente en el navegador — corta clips, aplica efectos cinematográficos y exporta a MP4, MOV o WebM, sin instalación. Ya se está trabajando en una versión de escritorio descargable.",
       },
+      "clothes-template": {
+        title: "NOIR",
+        description:
+          "Plantilla de e-commerce de moda minimalista — estética editorial oscura, tienda multi-idioma, pensada para el lanzamiento de una colección de temporada.",
+      },
+      "restaurant-template": {
+        title: "VØID Gastrobar",
+        description:
+          "Web para un concepto de alta cocina experimental — tipografía contundente, modo oscuro por defecto, menú, galería y reservas integradas.",
+      },
+      nightfallpain: {
+        title: "Nightfall Pain",
+        description:
+          "Shooter 2D cyberpunk hecho en Unity, un jugador y cooperativo por red con Mirror Networking — recuperado a partir de un build compilado y publicado en WebGL para jugarlo directo desde el navegador.",
+      },
     }),
   },
   aboutPage: {

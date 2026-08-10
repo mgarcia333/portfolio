@@ -32,6 +32,7 @@ export interface Project {
   stack: string[];
   url: string;
   preview: string;
+  github?: string;
 }
 
 export interface Social {
