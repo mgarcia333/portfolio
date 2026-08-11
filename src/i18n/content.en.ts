@@ -117,6 +117,11 @@ export const contentEn: SiteContent = {
     selectedWork: "SELECTED WORK",
     title: "Live projects",
     description: "Shipped, deployed and running right now — click through to try any of them.",
+    categories: {
+      webapp: "Web Apps",
+      unity: "Unity · Games",
+      template: "Templates",
+    },
     projects: buildProjects({
       "chatbot-movies": {
         title: "CineRoulette",

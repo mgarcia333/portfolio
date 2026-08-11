@@ -22,7 +22,7 @@ import {
 } from "react-icons/si";
 import { DiCss3, DiJava } from "react-icons/di";
 import { FaLinkedin } from "react-icons/fa";
-import type { Project, Social, StackItem } from "./types";
+import type { Project, ProjectCategory, Social, StackItem } from "./types";
 
 export const profileShared = {
   name: "Moisés García Poveda",
@@ -77,6 +77,7 @@ export const stackItemsByCategory: Record<string, StackItem[]> = {
 };
 
 interface ProjectShared {
+  category: ProjectCategory;
   tag: string;
   stack: string[];
   url: string;
@@ -86,6 +87,7 @@ interface ProjectShared {
 
 export const projectsShared: Record<string, ProjectShared> = {
   "chatbot-movies": {
+    category: "webapp",
     tag: "CASE_01",
     stack: ["Chatbot", "Cloudflare Workers"],
     url: "https://chatbot-movies.mgarciap.workers.dev/",
@@ -93,6 +95,7 @@ export const projectsShared: Record<string, ProjectShared> = {
     github: "https://github.com/mgarcia333/chatbot-movies",
   },
   scenesbeats: {
+    category: "webapp",
     tag: "CASE_02",
     stack: ["AI Recommendations", "Spotify", "Letterboxd"],
     url: "https://scenesbeats.mgarciap.workers.dev/",
@@ -100,39 +103,44 @@ export const projectsShared: Record<string, ProjectShared> = {
     github: "https://github.com/mgarcia333/scenesbeats",
   },
   "2kedit": {
+    category: "webapp",
     tag: "CASE_03",
     stack: ["Video Editor", "Web App", "Cloudflare Workers"],
     url: "https://2kedit.mgarciap.workers.dev/",
     preview: "/projects/2kedit.png",
     github: "https://github.com/mgarcia333/2kedit",
   },
-  "clothes-template": {
-    tag: "CASE_04",
-    stack: ["E-commerce", "Next.js", "Cloudflare Workers"],
-    url: "https://clothes-template.mgarciap.workers.dev/",
-    preview: "/projects/clothes-template.webp",
-    github: "https://github.com/mgarcia333/clothes-template",
-  },
-  "restaurant-template": {
-    tag: "CASE_05",
-    stack: ["Restaurant", "Next.js", "Cloudflare Workers"],
-    url: "https://restaurant-template.mgarciap.workers.dev/",
-    github: "https://github.com/mgarcia333/restaurant-template",
-    preview: "/projects/restaurant-template.webp",
-  },
   nightfallpain: {
-    tag: "CASE_06",
+    category: "unity",
+    tag: "CASE_04",
     stack: ["Unity", "WebGL", "Next.js"],
     url: "https://nightfallpain-web.mgarciap.workers.dev/",
     preview: "/projects/nightfallpain.webp",
     github: "https://github.com/mgarcia333/nightfallpain",
   },
   lastknightofaveron: {
-    tag: "CASE_07",
+    category: "unity",
+    tag: "CASE_05",
     stack: ["Unity", "WebGL", "Next.js"],
     url: "https://lastknightofaveron-web.mgarciap.workers.dev/",
     preview: "/projects/lastknightofaveron.webp",
     github: "https://github.com/mgarcia333/lastknightofaveron",
+  },
+  "clothes-template": {
+    category: "template",
+    tag: "CASE_06",
+    stack: ["E-commerce", "Next.js", "Cloudflare Workers"],
+    url: "https://clothes-template.mgarciap.workers.dev/",
+    preview: "/projects/clothes-template.webp",
+    github: "https://github.com/mgarcia333/clothes-template",
+  },
+  "restaurant-template": {
+    category: "template",
+    tag: "CASE_07",
+    stack: ["Restaurant", "Next.js", "Cloudflare Workers"],
+    url: "https://restaurant-template.mgarciap.workers.dev/",
+    github: "https://github.com/mgarcia333/restaurant-template",
+    preview: "/projects/restaurant-template.webp",
   },
 };
 

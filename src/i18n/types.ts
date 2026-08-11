@@ -24,8 +24,11 @@ export interface ExperienceEntry {
   description: string;
 }
 
+export type ProjectCategory = "webapp" | "unity" | "template";
+
 export interface Project {
   id: string;
+  category: ProjectCategory;
   tag: string;
   title: string;
   description: string;
@@ -112,6 +115,7 @@ export interface SiteContent {
     selectedWork: string;
     title: string;
     description: string;
+    categories: Record<ProjectCategory, string>;
     projects: Project[];
   };
   aboutPage: {

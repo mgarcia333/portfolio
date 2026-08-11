@@ -117,6 +117,11 @@ export const contentCa: SiteContent = {
     selectedWork: "FEINA DESTACADA",
     title: "Projectes en producció",
     description: "Lliurats, desplegats i funcionant ara mateix — entra a provar qualsevol d'ells.",
+    categories: {
+      webapp: "Apps web",
+      unity: "Unity · Videojocs",
+      template: "Plantilles",
+    },
     projects: buildProjects({
       "chatbot-movies": {
         title: "CineRoulette",
