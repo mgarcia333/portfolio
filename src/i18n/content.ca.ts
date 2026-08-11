@@ -134,12 +134,12 @@ export const contentCa: SiteContent = {
           "Un editor de vídeo que funciona íntegrament al navegador — retalla clips, aplica efectes cinematogràfics i exporta a MP4, MOV o WebM, sense instal·lació. Ja s'està treballant en una versió d'escriptori descarregable.",
       },
       "clothes-template": {
-        title: "NOIR",
+        title: "Plantilla Botiga",
         description:
           "Plantilla d'e-commerce de moda minimalista — estètica editorial fosca, botiga multi-idioma, pensada per al llançament d'una col·lecció de temporada.",
       },
       "restaurant-template": {
-        title: "VØID Gastrobar",
+        title: "Plantilla Restaurant",
         description:
           "Web per a un concepte d'alta cuina experimental — tipografia contundent, mode fosc per defecte, menú, galeria i reserves integrades.",
       },
@@ -147,6 +147,11 @@ export const contentCa: SiteContent = {
         title: "Nightfall Pain",
         description:
           "Shooter 2D cyberpunk fet a Unity, un jugador i cooperatiu en xarxa amb Mirror Networking — recuperat a partir d'un build compilat i publicat en WebGL per jugar-hi directe des del navegador.",
+      },
+      lastknightofaveron: {
+        title: "The Last Knight of Averon",
+        description:
+          "Action-RPG 2D de fantasia fosca fet a Unity — combat amb espasa i fetills de foc, exploració i progrés desat en local — recuperat i publicat en WebGL per jugar-hi directe des del navegador.",
       },
     }),
   },

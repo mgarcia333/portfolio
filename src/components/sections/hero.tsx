@@ -1,30 +1,64 @@
 "use client";
 
-import { useId } from "react";
+import { useRef, type PointerEvent } from "react";
+import { motion, useMotionValue, useMotionTemplate, useSpring } from "framer-motion";
 import { useLanguage } from "@/i18n/language-context";
 import { MagneticButton } from "@/components/ui/magnetic-button";
+import { CornerBrackets } from "@/components/ui/corner-brackets";
 
-function RotatingBadge({ text }: { text: string }) {
-  const pathId = useId();
+const POSITION_SPRING = { stiffness: 140, damping: 16, mass: 0.4 };
+const FADE_SPRING = { stiffness: 200, damping: 24 };
+
+function SignalPanel({ initials }: { initials: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const px = useMotionValue(50);
+  const py = useMotionValue(50);
+  const fade = useMotionValue(0);
+
+  const x = useSpring(px, POSITION_SPRING);
+  const y = useSpring(py, POSITION_SPRING);
+  const opacity = useSpring(fade, FADE_SPRING);
+
+  const spotlight = useMotionTemplate`radial-gradient(160px circle at ${x}% ${y}%, color-mix(in srgb, var(--primary) 35%, transparent) 0%, transparent 72%)`;
+
+  function onPointerMove(event: PointerEvent<HTMLDivElement>) {
+    const rect = ref.current?.getBoundingClientRect();
+    if (!rect) return;
+    px.set(((event.clientX - rect.left) / rect.width) * 100);
+    py.set(((event.clientY - rect.top) / rect.height) * 100);
+  }
 
   return (
-    <div className="relative hidden size-56 shrink-0 lg:block">
-      <div className="absolute top-1/2 left-1/2 size-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-outline-variant" />
-      <div className="absolute top-1/2 left-1/2 size-44 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-outline-variant" />
-      <div className="absolute top-1/2 left-1/2 size-32 -translate-x-1/2 -translate-y-1/2 animate-spin-slow">
-        <svg viewBox="0 0 100 100" className="size-full text-on-surface-muted">
-          <defs>
-            <path id={pathId} d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
-          </defs>
-          <text fill="currentColor" fontSize="5.6" letterSpacing="1">
-            <textPath href={`#${pathId}`}>{text.repeat(2)}</textPath>
-          </text>
-        </svg>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-tag flex size-11 items-center justify-center rounded-full border border-outline text-[10px] text-primary">
-            M_G
-          </span>
-        </div>
+    <div
+      ref={ref}
+      id="hero-signal-panel"
+      onPointerMove={onPointerMove}
+      onPointerEnter={() => fade.set(1)}
+      onPointerLeave={() => fade.set(0)}
+      className="bg-grid relative hidden size-56 shrink-0 overflow-hidden border border-outline-variant lg:block"
+      style={{ backgroundSize: "20px 20px" }}
+    >
+      <CornerBrackets />
+
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{ background: spotlight, opacity }}
+      />
+
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute size-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary"
+        style={{ left: useMotionTemplate`${x}%`, top: useMotionTemplate`${y}%`, opacity }}
+      >
+        <span className="absolute top-1/2 left-1/2 h-3 w-px -translate-x-1/2 -translate-y-1/2 bg-primary" />
+        <span className="absolute top-1/2 left-1/2 h-px w-3 -translate-x-1/2 -translate-y-1/2 bg-primary" />
+      </motion.div>
+
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+        <span className="text-tag flex size-11 items-center justify-center border border-outline text-[10px] text-primary">
+          {initials}
+        </span>
       </div>
     </div>
   );
@@ -75,7 +109,7 @@ export function Hero() {
           </div>
         </div>
 
-        <RotatingBadge text={hero.badge} />
+        <SignalPanel initials={profile.initials} />
       </div>
     </section>
   );

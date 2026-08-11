@@ -90,29 +90,34 @@ export const projectsShared: Record<string, ProjectShared> = {
     stack: ["Chatbot", "Cloudflare Workers"],
     url: "https://chatbot-movies.mgarciap.workers.dev/",
     preview: "/projects/chatbot-movies.png",
+    github: "https://github.com/mgarcia333/chatbot-movies",
   },
   scenesbeats: {
     tag: "CASE_02",
     stack: ["AI Recommendations", "Spotify", "Letterboxd"],
     url: "https://scenesbeats.mgarciap.workers.dev/",
     preview: "/projects/scenesbeats.png",
+    github: "https://github.com/mgarcia333/scenesbeats",
   },
   "2kedit": {
     tag: "CASE_03",
     stack: ["Video Editor", "Web App", "Cloudflare Workers"],
     url: "https://2kedit.mgarciap.workers.dev/",
     preview: "/projects/2kedit.png",
+    github: "https://github.com/mgarcia333/2kedit",
   },
   "clothes-template": {
     tag: "CASE_04",
     stack: ["E-commerce", "Next.js", "Cloudflare Workers"],
     url: "https://clothes-template.mgarciap.workers.dev/",
     preview: "/projects/clothes-template.webp",
+    github: "https://github.com/mgarcia333/clothes-template",
   },
   "restaurant-template": {
     tag: "CASE_05",
     stack: ["Restaurant", "Next.js", "Cloudflare Workers"],
     url: "https://restaurant-template.mgarciap.workers.dev/",
+    github: "https://github.com/mgarcia333/restaurant-template",
     preview: "/projects/restaurant-template.webp",
   },
   nightfallpain: {
@@ -121,6 +126,13 @@ export const projectsShared: Record<string, ProjectShared> = {
     url: "https://nightfallpain-web.mgarciap.workers.dev/",
     preview: "/projects/nightfallpain.webp",
     github: "https://github.com/mgarcia333/nightfallpain",
+  },
+  lastknightofaveron: {
+    tag: "CASE_07",
+    stack: ["Unity", "WebGL", "Next.js"],
+    url: "https://lastknightofaveron-web.mgarciap.workers.dev/",
+    preview: "/projects/lastknightofaveron.webp",
+    github: "https://github.com/mgarcia333/lastknightofaveron",
   },
 };
 
