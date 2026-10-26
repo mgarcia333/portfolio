@@ -4,61 +4,62 @@ import { buildProjects, profileShared, socials, stackItemsByCategory } from "./s
 export const contentEn: SiteContent = {
   profile: {
     ...profileShared,
-    role: "Full-Stack Software Developer",
-    status: "Open to select work",
+    role: "Full-stack developer",
+    status: "Available for new projects",
   },
   nav: [
+    { label: "Work", href: "/work", type: "route" },
     { label: "About", href: "/about", type: "route" },
     { label: "Stack", href: "/stack", type: "route" },
-    { label: "Work", href: "/work", type: "route" },
     { label: "Experience", href: "/experience", type: "route" },
     { label: "Contact", href: "/#contact", type: "anchor" },
   ],
-  menuToggle: "Toggle menu",
+  menuOpen: "Open menu",
+  menuClose: "Close menu",
   themeToggle: "Toggle theme",
-  heroTicker: [
-    "FULL-STACK DEVELOPER",
-    "BARCELONA, ES",
-    "VUE · REACT · NODE",
-    "DOCKER + ORACLE CLOUD + CLOUDFLARE",
-    "AVAILABLE FOR NEW PROJECTS",
-  ],
-  hero: {
-    badge: "FULL-STACK DEVELOPER • BARCELONA, ES • ",
-    tagline:
-      "I design and ship products end to end — Vue and React interfaces on top of Node, PHP and Java services, deployed on infrastructure I run myself.",
-    ctaWork: "View the work",
-    ctaContact: "Get in touch",
+  ui: {
+    skipToContent: "Skip to content",
+    visit: "Visit",
+    viewCode: "Code",
+    codeLabel: "{title} source code on GitHub",
+    opensInNewTab: "opens in a new tab",
+    copyEmail: "Copy email",
+    emailCopied: "Copied!",
+    copyFailed: "Couldn't copy",
+    backToTop: "Back to top",
+    language: "Language",
   },
-  dossier: {
-    kicker: "01 — ABOUT",
-    title: "Dossier",
+  hero: {
+    greeting: "Hi! I'm",
+    tagline:
+      "I build *whole websites*: what you see on screen (Vue, React), what runs behind it (Node, PHP, Java) and the server it lives on. I set up and run that last part myself too.",
+    ctaWork: "See my work",
+    ctaContact: "Email me",
+    scrollNote: "see what I've built",
+  },
+  about: {
+    title: "About me",
     bio: [
-      "I build across the full stack — from Vue and React interfaces to Node, PHP and Java services underneath. Currently shipping at Seven Sector Technologies, with previous hands-on experience at Reset Soluciones.",
-      "I hold a Higher Degree in Web Application Development and Multiplatform Application Development, and I run my own Dockerized infrastructure on Oracle Cloud behind Cloudflare — so I care as much about how a product ships and scales as how it looks on screen.",
+      "I'm Moisés and I work from Barcelona. I'm at Seven Sector Technologies now, and before that I was at Reset Soluciones. I touch every layer: screens in Vue and React, and services in Node, PHP and Java underneath.",
+      "I have the DAW and DAM Higher Degree. My own projects run in Docker on an Oracle Cloud server with Cloudflare in front. I care as much about it *looking good* as about it *holding up* when people show up.",
     ],
-    fields: [
-      { label: "Name", value: "Moisés García Poveda" },
-      { label: "Role", value: "Full-Stack Developer" },
-      { label: "Base", value: "Barcelona, ES" },
-      { label: "Currently", value: "Seven Sector Technologies" },
-      { label: "Education", value: "DAW + DAM Higher Degree" },
-      { label: "Status", value: "Online" },
+    facts: [
+      { label: "Based in", value: "Barcelona, ES" },
+      { label: "Now", value: "Seven Sector Technologies" },
+      { label: "Before", value: "Reset Soluciones" },
+      { label: "Studies", value: "DAW + DAM Higher Degree" },
     ],
-    signalActive: "SIGNAL ACTIVE",
-    viewMore: "View full dossier",
+    viewMore: "More about me",
   },
   homeWork: {
-    kicker: "02 — WORK",
-    title: "Selected work",
-    description: "Shipped, deployed and running right now — click through to try any of them.",
-    viewAll: "View all work",
+    title: "Featured work",
+    note: "start here",
+    description: "Six projects, live and running right now. Go in and try them.",
+    viewAll: "See all projects",
   },
   stack: {
-    kicker: "03 — STACK",
-    title: "Loadout",
-    description:
-      "Technologies I reach for, sorted by layer — from interface down to the infrastructure it runs on.",
+    title: "What I work with",
+    description: "What I use at each layer, from the screen to the server.",
     categories: [
       { id: "frontend", label: "Frontend", items: stackItemsByCategory.frontend },
       { id: "databases", label: "Databases", items: stackItemsByCategory.databases },
@@ -66,248 +67,237 @@ export const contentEn: SiteContent = {
       { id: "backend", label: "Backend", items: stackItemsByCategory.backend },
       { id: "tools", label: "Tools", items: stackItemsByCategory.tools },
     ],
-    viewMore: "View full stack",
+    viewMore: "See the full stack",
   },
   experience: {
-    kicker: "04 — EXPERIENCE",
-    title: "Trajectory",
-    viewMore: "View full trajectory",
+    title: "Experience",
+    viewMore: "See the full experience",
     entries: [
       {
-        tag: "02",
         status: "Current",
         current: true,
         org: "Seven Sector Technologies",
-        role: "Software Developer",
+        role: "Software developer",
         description:
-          "Building and maintaining web platforms end to end — UI, APIs and the infrastructure they run on.",
+          "I build and maintain whole web platforms: the interface, the APIs and the infrastructure they run on.",
       },
       {
-        tag: "01",
         status: "Previous",
         current: false,
         org: "Reset Soluciones",
-        role: "Software Developer",
+        role: "Software developer",
         description:
-          "Developed web and multiplatform applications, working across the full delivery lifecycle.",
+          "I developed web and multiplatform applications and took part in the whole cycle, from development to delivery.",
       },
       {
-        tag: "00",
         status: "Education",
         current: false,
         org: "Higher Degree · DAW & DAM",
         role: "Web & Multiplatform Application Development",
         description:
-          "Formal training across web application development and multiplatform / mobile application development.",
+          "Formal training in web applications (DAW) and in multiplatform and mobile applications (DAM).",
       },
     ],
   },
   contact: {
-    kicker: "05 — CONTACT",
-    title: "Let's build something",
-    description: "Based in Barcelona, ES — open to remote and on-site work.",
+    title: "Let's talk?",
+    description: "I'm in Barcelona. I work remotely or on site.",
     emailCta: "Email me",
-    localTime: "LOCAL TIME",
+    localTime: "It's now",
   },
   work: {
-    metaTitle: "Work — Moisés García Poveda",
+    metaTitle: "Projects — Moisés García Poveda",
     metaDescription:
-      "Live projects built and shipped by Moisés García Poveda, full-stack software developer based in Barcelona.",
-    backHome: "BACK HOME",
-    selectedWork: "SELECTED WORK",
-    title: "Live projects",
-    description: "Shipped, deployed and running right now — click through to try any of them.",
+      "Live, running projects built by Moisés García Poveda, a full-stack developer in Barcelona.",
+    backHome: "Back home",
+    title: "All projects",
+    description: "Everything I have live. Go in and try it.",
+    filterLabel: "Filter by type",
+    filterAll: "All",
+    countOne: "{n} project",
+    countMany: "{n} projects",
     categories: {
-      client: "Real clients",
-      webapp: "Web Apps",
-      unity: "Unity · Games",
+      client: "Clients",
+      webapp: "Web apps",
+      unity: "Games",
       template: "Templates",
     },
+    tags: {
+      client: "Real client",
+      webapp: "Web app",
+      unity: "Game",
+      template: "Template",
+    },
     projects: buildProjects({
-      "chatbot-movies": {
-        title: "CineRoulette",
-        description:
-          "A terminal-styled chatbot that helps you decide what to watch — it asks about your mood and company, then narrows it down for you.",
-      },
       scenesbeats: {
         title: "ScenesBeats",
         description:
-          "Finds what to watch based on what you listen to — connects Spotify and Letterboxd for AI recommendations driven by your music taste.",
-      },
-      "2kedit": {
-        title: "2K Edit",
-        description:
-          "A video editor that runs entirely in the browser — cut clips, apply cinematic effects and export to MP4, MOV or WebM, no install required. A downloadable app version is in the works.",
-      },
-      "clothes-template": {
-        title: "Shop Template",
-        description:
-          "A minimalist fashion e-commerce template — dark editorial aesthetic, multi-language storefront, built for a seasonal collection drop.",
-      },
-      "restaurant-template": {
-        title: "Restaurant Template",
-        description:
-          "A site for an experimental fine-dining concept — bold typography, dark mode by default, menu, gallery and a built-in reservation flow.",
-      },
-      nightfallpain: {
-        title: "Nightfall Pain",
-        description:
-          "A 2D cyberpunk shooter built in Unity, single-player and co-op over Mirror Networking — recovered from a compiled build and shipped to WebGL so it plays straight from the browser.",
+          "Finds what to watch based on what you listen to. You connect Spotify and Letterboxd and it recommends films with AI, built from your music taste.",
       },
       lastknightofaveron: {
         title: "The Last Knight of Averon",
         description:
-          "A 2D dark-fantasy action-RPG built in Unity — sword and fire-spell combat, exploration, and local save progress — recovered and shipped to WebGL so it plays straight from the browser.",
+          "A 2D dark-fantasy action-RPG made with Unity: sword and fire-spell combat, exploration and local save progress. I recovered it from a compiled build and shipped it to WebGL so it plays in the browser.",
       },
       "sessio-continua": {
         title: "Sessió Contínua",
         description:
-          "Every cinema listing in Barcelona on a single page — 28 venues, showtimes, language version and the real ticket price of each screening, with filters, search and a city map.",
-      },
-      mado: {
-        title: "Mado",
-        description:
-          "A new-tab page for Chrome, your way — your own background and image tiles that open your favorite sites, moved and resized by dragging. No accounts, no tracking.",
+          "Every cinema listing in Barcelona on one page: 28 venues, showtimes, language version and the real price of each screening. With filters, search and a city map.",
       },
       adictalia: {
         title: "Adictalia Control Center",
         description:
-          "Corporate website for an online addiction treatment and family support service — presents the program, services, pricing and process, with direct contact by phone, WhatsApp and form.",
+          "Corporate website for an online addiction treatment and family support service. It explains the program, services, pricing and process, and lets people get in touch by phone, WhatsApp or form.",
+      },
+      "2kedit": {
+        title: "2K Edit",
+        description:
+          "A video editor that runs entirely in the browser. Cut clips, add cinematic effects and export to MP4, MOV or WebM, with nothing to install. I'm already working on a downloadable desktop version.",
+      },
+      nightfallpain: {
+        title: "Nightfall Pain",
+        description:
+          "A 2D cyberpunk shooter made with Unity, for one or two players over Mirror Networking. I recovered it from a compiled build and shipped it to WebGL so it plays straight from the browser.",
+      },
+      mado: {
+        title: "Mado",
+        description:
+          "A new-tab page for Chrome, your way: set your own background and image tiles that open your sites, and move and resize them by dragging. No accounts, no tracking.",
+      },
+      "chatbot-movies": {
+        title: "CineRoulette",
+        description:
+          "A terminal-looking chatbot that helps you decide what to watch. It asks about your mood and who you're with, then narrows it down until something fits.",
+      },
+      "clothes-template": {
+        title: "Shop Template",
+        description:
+          "A minimalist fashion online-store template: dark editorial look, multi-language storefront, made for launching a seasonal collection.",
+      },
+      "restaurant-template": {
+        title: "Restaurant Template",
+        description:
+          "A site for an experimental fine-dining restaurant: bold typography, dark mode by default, menu, gallery and built-in reservations.",
       },
     }),
   },
   aboutPage: {
     metaTitle: "About — Moisés García Poveda",
     metaDescription:
-      "Full-stack developer based in Barcelona with end-to-end experience: Vue and React interfaces, Node, PHP and Java services, and self-managed infrastructure on Docker, Oracle Cloud and Cloudflare.",
-    backHome: "BACK HOME",
-    kicker: "01 — ABOUT",
-    title: "Full dossier",
+      "Full-stack developer in Barcelona: Vue and React interfaces, Node, PHP and Java services, and my own infrastructure on Docker, Oracle Cloud and Cloudflare.",
+    backHome: "Back home",
+    title: "About me",
     intro: [
-      "I build across the full stack — from Vue and React interfaces to Node, PHP and Java services underneath. Currently shipping at Seven Sector Technologies, with previous hands-on experience at Reset Soluciones.",
-      "I hold a Higher Degree in Web Application Development and Multiplatform Application Development, and I run my own Dockerized infrastructure on Oracle Cloud behind Cloudflare — so I care as much about how a product ships and scales as how it looks on screen.",
-      "I prefer to understand the whole problem before writing the first line of code. That's why I move just as comfortably between the interface, the API and the server behind it: seeing the system end to end is what lets me diagnose and fix issues fast, instead of treating each layer as a black box.",
-    ],
-    fields: [
-      { label: "Name", value: "Moisés García Poveda" },
-      { label: "Role", value: "Full-Stack Developer" },
-      { label: "Base", value: "Barcelona, ES" },
-      { label: "Currently", value: "Seven Sector Technologies" },
-      { label: "Education", value: "DAW + DAM Higher Degree" },
-      { label: "Status", value: "Online" },
+      "I'm Moisés and I work from Barcelona. I'm at Seven Sector Technologies now, and before that I was at Reset Soluciones. I touch every layer: screens in Vue and React, and services in Node, PHP and Java underneath.",
+      "I have the DAW and DAM Higher Degree. My own projects run in Docker on an Oracle Cloud server with Cloudflare in front. I care as much about it *looking good* as about it *holding up* when people show up.",
+      "I'd rather understand the whole problem before writing the first line. That's why I'm just as comfortable in the interface, the API and the server behind them: seeing the full system helps me find bugs fast, instead of treating each layer as a black box.",
     ],
     principles: [
       {
-        heading: "From interface to infrastructure",
-        body: "I don't stop at application code — I deploy, monitor and maintain the infrastructure it runs on, with Docker containers on Oracle Cloud behind Cloudflare. Understanding the full path, from a user's click to the server's response, is what lets me diagnose and fix problems fast.",
+        heading: "Understand the whole path",
+        body: "From the moment someone clicks to the moment the server answers. I deploy and maintain the infrastructure myself (Docker on Oracle Cloud, with Cloudflare in front), so when something breaks I know where to start looking.",
       },
       {
-        heading: "Full-stack by conviction, not by resume",
-        body: "Working with Vue, React, Node, PHP and Java isn't a list of collected technologies — it's the natural consequence of owning a product end to end. I pick the tool for the problem in front of me, not the other way around.",
+        heading: "The problem picks the tool",
+        body: "I use Vue, React, Node, PHP and Java depending on what each project asks for. Problem first, tool second.",
       },
       {
-        heading: "Every project, shipped to production",
-        body: "The projects you can see in the Work section aren't local demos — they're deployed and live right now, on the same infrastructure I manage for the rest of my work.",
+        heading: "What you see is running",
+        body: "The projects in the Work section aren't demos that live on my laptop. They're published and running right now, on the same infrastructure I use for everything else.",
       },
     ],
     education: {
       heading: "Education",
-      body: "Higher Degree in Web Application Development (DAW) and Multiplatform Application Development (DAM) — a foundation that covers both web application development and desktop / mobile application development, and that underpins how I work across every layer of a product.",
+      body: "Higher Degree in Web Application Development (DAW) and in Multiplatform Application Development (DAM). It covers both the web and desktop and mobile apps, and it's the base of how I work across every layer.",
     },
   },
   stackPage: {
     metaTitle: "Stack — Moisés García Poveda",
     metaDescription:
-      "Technologies I work with day to day, from interface to infrastructure: Vue, React, Node, PHP, Java, Docker, Oracle Cloud and Cloudflare.",
-    backHome: "BACK HOME",
-    kicker: "03 — STACK",
-    title: "Full loadout",
-    description:
-      "Technologies I reach for, sorted by layer — from interface down to the infrastructure it runs on, with the reasoning behind each choice.",
+      "Technologies I work with every day, from interface to infrastructure: Vue, React, Node, PHP, Java, Docker, Oracle Cloud and Cloudflare.",
+    backHome: "Back home",
+    title: "What I work with",
+    description: "What I use at each layer, from the screen to the server, and why.",
     categories: [
       {
         id: "frontend",
         label: "Frontend",
         items: stackItemsByCategory.frontend,
         description:
-          "Where the user experience lives. Vue and React to build the interface; Tailwind and Framer Motion give it shape and motion without leaving the browser.",
+          "Where the user experience lives. Vue and React for the interface; Tailwind and Framer Motion to give it shape and movement.",
       },
       {
         id: "databases",
         label: "Databases",
         items: stackItemsByCategory.databases,
         description:
-          "Persistence is picked to fit the shape of the data: MongoDB when the schema is flexible, MySQL and PostgreSQL when the relationships between entities matter as much as the data itself.",
+          "I pick based on the shape of the data: MongoDB when the schema is flexible, MySQL or PostgreSQL when the relationships between entities matter.",
       },
       {
         id: "infra",
         label: "Infra & DevOps",
         items: stackItemsByCategory.infra,
         description:
-          "I manage my own infrastructure: Docker containers running on Oracle Cloud, with Cloudflare in front for CDN, security and deployment of the projects you see in Work.",
+          "I run my own infrastructure: Docker containers on Oracle Cloud, with Cloudflare in front for CDN and security. That's where the projects in Work are deployed.",
       },
       {
         id: "backend",
         label: "Backend",
         items: stackItemsByCategory.backend,
         description:
-          "Node, PHP and Java cover server logic and APIs; Sockets come in whenever the product needs real-time communication.",
+          "Node, PHP and Java for server logic and APIs. Sockets when something needs to be real time.",
       },
       {
         id: "tools",
         label: "Tools",
         items: stackItemsByCategory.tools,
         description:
-          "Git for day-to-day version control, Android Studio for native mobile development, and Unity whenever a project calls for a graphics engine.",
+          "Git for version control, Android Studio for native mobile and Unity when a project needs a graphics engine.",
       },
     ],
   },
   experiencePage: {
     metaTitle: "Experience — Moisés García Poveda",
     metaDescription:
-      "Professional trajectory of Moisés García Poveda as a full-stack developer, from DAW and DAM training to his current role at Seven Sector Technologies.",
-    backHome: "BACK HOME",
-    kicker: "04 — EXPERIENCE",
-    title: "Full trajectory",
-    description: "Every stage, with the role, the context and the technologies I worked with.",
+      "Experience of Moisés García Poveda as a full-stack developer, from DAW and DAM training to his current job at Seven Sector Technologies.",
+    backHome: "Back home",
+    title: "Full experience",
+    description: "Every stage, with the role and the technologies I used.",
     entries: [
       {
-        tag: "02",
         status: "Current",
         current: true,
         org: "Seven Sector Technologies",
-        role: "Software Developer",
+        role: "Software developer",
         description:
-          "Building and maintaining web platforms end to end — UI, APIs and the infrastructure they run on.",
+          "I build and maintain whole web platforms: the interface, the APIs and the infrastructure they run on.",
         highlights: [
-          "Building and maintaining web platforms end to end, from interface to API.",
-          "Managing the deployment and infrastructure the projects run on, without relying on a separate DevOps team.",
-          "Working directly with the production stack: Docker on Oracle Cloud, behind Cloudflare.",
+          "I build and maintain web platforms, from the interface to the API.",
+          "I handle the deployment and infrastructure of the projects, without a separate DevOps team.",
+          "I work directly with the production stack: Docker on Oracle Cloud, behind Cloudflare.",
         ],
         stack: ["Vue.js", "Node.js", "Docker", "Oracle Cloud", "Cloudflare"],
       },
       {
-        tag: "01",
         status: "Previous",
         current: false,
         org: "Reset Soluciones",
-        role: "Software Developer",
+        role: "Software developer",
         description:
-          "Developed web and multiplatform applications, working across the full delivery lifecycle.",
+          "I developed web and multiplatform applications and took part in the whole cycle, from development to delivery.",
         highlights: [
-          "Developed web and multiplatform applications end to end.",
-          "Took part in the full delivery lifecycle, from development through to production release.",
+          "I developed web and multiplatform applications from start to finish.",
+          "I took part in the whole delivery cycle, from development to production.",
         ],
         stack: ["PHP", "JavaScript", "MySQL"],
       },
       {
-        tag: "00",
         status: "Education",
         current: false,
         org: "Higher Degree · DAW & DAM",
         role: "Web & Multiplatform Application Development",
         description:
-          "Formal training across web application development and multiplatform / mobile application development.",
+          "Formal training in web applications (DAW) and in multiplatform and mobile applications (DAM).",
         highlights: [
           "Formal training in web application development (DAW).",
           "Formal training in multiplatform and mobile application development (DAM).",
@@ -317,14 +307,8 @@ export const contentEn: SiteContent = {
     ],
   },
   footer: {
-    builtWith: "BUILT WITH NEXT.JS + TAILWIND — DEPLOYED ON CLOUDFLARE",
-    top: "TOP",
+    note: "Made in Barcelona with Next.js and Tailwind. Deployed on Cloudflare.",
+    top: "Back to top",
   },
-  boot: [
-    "PORTFOLIO_OS v2.6 — BOOT SEQUENCE",
-    "MOUNTING INTERFACE... OK",
-    "LOADING PROFILE: M.GARCIA_POVEDA... OK",
-    "STATUS: READY",
-  ],
   socials,
 };

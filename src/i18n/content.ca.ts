@@ -4,61 +4,62 @@ import { buildProjects, profileShared, socials, stackItemsByCategory } from "./s
 export const contentCa: SiteContent = {
   profile: {
     ...profileShared,
-    role: "Desenvolupador de Software Full-Stack",
-    status: "Disponible per a projectes seleccionats",
+    role: "Desenvolupador full-stack",
+    status: "Disponible per a nous projectes",
   },
   nav: [
+    { label: "Feina", href: "/work", type: "route" },
     { label: "Sobre mi", href: "/about", type: "route" },
     { label: "Stack", href: "/stack", type: "route" },
-    { label: "Feina", href: "/work", type: "route" },
     { label: "Experiència", href: "/experience", type: "route" },
     { label: "Contacte", href: "/#contact", type: "anchor" },
   ],
-  menuToggle: "Obre el menú",
+  menuOpen: "Obre el menú",
+  menuClose: "Tanca el menú",
   themeToggle: "Canvia el tema",
-  heroTicker: [
-    "DESENVOLUPADOR FULL-STACK",
-    "BARCELONA, ES",
-    "VUE · REACT · NODE",
-    "DOCKER + ORACLE CLOUD + CLOUDFLARE",
-    "DISPONIBLE PER A NOUS PROJECTES",
-  ],
-  hero: {
-    badge: "DESENVOLUPADOR FULL-STACK • BARCELONA, ES • ",
-    tagline:
-      "Dissenyo i entrego productes de principi a fi — interfícies en Vue i React sobre serveis en Node, PHP i Java, desplegats en infraestructura que gestiono jo mateix.",
-    ctaWork: "Veure els projectes",
-    ctaContact: "Parlem",
+  ui: {
+    skipToContent: "Saltar al contingut",
+    visit: "Visitar",
+    viewCode: "Codi",
+    codeLabel: "Codi de {title} a GitHub",
+    opensInNewTab: "s'obre en una pestanya nova",
+    copyEmail: "Copiar correu",
+    emailCopied: "Copiat!",
+    copyFailed: "No s'ha pogut copiar",
+    backToTop: "Tornar a dalt",
+    language: "Idioma",
   },
-  dossier: {
-    kicker: "01 — SOBRE MI",
-    title: "Dossier",
+  hero: {
+    greeting: "Hola! Sóc",
+    tagline:
+      "Faig *webs completes*: el que es veu a la pantalla (Vue, React), el que corre per darrere (Node, PHP, Java) i el servidor on viuen. Aquest últim també el munto i el porto jo.",
+    ctaWork: "Veure projectes",
+    ctaContact: "Escriu-me",
+    scrollNote: "mira què he fet",
+  },
+  about: {
+    title: "Sobre mi",
     bio: [
-      "Treballo en tot l'stack — des d'interfícies en Vue i React fins a serveis en Node, PHP i Java per sota. Actualment a Seven Sector Technologies, amb experiència prèvia a Reset Soluciones.",
-      "Tinc un Grau Superior en Desenvolupament d'Aplicacions Web i Desenvolupament d'Aplicacions Multiplataforma, i gestiono la meva pròpia infraestructura Dockeritzada a Oracle Cloud darrere de Cloudflare — m'importa tant com es veu un producte com la manera en què es desplega i escala.",
+      "Sóc el Moisés i treballo des de Barcelona. Ara sóc a Seven Sector Technologies i abans vaig passar per Reset Soluciones. Toco totes les capes: pantalles en Vue i React, i per sota serveis en Node, PHP i Java.",
+      "Tinc el Grau Superior de DAW i DAM. Els meus projectes propis són a Docker, sobre un servidor d'Oracle Cloud amb Cloudflare al davant. M'importa tant que *es vegi bé* com que *aguanti* quan entra gent.",
     ],
-    fields: [
-      { label: "Nom", value: "Moisés García Poveda" },
-      { label: "Rol", value: "Desenvolupador Full-Stack" },
+    facts: [
       { label: "Base", value: "Barcelona, ES" },
-      { label: "Actualment", value: "Seven Sector Technologies" },
-      { label: "Educació", value: "Grau Superior DAW + DAM" },
-      { label: "Estat", value: "En línia" },
+      { label: "Ara", value: "Seven Sector Technologies" },
+      { label: "Abans", value: "Reset Soluciones" },
+      { label: "Estudis", value: "Grau Superior DAW + DAM" },
     ],
-    signalActive: "SENYAL ACTIVA",
-    viewMore: "Veure dossier complet",
+    viewMore: "Més sobre mi",
   },
   homeWork: {
-    kicker: "02 — FEINA",
     title: "Feina destacada",
-    description: "Lliurats, desplegats i funcionant ara mateix — entra a provar qualsevol d'ells.",
+    note: "comença per aquí",
+    description: "Sis projectes publicats i funcionant ara mateix. Entra i prova'ls.",
     viewAll: "Veure tots els projectes",
   },
   stack: {
-    kicker: "03 — STACK",
-    title: "Loadout",
-    description:
-      "Tecnologies a què recorro, ordenades per capa — des de la interfície fins a la infraestructura sobre la qual corre.",
+    title: "Amb què treballo",
+    description: "El que faig servir a cada capa, de la pantalla al servidor.",
     categories: [
       { id: "frontend", label: "Frontend", items: stackItemsByCategory.frontend },
       { id: "databases", label: "Bases de dades", items: stackItemsByCategory.databases },
@@ -66,248 +67,237 @@ export const contentCa: SiteContent = {
       { id: "backend", label: "Backend", items: stackItemsByCategory.backend },
       { id: "tools", label: "Eines", items: stackItemsByCategory.tools },
     ],
-    viewMore: "Veure stack complet",
+    viewMore: "Veure el stack complet",
   },
   experience: {
-    kicker: "04 — EXPERIÈNCIA",
-    title: "Trajectòria",
-    viewMore: "Veure trajectòria completa",
+    title: "Experiència",
+    viewMore: "Veure l'experiència completa",
     entries: [
       {
-        tag: "02",
         status: "Actual",
         current: true,
         org: "Seven Sector Technologies",
-        role: "Desenvolupador de Software",
+        role: "Desenvolupador de programari",
         description:
-          "Construeixo i mantinc plataformes web de principi a fi — UI, APIs i la infraestructura sobre la qual corren.",
+          "Construeixo i mantinc plataformes web senceres: la interfície, les APIs i la infraestructura on corren.",
       },
       {
-        tag: "01",
         status: "Anterior",
         current: false,
         org: "Reset Soluciones",
-        role: "Desenvolupador de Software",
+        role: "Desenvolupador de programari",
         description:
-          "Vaig desenvolupar aplicacions web i multiplataforma, treballant en tot el cicle de vida de lliurament.",
+          "Vaig desenvolupar aplicacions web i multiplataforma, i vaig participar en tot el cicle, del desenvolupament al lliurament.",
       },
       {
-        tag: "00",
-        status: "Educació",
+        status: "Formació",
         current: false,
         org: "Grau Superior · DAW i DAM",
         role: "Desenvolupament d'Aplicacions Web i Multiplataforma",
         description:
-          "Formació reglada en desenvolupament d'aplicacions web i desenvolupament d'aplicacions multiplataforma / mòbils.",
+          "Formació reglada en aplicacions web (DAW) i en aplicacions multiplataforma i mòbils (DAM).",
       },
     ],
   },
   contact: {
-    kicker: "05 — CONTACTE",
-    title: "Construïm alguna cosa",
-    description: "Amb base a Barcelona, ES — obert a treball remot i presencial.",
+    title: "Parlem?",
+    description: "Estic a Barcelona. Treballo en remot o en persona.",
     emailCta: "Escriu-me",
-    localTime: "HORA LOCAL",
+    localTime: "A Barcelona ara són les",
   },
   work: {
-    metaTitle: "Feina — Moisés García Poveda",
+    metaTitle: "Projectes — Moisés García Poveda",
     metaDescription:
-      "Projectes en producció, construïts i desplegats per Moisés García Poveda, desenvolupador de software full-stack amb base a Barcelona.",
-    backHome: "TORNAR A L'INICI",
-    selectedWork: "FEINA DESTACADA",
-    title: "Projectes en producció",
-    description: "Lliurats, desplegats i funcionant ara mateix — entra a provar qualsevol d'ells.",
+      "Projectes publicats i funcionant, fets per Moisés García Poveda, desenvolupador full-stack a Barcelona.",
+    backHome: "Tornar a l'inici",
+    title: "Tots els projectes",
+    description: "Tot el que tinc publicat. Entra i prova-ho.",
+    filterLabel: "Filtrar per tipus",
+    filterAll: "Tots",
+    countOne: "{n} projecte",
+    countMany: "{n} projectes",
     categories: {
-      client: "Clients reals",
+      client: "Clients",
       webapp: "Apps web",
-      unity: "Unity · Videojocs",
+      unity: "Videojocs",
       template: "Plantilles",
     },
+    tags: {
+      client: "Client real",
+      webapp: "App web",
+      unity: "Videojoc",
+      template: "Plantilla",
+    },
     projects: buildProjects({
-      "chatbot-movies": {
-        title: "CineRoulette",
-        description:
-          "Un chatbot amb estètica de terminal que t'ajuda a decidir què veure — pregunta pel teu estat d'ànim i companyia, i a partir d'aquí ho concreta.",
-      },
       scenesbeats: {
         title: "ScenesBeats",
         description:
-          "Troba què veure segons el que escoltes — connecta Spotify i Letterboxd per a recomanacions amb IA basades en els teus gustos musicals.",
-      },
-      "2kedit": {
-        title: "2K Edit",
-        description:
-          "Un editor de vídeo que funciona íntegrament al navegador — retalla clips, aplica efectes cinematogràfics i exporta a MP4, MOV o WebM, sense instal·lació. Ja s'està treballant en una versió d'escriptori descarregable.",
-      },
-      "clothes-template": {
-        title: "Plantilla Botiga",
-        description:
-          "Plantilla d'e-commerce de moda minimalista — estètica editorial fosca, botiga multi-idioma, pensada per al llançament d'una col·lecció de temporada.",
-      },
-      "restaurant-template": {
-        title: "Plantilla Restaurant",
-        description:
-          "Web per a un concepte d'alta cuina experimental — tipografia contundent, mode fosc per defecte, menú, galeria i reserves integrades.",
-      },
-      nightfallpain: {
-        title: "Nightfall Pain",
-        description:
-          "Shooter 2D cyberpunk fet a Unity, un jugador i cooperatiu en xarxa amb Mirror Networking — recuperat a partir d'un build compilat i publicat en WebGL per jugar-hi directe des del navegador.",
+          "Troba què veure segons el que escoltes. Connectes Spotify i Letterboxd i et recomana pel·lícules amb IA a partir dels teus gustos musicals.",
       },
       lastknightofaveron: {
         title: "The Last Knight of Averon",
         description:
-          "Action-RPG 2D de fantasia fosca fet a Unity — combat amb espasa i fetills de foc, exploració i progrés desat en local — recuperat i publicat en WebGL per jugar-hi directe des del navegador.",
+          "Action-RPG 2D de fantasia fosca fet amb Unity: combat amb espasa i encanteris de foc, exploració i progrés desat en local. El vaig recuperar d'un build compilat i el vaig publicar en WebGL per jugar-hi al navegador.",
       },
       "sessio-continua": {
         title: "Sessió Contínua",
         description:
-          "Tota la cartellera dels cinemes de Barcelona en una sola pàgina — 28 sales, horaris, versió i el preu real de cada sessió, amb filtres, cerca i plànol de la ciutat.",
-      },
-      mado: {
-        title: "Mado",
-        description:
-          "Una pestanya nova per a Chrome a la teva mida — fons propi i quadres amb imatge que obren les teves webs, que es col·loquen i redimensionen arrossegant. Sense comptes ni rastreig.",
+          "Tota la cartellera dels cinemes de Barcelona en una sola pàgina: 28 sales, horaris, versió i el preu real de cada sessió. Amb filtres, cercador i plànol de la ciutat.",
       },
       adictalia: {
         title: "Adictalia Control Center",
         description:
-          "Web corporativa d'un servei de tractament d'addiccions en línia i suport a la família — presenta el programa, els serveis, els preus i el procés, amb contacte directe per telèfon, WhatsApp i formulari.",
+          "Web corporativa d'un servei de tractament d'addiccions en línia i suport a la família. Explica el programa, els serveis, els preus i el procés, i permet contactar per telèfon, WhatsApp o formulari.",
+      },
+      "2kedit": {
+        title: "2K Edit",
+        description:
+          "Un editor de vídeo que funciona sencer al navegador. Retalles clips, hi poses efectes de cinema i exportes a MP4, MOV o WebM, sense instal·lar res. Ja estic treballant en una versió d'escriptori descarregable.",
+      },
+      nightfallpain: {
+        title: "Nightfall Pain",
+        description:
+          "Shooter 2D cyberpunk fet amb Unity, per a un o dos jugadors en xarxa amb Mirror Networking. El vaig recuperar d'un build compilat i el vaig publicar en WebGL per jugar-hi directament al navegador.",
+      },
+      mado: {
+        title: "Mado",
+        description:
+          "Una pestanya nova per a Chrome a la teva mida: poses el teu propi fons i quadres amb imatge que obren les teves webs, i els col·loques i redimensiones arrossegant. Sense comptes ni rastreig.",
+      },
+      "chatbot-movies": {
+        title: "CineRoulette",
+        description:
+          "Un chatbot amb pinta de terminal que t'ajuda a decidir què veure. Et pregunta quin estat d'ànim tens i amb qui estàs, i va concretant fins a trobar alguna cosa.",
+      },
+      "clothes-template": {
+        title: "Plantilla Botiga",
+        description:
+          "Plantilla de botiga en línia de moda minimalista: estètica editorial fosca, botiga en diversos idiomes, pensada per llançar una col·lecció de temporada.",
+      },
+      "restaurant-template": {
+        title: "Plantilla Restaurant",
+        description:
+          "Web per a un restaurant d'alta cuina experimental: tipografia contundent, mode fosc per defecte, carta, galeria i reserves integrades.",
       },
     }),
   },
   aboutPage: {
     metaTitle: "Sobre mi — Moisés García Poveda",
     metaDescription:
-      "Desenvolupador full-stack a Barcelona amb experiència de punta a punta: interfícies en Vue i React, serveis en Node, PHP i Java, i infraestructura pròpia en Docker sobre Oracle Cloud i Cloudflare.",
-    backHome: "TORNAR A L'INICI",
-    kicker: "01 — SOBRE MI",
-    title: "Dossier complet",
+      "Desenvolupador full-stack a Barcelona: interfícies en Vue i React, serveis en Node, PHP i Java, i infraestructura pròpia en Docker sobre Oracle Cloud i Cloudflare.",
+    backHome: "Tornar a l'inici",
+    title: "Sobre mi",
     intro: [
-      "Treballo en tot l'stack — des d'interfícies en Vue i React fins a serveis en Node, PHP i Java per sota. Actualment a Seven Sector Technologies, amb experiència prèvia a Reset Soluciones.",
-      "Tinc un Grau Superior en Desenvolupament d'Aplicacions Web i Desenvolupament d'Aplicacions Multiplataforma, i gestiono la meva pròpia infraestructura Dockeritzada a Oracle Cloud darrere de Cloudflare — m'importa tant com es veu un producte com la manera en què es desplega i escala.",
-      "Prefereixo entendre el problema complet abans d'escriure la primera línia de codi. Per això em moc amb la mateixa soltesa entre la interfície, l'API i el servidor que la serveix: veure el sistema de punta a punta és el que em permet diagnosticar i resoldre problemes ràpid, en comptes de tractar cada capa com una caixa negra.",
-    ],
-    fields: [
-      { label: "Nom", value: "Moisés García Poveda" },
-      { label: "Rol", value: "Desenvolupador Full-Stack" },
-      { label: "Base", value: "Barcelona, ES" },
-      { label: "Actualment", value: "Seven Sector Technologies" },
-      { label: "Educació", value: "Grau Superior DAW + DAM" },
-      { label: "Estat", value: "En línia" },
+      "Sóc el Moisés i treballo des de Barcelona. Ara sóc a Seven Sector Technologies i abans vaig passar per Reset Soluciones. Toco totes les capes: pantalles en Vue i React, i per sota serveis en Node, PHP i Java.",
+      "Tinc el Grau Superior de DAW i DAM. Els meus projectes propis són a Docker, sobre un servidor d'Oracle Cloud amb Cloudflare al davant. M'importa tant que *es vegi bé* com que *aguanti* quan entra gent.",
+      "Prefereixo entendre el problema sencer abans d'escriure la primera línia. Per això em moc igual de còmode entre la interfície, l'API i el servidor que les serveix: veure el sistema complet m'ajuda a trobar els errors ràpid, en lloc de tractar cada capa com una caixa negra.",
     ],
     principles: [
       {
-        heading: "De la interfície a la infraestructura",
-        body: "No em quedo en el codi de l'aplicació — desplego, monitoritzo i mantinc la infraestructura sobre la qual corre, amb contenidors Docker a Oracle Cloud darrere de Cloudflare. Entendre el camí complet, del clic de l'usuari a la resposta del servidor, és el que em permet diagnosticar i resoldre problemes ràpid.",
+        heading: "Entendre tot el camí",
+        body: "Des que algú fa clic fins que el servidor respon. Desplego i mantinc jo mateix la infraestructura (Docker a Oracle Cloud, amb Cloudflare al davant), així que quan alguna cosa falla sé per on començar a mirar.",
       },
       {
-        heading: "Full-stack per convicció, no per currículum",
-        body: "Treballar amb Vue, React, Node, PHP i Java no és una llista de tecnologies col·leccionades — és la conseqüència natural d'assumir un producte de principi a fi. Trio l'eina segons el problema que tinc al davant, no a l'inrevés.",
+        heading: "L'eina la posa el problema",
+        body: "Vue, React, Node, PHP i Java els faig servir segons el que demani cada projecte. Primer el problema, després l'eina.",
       },
       {
-        heading: "Cada projecte, fins a producció",
-        body: "Els projectes que pots veure a la secció de Feina no són demos locals — estan desplegats i accessibles ara mateix, a la mateixa infraestructura que gestiono per a la resta de la meva feina.",
+        heading: "El que veus està en marxa",
+        body: "Els projectes de la secció Feina no són demos que viuen al meu ordinador. Estan publicats i funcionant ara mateix, a la mateixa infraestructura que faig servir per a tota la resta.",
       },
     ],
     education: {
       heading: "Formació",
-      body: "Grau Superior en Desenvolupament d'Aplicacions Web (DAW) i Desenvolupament d'Aplicacions Multiplataforma (DAM) — una base que cobreix tant el desenvolupament d'aplicacions web com el d'aplicacions d'escriptori i mòbils, i que sosté la meva manera de treballar en totes les capes d'un producte.",
+      body: "Grau Superior en Desenvolupament d'Aplicacions Web (DAW) i en Desenvolupament d'Aplicacions Multiplataforma (DAM). Cobreix tant la web com les aplicacions d'escriptori i mòbils, i és la base de com treballo a totes les capes.",
     },
   },
   stackPage: {
     metaTitle: "Stack — Moisés García Poveda",
     metaDescription:
       "Tecnologies amb què treballo cada dia, de la interfície a la infraestructura: Vue, React, Node, PHP, Java, Docker, Oracle Cloud i Cloudflare.",
-    backHome: "TORNAR A L'INICI",
-    kicker: "03 — STACK",
-    title: "Loadout complet",
-    description:
-      "Tecnologies a què recorro, ordenades per capa — des de la interfície fins a la infraestructura sobre la qual corre, amb el motiu pel qual les trio.",
+    backHome: "Tornar a l'inici",
+    title: "Amb què treballo",
+    description: "El que faig servir a cada capa, de la pantalla al servidor, i per què.",
     categories: [
       {
         id: "frontend",
         label: "Frontend",
         items: stackItemsByCategory.frontend,
         description:
-          "On viu l'experiència d'usuari. Vue i React per construir la interfície; Tailwind i Framer Motion li donen forma i moviment sense sortir del navegador.",
+          "On viu l'experiència d'usuari. Vue i React per a la interfície; Tailwind i Framer Motion per donar-li forma i moviment.",
       },
       {
         id: "databases",
         label: "Bases de dades",
         items: stackItemsByCategory.databases,
         description:
-          "La persistència es tria segons la forma de les dades: MongoDB quan l'esquema és flexible, MySQL i PostgreSQL quan la relació entre entitats importa tant com les pròpies dades.",
+          "Trio segons la forma de les dades: MongoDB quan l'esquema és flexible, MySQL o PostgreSQL quan importen les relacions entre entitats.",
       },
       {
         id: "infra",
         label: "Infra i DevOps",
         items: stackItemsByCategory.infra,
         description:
-          "Gestiono la meva pròpia infraestructura: contenidors Docker corrent a Oracle Cloud, amb Cloudflare al davant per a CDN, seguretat i el desplegament dels projectes que veus a Feina.",
+          "Porto la meva pròpia infraestructura: contenidors Docker a Oracle Cloud, amb Cloudflare al davant per a CDN i seguretat. Allà estan desplegats els projectes de Feina.",
       },
       {
         id: "backend",
         label: "Backend",
         items: stackItemsByCategory.backend,
         description:
-          "Node, PHP i Java cobreixen la lògica de servidor i les APIs; Sockets entra en joc quan el producte necessita comunicació en temps real.",
+          "Node, PHP i Java per a la lògica de servidor i les APIs. Sockets quan cal temps real.",
       },
       {
         id: "tools",
         label: "Eines",
         items: stackItemsByCategory.tools,
         description:
-          "Git per al control de versions del dia a dia, Android Studio per a desenvolupament mòbil natiu i Unity quan el projecte demana un motor gràfic.",
+          "Git per al control de versions, Android Studio per a mòbil natiu i Unity quan el projecte demana un motor gràfic.",
       },
     ],
   },
   experiencePage: {
     metaTitle: "Experiència — Moisés García Poveda",
     metaDescription:
-      "Trajectòria professional de Moisés García Poveda com a desenvolupador full-stack, de la formació en DAW i DAM al seu rol actual a Seven Sector Technologies.",
-    backHome: "TORNAR A L'INICI",
-    kicker: "04 — EXPERIÈNCIA",
-    title: "Trajectòria completa",
-    description: "Cada etapa, amb el rol, el context i les tecnologies amb què vaig treballar.",
+      "Experiència de Moisés García Poveda com a desenvolupador full-stack, de la formació en DAW i DAM al seu lloc actual a Seven Sector Technologies.",
+    backHome: "Tornar a l'inici",
+    title: "Experiència completa",
+    description: "Cada etapa, amb el seu rol i les tecnologies que vaig fer servir.",
     entries: [
       {
-        tag: "02",
         status: "Actual",
         current: true,
         org: "Seven Sector Technologies",
-        role: "Desenvolupador de Software",
+        role: "Desenvolupador de programari",
         description:
-          "Construeixo i mantinc plataformes web de principi a fi — UI, APIs i la infraestructura sobre la qual corren.",
+          "Construeixo i mantinc plataformes web senceres: la interfície, les APIs i la infraestructura on corren.",
         highlights: [
-          "Construeixo i mantinc plataformes web de principi a fi, des de la interfície fins a l'API.",
-          "Gestiono el desplegament i la infraestructura sobre la qual corren els projectes, sense dependre d'un equip de DevOps separat.",
+          "Construeixo i mantinc plataformes web, de la interfície a l'API.",
+          "M'encarrego del desplegament i la infraestructura dels projectes, sense un equip de DevOps a part.",
           "Treballo directament amb l'stack de producció: Docker a Oracle Cloud, darrere de Cloudflare.",
         ],
         stack: ["Vue.js", "Node.js", "Docker", "Oracle Cloud", "Cloudflare"],
       },
       {
-        tag: "01",
         status: "Anterior",
         current: false,
         org: "Reset Soluciones",
-        role: "Desenvolupador de Software",
+        role: "Desenvolupador de programari",
         description:
-          "Vaig desenvolupar aplicacions web i multiplataforma, treballant en tot el cicle de vida de lliurament.",
+          "Vaig desenvolupar aplicacions web i multiplataforma, i vaig participar en tot el cicle, del desenvolupament al lliurament.",
         highlights: [
           "Vaig desenvolupar aplicacions web i multiplataforma de principi a fi.",
-          "Vaig participar en tot el cicle de vida de lliurament, des del desenvolupament fins a la posada en producció.",
+          "Vaig participar en tot el cicle de lliurament, del desenvolupament a producció.",
         ],
         stack: ["PHP", "JavaScript", "MySQL"],
       },
       {
-        tag: "00",
-        status: "Educació",
+        status: "Formació",
         current: false,
         org: "Grau Superior · DAW i DAM",
         role: "Desenvolupament d'Aplicacions Web i Multiplataforma",
         description:
-          "Formació reglada en desenvolupament d'aplicacions web i desenvolupament d'aplicacions multiplataforma / mòbils.",
+          "Formació reglada en aplicacions web (DAW) i en aplicacions multiplataforma i mòbils (DAM).",
         highlights: [
           "Formació reglada en desenvolupament d'aplicacions web (DAW).",
           "Formació reglada en desenvolupament d'aplicacions multiplataforma i mòbils (DAM).",
@@ -317,14 +307,8 @@ export const contentCa: SiteContent = {
     ],
   },
   footer: {
-    builtWith: "FET AMB NEXT.JS + TAILWIND — DESPLEGAT A CLOUDFLARE",
-    top: "AMUNT",
+    note: "Fet a Barcelona amb Next.js i Tailwind. Desplegat a Cloudflare.",
+    top: "Tornar a dalt",
   },
-  boot: [
-    "PORTFOLIO_OS v2.6 — SEQÜÈNCIA D'ARRENCADA",
-    "MUNTANT INTERFÍCIE... OK",
-    "CARREGANT PERFIL: M.GARCIA_POVEDA... OK",
-    "ESTAT: LLEST",
-  ],
   socials,
 };

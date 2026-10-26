@@ -2,7 +2,11 @@
 
 import { ArrowUp } from "lucide-react";
 import { useLanguage } from "@/i18n/language-context";
-import { MagneticButton } from "@/components/ui/magnetic-button";
+
+function scrollToTop() {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+}
 
 export function Footer() {
   const { content } = useLanguage();
@@ -10,16 +14,22 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-outline-variant bg-surface-dim">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 py-8 text-xs text-on-surface-muted sm:flex-row sm:justify-between">
-        <p className="text-tag">
-          © {year} {profile.name.toUpperCase()}
-        </p>
-        <p className="text-tag text-center">{footer.builtWith}</p>
-        <MagneticButton href="#" variant="ghost" className="px-3 py-1.5 text-[11px]">
+    <footer className="on-ink border-t-2 border-ink bg-ink text-paper">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p className="display text-3xl">{profile.name}</p>
+          <p className="mt-2 max-w-md text-sm text-paper/70">
+            © {year} · {footer.note}
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={scrollToTop}
+          className="inline-flex min-h-12 items-center gap-2 self-start border-2 border-paper px-5 font-bold transition-colors hover:bg-accent hover:text-accent-ink active:translate-y-px md:self-auto"
+        >
           {footer.top}
-          <ArrowUp className="size-3.5" />
-        </MagneticButton>
+          <ArrowUp className="size-4" />
+        </button>
       </div>
     </footer>
   );

@@ -1,14 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Archivo, Reenie_Beanie } from "next/font/google";
 import Script from "next/script";
-import { Atmosphere } from "@/components/atmosphere/atmosphere";
-import { CustomCursor } from "@/components/atmosphere/custom-cursor";
-import { BootSequence } from "@/components/atmosphere/boot-sequence";
+import { SkipLink } from "@/components/layout/skip-link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { LanguageProvider } from "@/i18n/language-context";
 import { ThemeProvider } from "@/theme/theme-context";
-import { THEME_STORAGE_KEY } from "@/theme/constants";
+import { THEME_COLORS, THEME_STORAGE_KEY } from "@/theme/constants";
 import "./globals.css";
 
 const NO_FLASH_THEME_SCRIPT = `
@@ -17,21 +15,23 @@ const NO_FLASH_THEME_SCRIPT = `
     var stored = localStorage.getItem("${THEME_STORAGE_KEY}");
     var theme = stored === "dark" || stored === "light"
       ? stored
-      : window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      : window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     document.documentElement.dataset.theme = theme;
   } catch (e) {}
 })();
 `;
 
-const spaceGrotesk = Space_Grotesk({
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  axes: ["wdth"],
+  variable: "--font-archivo",
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const reenieBeanie = Reenie_Beanie({
   subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
+  weight: "400",
+  variable: "--font-reenie",
   display: "swap",
 });
 
@@ -66,8 +66,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#12131a",
-  colorScheme: "dark",
+  themeColor: THEME_COLORS.light,
+  colorScheme: "light dark",
 };
 
 export default function RootLayout({
@@ -80,9 +80,9 @@ export default function RootLayout({
       lang="es"
       data-scroll-behavior="smooth"
       suppressHydrationWarning
-      className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+      className={`${archivo.variable} ${reenieBeanie.variable}`}
     >
-      <body className="bg-surface text-on-surface antialiased" suppressHydrationWarning>
+      <body className="bg-paper text-ink antialiased" suppressHydrationWarning>
         <Script
           id="theme-init"
           strategy="beforeInteractive"
@@ -90,9 +90,7 @@ export default function RootLayout({
         />
         <ThemeProvider>
           <LanguageProvider>
-            <BootSequence />
-            <Atmosphere />
-            <CustomCursor />
+            <SkipLink />
             <Navbar />
             {children}
             <Footer />

@@ -29,11 +29,10 @@ export const profileShared = {
   nameLines: ["Moisés García", "Poveda"] as [string, string],
   initials: "MG",
   location: "Barcelona, ES",
-  coordinates: "41.3874° N, 2.1686° E",
   timeZone: "Europe/Madrid",
   email: "moisesgp15@gmail.com",
-  github: "https://github.com/",
-  linkedin: "https://linkedin.com/in/",
+  github: "https://github.com/mgarcia333",
+  linkedin: "https://www.linkedin.com/in/MoisesGarPov",
 };
 
 export const socials: Social[] = [
@@ -78,33 +77,50 @@ export const stackItemsByCategory: Record<string, StackItem[]> = {
 
 interface ProjectShared {
   category: ProjectCategory;
-  tag: string;
+  featured?: boolean;
   stack: string[];
   url: string;
   preview: string;
   github?: string;
 }
 
+// Order matters: it is the order shown on /work ("all") and, for the ones
+// flagged `featured`, the order of the six cards on the home page.
 export const projectsShared: Record<string, ProjectShared> = {
-  "chatbot-movies": {
-    category: "webapp",
-    tag: "CASE_01",
-    stack: ["Chatbot", "Cloudflare Workers"],
-    url: "https://chatbot-movies.mgarciap.workers.dev/",
-    preview: "/projects/chatbot-movies.png",
-    github: "https://github.com/mgarcia333/chatbot-movies",
-  },
   scenesbeats: {
     category: "webapp",
-    tag: "CASE_02",
+    featured: true,
     stack: ["AI Recommendations", "Spotify", "Letterboxd"],
     url: "https://scenesbeats.mgarciap.workers.dev/",
     preview: "/projects/scenesbeats.png",
     github: "https://github.com/mgarcia333/scenesbeats",
   },
+  lastknightofaveron: {
+    category: "unity",
+    featured: true,
+    stack: ["Unity", "WebGL", "Next.js"],
+    url: "https://lastknightofaveron-web.mgarciap.workers.dev/",
+    preview: "/projects/lastknightofaveron.webp",
+    github: "https://github.com/mgarcia333/lastknightofaveron",
+  },
+  "sessio-continua": {
+    category: "webapp",
+    featured: true,
+    stack: ["Cartelera", "Vanilla JS", "Python"],
+    url: "https://sessio-continua.mgarciap.workers.dev/",
+    preview: "/projects/sessio-continua.png",
+    github: "https://github.com/mgarcia333/sessio-continua",
+  },
+  adictalia: {
+    category: "client",
+    featured: true,
+    stack: ["Next.js", "Web corporativa", "Formulario de contacto"],
+    url: "https://adictaliacontrolcenter.es/",
+    preview: "/projects/adictalia.png",
+  },
   "2kedit": {
     category: "webapp",
-    tag: "CASE_03",
+    featured: true,
     stack: ["Video Editor", "Web App", "Cloudflare Workers"],
     url: "https://2kedit.mgarciap.workers.dev/",
     preview: "/projects/2kedit.png",
@@ -112,23 +128,28 @@ export const projectsShared: Record<string, ProjectShared> = {
   },
   nightfallpain: {
     category: "unity",
-    tag: "CASE_04",
+    featured: true,
     stack: ["Unity", "WebGL", "Next.js"],
     url: "https://nightfallpain-web.mgarciap.workers.dev/",
     preview: "/projects/nightfallpain.webp",
     github: "https://github.com/mgarcia333/nightfallpain",
   },
-  lastknightofaveron: {
-    category: "unity",
-    tag: "CASE_05",
-    stack: ["Unity", "WebGL", "Next.js"],
-    url: "https://lastknightofaveron-web.mgarciap.workers.dev/",
-    preview: "/projects/lastknightofaveron.webp",
-    github: "https://github.com/mgarcia333/lastknightofaveron",
+  mado: {
+    category: "webapp",
+    stack: ["Chrome Extension", "Manifest V3", "JavaScript"],
+    url: "https://mado.mgarciap.workers.dev/",
+    preview: "/projects/mado.png",
+    github: "https://github.com/mgarcia333/mado",
+  },
+  "chatbot-movies": {
+    category: "webapp",
+    stack: ["Chatbot", "Cloudflare Workers"],
+    url: "https://chatbot-movies.mgarciap.workers.dev/",
+    preview: "/projects/chatbot-movies.png",
+    github: "https://github.com/mgarcia333/chatbot-movies",
   },
   "clothes-template": {
     category: "template",
-    tag: "CASE_06",
     stack: ["E-commerce", "Next.js", "Cloudflare Workers"],
     url: "https://clothes-template.mgarciap.workers.dev/",
     preview: "/projects/clothes-template.webp",
@@ -136,41 +157,19 @@ export const projectsShared: Record<string, ProjectShared> = {
   },
   "restaurant-template": {
     category: "template",
-    tag: "CASE_07",
     stack: ["Restaurant", "Next.js", "Cloudflare Workers"],
     url: "https://restaurant-template.mgarciap.workers.dev/",
-    github: "https://github.com/mgarcia333/restaurant-template",
     preview: "/projects/restaurant-template.webp",
-  },
-  "sessio-continua": {
-    category: "webapp",
-    tag: "CASE_08",
-    stack: ["Cartelera", "Vanilla JS", "Python"],
-    url: "https://sessio-continua.mgarciap.workers.dev/",
-    preview: "/projects/sessio-continua.png",
-    github: "https://github.com/mgarcia333/sessio-continua",
-  },  mado: {
-    category: "webapp",
-    tag: "CASE_09",
-    stack: ["Chrome Extension", "Manifest V3", "JavaScript"],
-    url: "https://mado.mgarciap.workers.dev/",
-    preview: "/projects/mado.png",
-    github: "https://github.com/mgarcia333/mado",
-  },
-  adictalia: {
-    category: "client",
-    tag: "CLIENT_01",
-    stack: ["Next.js", "Web corporativa", "Formulario de contacto"],
-    url: "https://adictaliacontrolcenter.es/",
-    preview: "/projects/adictalia.png",
+    github: "https://github.com/mgarcia333/restaurant-template",
   },
 };
 
 export function buildProjects(
   translations: Record<string, { title: string; description: string }>
 ): Project[] {
-  return Object.entries(projectsShared).map(([id, meta]) => ({
+  return Object.entries(projectsShared).map(([id, { featured = false, ...meta }]) => ({
     id,
+    featured,
     ...meta,
     ...translations[id],
   }));

@@ -15,7 +15,6 @@ export function LiveClock({ timeZone, className }: LiveClockProps) {
       timeZone,
       hour: "2-digit",
       minute: "2-digit",
-      second: "2-digit",
       hour12: false,
     });
 
@@ -24,7 +23,7 @@ export function LiveClock({ timeZone, className }: LiveClockProps) {
     }
 
     tick();
-    const id = setInterval(tick, 1000);
+    const id = setInterval(tick, 15_000);
     return () => clearInterval(id);
   }, [timeZone]);
 

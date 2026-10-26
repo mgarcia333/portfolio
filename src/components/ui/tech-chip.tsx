@@ -11,11 +11,11 @@ export function TechChip({ icon: Icon, label, className }: TechChipProps) {
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 border border-outline-variant bg-surface-container px-2.5 py-1 text-xs text-on-surface-variant",
+        "inline-flex items-center gap-2 border-[1.5px] border-ink bg-card px-2.5 py-1 text-sm leading-tight font-semibold",
         className
       )}
     >
-      {Icon ? <Icon className="size-3.5 text-primary" /> : null}
+      {Icon ? <Icon className="size-4 shrink-0" /> : null}
       {label}
     </span>
   );

@@ -15,40 +15,38 @@ interface ThemeContextValue {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
+function applyTheme(theme: Theme) {
+  document.documentElement.dataset.theme = theme;
+  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", THEME_COLORS[theme]);
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("dark");
+  const [theme, setThemeState] = useState<Theme>("light");
 
   useEffect(() => {
+    // The inline no-flash script already put the right theme on <html> before
+    // paint; this only brings React state (and the theme-color meta) in line.
     const stored = window.localStorage.getItem(THEME_STORAGE_KEY);
-    if (stored === "dark" || stored === "light") {
-      // One-time correction from the SSR default once localStorage is available;
-      // reading it during render instead would desync server/client hydration output.
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setThemeState(stored);
-      return;
-    }
-    if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-      setThemeState("light");
-    }
+    const resolved: Theme =
+      stored === "dark" || stored === "light"
+        ? stored
+        : window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setThemeState(resolved);
+    applyTheme(resolved);
   }, []);
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", THEME_COLORS[theme]);
-  }, [theme]);
 
   const setTheme = useCallback((next: Theme) => {
     setThemeState(next);
+    applyTheme(next);
     window.localStorage.setItem(THEME_STORAGE_KEY, next);
   }, []);
 
   const toggleTheme = useCallback(() => {
-    setThemeState((current) => {
-      const next = current === "dark" ? "light" : "dark";
-      window.localStorage.setItem(THEME_STORAGE_KEY, next);
-      return next;
-    });
-  }, []);
+    setTheme(theme === "dark" ? "light" : "dark");
+  }, [theme, setTheme]);
 
   const value = useMemo(() => ({ theme, setTheme, toggleTheme }), [theme, setTheme, toggleTheme]);
 

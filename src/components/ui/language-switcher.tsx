@@ -2,16 +2,18 @@
 
 import { locales } from "@/i18n";
 import { useLanguage } from "@/i18n/language-context";
-import { flagByLocale } from "@/components/ui/flags";
 import { cn } from "@/lib/utils";
 
 export function LanguageSwitcher({ className }: { className?: string }) {
-  const { locale, setLocale } = useLanguage();
+  const { locale, setLocale, content } = useLanguage();
 
   return (
-    <div role="group" aria-label="Language" className={cn("flex items-center gap-3", className)}>
+    <div
+      role="group"
+      aria-label={content.ui.language}
+      className={cn("inline-flex border-2 border-ink bg-card", className)}
+    >
       {locales.map((item) => {
-        const Flag = flagByLocale[item.code];
         const isActive = item.code === locale;
         return (
           <button
@@ -20,15 +22,14 @@ export function LanguageSwitcher({ className }: { className?: string }) {
             onClick={() => setLocale(item.code)}
             aria-label={item.label}
             aria-pressed={isActive}
-            data-cursor-hover
+            lang={item.code}
+            title={item.label}
             className={cn(
-              "block size-5 overflow-hidden transition-all duration-200",
-              isActive
-                ? "scale-110 opacity-100"
-                : "scale-100 opacity-45 hover:scale-105 hover:opacity-80"
+              "h-10 min-w-10 px-2 text-sm font-bold transition-colors",
+              isActive ? "bg-ink text-paper" : "hover:bg-highlight hover:text-highlight-ink"
             )}
           >
-            <Flag className="size-full object-cover" />
+            {item.shortLabel}
           </button>
         );
       })}

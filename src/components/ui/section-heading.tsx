@@ -1,43 +1,43 @@
+import { HandNote, ScribbleArrow, Squiggle } from "@/components/ui/doodles";
 import { cn } from "@/lib/utils";
 
 interface SectionHeadingProps {
-  kicker: string;
   title: string;
   description?: string;
-  align?: "left" | "center";
+  /** Short line of handwriting next to the title, with an arrow. */
+  note?: string;
+  /** Scribbled underline under the title. */
+  squiggle?: boolean;
+  as?: "h1" | "h2";
   className?: string;
 }
 
 export function SectionHeading({
-  kicker,
   title,
   description,
-  align = "left",
+  note,
+  squiggle = false,
+  as: Tag = "h2",
   className,
 }: SectionHeadingProps) {
   return (
-    <div className={cn("mb-12 md:mb-16", align === "center" && "text-center", className)}>
-      <div
-        className={cn(
-          "text-tag mb-4 flex items-center gap-3 text-xs text-primary",
-          align === "center" && "justify-center"
-        )}
-      >
-        <span className="h-px w-8 bg-primary/50" />
-        {kicker}
+    <div className={cn("mb-10 md:mb-14", className)}>
+      <div className="flex flex-wrap items-end gap-x-8 gap-y-3">
+        <Tag className="display text-[clamp(3rem,9vw,6.5rem)] text-balance">
+          <span className="relative inline-block">
+            {title}
+            {squiggle ? <Squiggle className="-bottom-3" /> : null}
+          </span>
+        </Tag>
+        {note ? (
+          <span className="flex -rotate-3 items-end gap-1 pb-2" aria-hidden="true">
+            <ScribbleArrow className="-scale-x-100 rotate-[200deg]" />
+            <HandNote className="mb-1">{note}</HandNote>
+          </span>
+        ) : null}
       </div>
-      <h2 className="font-display text-4xl font-medium tracking-tight text-balance text-on-surface sm:text-5xl">
-        {title}
-      </h2>
       {description ? (
-        <p
-          className={cn(
-            "mt-4 max-w-xl text-pretty text-on-surface-variant",
-            align === "center" && "mx-auto"
-          )}
-        >
-          {description}
-        </p>
+        <p className="mt-7 max-w-xl text-lg text-pretty text-ink-soft">{description}</p>
       ) : null}
     </div>
   );

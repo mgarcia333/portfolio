@@ -16,7 +16,6 @@ export interface StackCategory {
 }
 
 export interface ExperienceEntry {
-  tag: string;
   status: string;
   current: boolean;
   org: string;
@@ -29,7 +28,7 @@ export type ProjectCategory = "client" | "webapp" | "unity" | "template";
 export interface Project {
   id: string;
   category: ProjectCategory;
-  tag: string;
+  featured: boolean;
   title: string;
   description: string;
   stack: string[];
@@ -50,6 +49,11 @@ export interface NavItem {
   type: "anchor" | "route";
 }
 
+export interface Fact {
+  label: string;
+  value: string;
+}
+
 export interface SiteContent {
   profile: {
     name: string;
@@ -57,7 +61,6 @@ export interface SiteContent {
     initials: string;
     role: string;
     location: string;
-    coordinates: string;
     timeZone: string;
     status: string;
     email: string;
@@ -65,44 +68,54 @@ export interface SiteContent {
     linkedin: string;
   };
   nav: NavItem[];
-  menuToggle: string;
+  menuOpen: string;
+  menuClose: string;
   themeToggle: string;
-  heroTicker: string[];
+  ui: {
+    skipToContent: string;
+    visit: string;
+    viewCode: string;
+    /** Use `{title}` where the project name goes. */
+    codeLabel: string;
+    opensInNewTab: string;
+    copyEmail: string;
+    emailCopied: string;
+    copyFailed: string;
+    backToTop: string;
+    language: string;
+  };
+  /** Wrap a phrase in `*asterisks*` to get the marker highlight. */
   hero: {
-    badge: string;
+    greeting: string;
     tagline: string;
     ctaWork: string;
     ctaContact: string;
+    scrollNote: string;
   };
-  dossier: {
-    kicker: string;
+  about: {
     title: string;
     bio: string[];
-    fields: { label: string; value: string }[];
-    signalActive: string;
+    facts: Fact[];
     viewMore: string;
   };
   homeWork: {
-    kicker: string;
     title: string;
+    note: string;
     description: string;
     viewAll: string;
   };
   stack: {
-    kicker: string;
     title: string;
     description: string;
     categories: StackCategory[];
     viewMore: string;
   };
   experience: {
-    kicker: string;
     title: string;
     entries: ExperienceEntry[];
     viewMore: string;
   };
   contact: {
-    kicker: string;
     title: string;
     description: string;
     emailCta: string;
@@ -112,20 +125,23 @@ export interface SiteContent {
     metaTitle: string;
     metaDescription: string;
     backHome: string;
-    selectedWork: string;
     title: string;
     description: string;
+    filterLabel: string;
+    filterAll: string;
+    /** Use `{n}` where the number goes. */
+    countOne: string;
+    countMany: string;
     categories: Record<ProjectCategory, string>;
+    tags: Record<ProjectCategory, string>;
     projects: Project[];
   };
   aboutPage: {
     metaTitle: string;
     metaDescription: string;
     backHome: string;
-    kicker: string;
     title: string;
     intro: string[];
-    fields: { label: string; value: string }[];
     principles: { heading: string; body: string }[];
     education: { heading: string; body: string };
   };
@@ -133,7 +149,6 @@ export interface SiteContent {
     metaTitle: string;
     metaDescription: string;
     backHome: string;
-    kicker: string;
     title: string;
     description: string;
     categories: (StackCategory & { description: string })[];
@@ -142,15 +157,13 @@ export interface SiteContent {
     metaTitle: string;
     metaDescription: string;
     backHome: string;
-    kicker: string;
     title: string;
     description: string;
     entries: (ExperienceEntry & { highlights: string[]; stack: string[] })[];
   };
   footer: {
-    builtWith: string;
+    note: string;
     top: string;
   };
-  boot: string[];
   socials: Social[];
 }

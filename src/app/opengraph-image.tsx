@@ -1,10 +1,13 @@
 import { ImageResponse } from "next/og";
+import { loadArchivoBlack, OG_FONT_NAME, ogFonts } from "@/lib/og-font";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Moises Garcia Poveda — Full-Stack Software Developer";
+export const alt = "Moisés García Poveda — Full-Stack Software Developer";
 
-export default function OpengraphImage() {
+export default async function OpengraphImage() {
+  const font = await loadArchivoBlack();
+
   return new ImageResponse(
     (
       <div
@@ -14,29 +17,46 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          padding: "84px",
-          background: "#12131a",
-          fontFamily: "monospace",
+          padding: "72px 84px",
+          background: "#f3eee3",
+          color: "#16130e",
+          fontFamily: font ? OG_FONT_NAME : "sans-serif",
         }}
       >
-        <div style={{ display: "flex", color: "#96c7ff", fontSize: 24, letterSpacing: 6 }}>
-          PORTFOLIO_OS // BARCELONA, ES
+        <div style={{ display: "flex", fontSize: 40, fontWeight: 400 }}>¡Hola! Soy</div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            fontSize: 112,
+            fontWeight: 400,
+            lineHeight: 1,
+            whiteSpace: "nowrap",
+            marginTop: 20,
+            textTransform: "uppercase",
+            letterSpacing: -2,
+          }}
+        >
+          <div style={{ display: "flex" }}>Moisés García</div>
+          <div style={{ display: "flex" }}>Poveda</div>
         </div>
-        <div style={{ display: "flex", fontSize: 80, fontWeight: 700, color: "#e3e2e6", marginTop: 28 }}>
-          MOISES GARCIA POVEDA
-        </div>
-        <div style={{ display: "flex", fontSize: 36, color: "#96c7ff", marginTop: 12 }}>
-          Full-Stack Software Developer
-        </div>
-        <div style={{ display: "flex", fontSize: 24, color: "#c7c6ca", marginTop: 48, gap: 28 }}>
-          <div style={{ display: "flex" }}>VUE</div>
-          <div style={{ display: "flex" }}>REACT</div>
-          <div style={{ display: "flex" }}>NODE</div>
-          <div style={{ display: "flex" }}>DOCKER</div>
-          <div style={{ display: "flex" }}>CLOUDFLARE</div>
+        <div style={{ display: "flex", marginTop: 44 }}>
+          <div
+            style={{
+              display: "flex",
+              fontSize: 36,
+              fontWeight: 400,
+              padding: "12px 24px",
+              background: "#ff5a36",
+              border: "4px solid #16130e",
+              boxShadow: "8px 8px 0 #16130e",
+            }}
+          >
+            Full-stack developer · Barcelona
+          </div>
         </div>
       </div>
     ),
-    size
+    { ...size, fonts: ogFonts(font) }
   );
 }
