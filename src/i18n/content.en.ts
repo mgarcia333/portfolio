@@ -163,6 +163,11 @@ export const contentEn: SiteContent = {
         description:
           "Every cinema listing in Barcelona on a single page — 28 venues, showtimes, language version and the real ticket price of each screening, with filters, search and a city map.",
       },
+      mado: {
+        title: "Mado",
+        description:
+          "A new-tab page for Chrome, your way — your own background and image tiles that open your favorite sites, moved and resized by dragging. No accounts, no tracking.",
+      },
     }),
   },
   aboutPage: {

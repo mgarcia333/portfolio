@@ -163,6 +163,11 @@ export const contentCa: SiteContent = {
         description:
           "Tota la cartellera dels cinemes de Barcelona en una sola pàgina — 28 sales, horaris, versió i el preu real de cada sessió, amb filtres, cerca i plànol de la ciutat.",
       },
+      mado: {
+        title: "Mado",
+        description:
+          "Una pestanya nova per a Chrome a la teva mida — fons propi i quadres amb imatge que obren les teves webs, que es col·loquen i redimensionen arrossegant. Sense comptes ni rastreig.",
+      },
     }),
   },
   aboutPage: {

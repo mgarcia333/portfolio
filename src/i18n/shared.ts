@@ -149,6 +149,13 @@ export const projectsShared: Record<string, ProjectShared> = {
     url: "https://sessio-continua.mgarciap.workers.dev/",
     preview: "/projects/sessio-continua.png",
     github: "https://github.com/mgarcia333/sessio-continua",
+  },  mado: {
+    category: "webapp",
+    tag: "CASE_09",
+    stack: ["Chrome Extension", "Manifest V3", "JavaScript"],
+    url: "https://mado.mgarciap.workers.dev/",
+    preview: "/projects/mado.png",
+    github: "https://github.com/mgarcia333/mado",
   },
 };
 
