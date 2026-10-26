@@ -158,6 +158,11 @@ export const contentEn: SiteContent = {
         description:
           "A 2D dark-fantasy action-RPG built in Unity — sword and fire-spell combat, exploration, and local save progress — recovered and shipped to WebGL so it plays straight from the browser.",
       },
+      "sessio-continua": {
+        title: "Sessió Contínua",
+        description:
+          "Every cinema listing in Barcelona on a single page — 28 venues, showtimes, language version and the real ticket price of each screening, with filters, search and a city map.",
+      },
     }),
   },
   aboutPage: {

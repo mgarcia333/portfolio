@@ -142,6 +142,14 @@ export const projectsShared: Record<string, ProjectShared> = {
     github: "https://github.com/mgarcia333/restaurant-template",
     preview: "/projects/restaurant-template.webp",
   },
+  "sessio-continua": {
+    category: "webapp",
+    tag: "CASE_08",
+    stack: ["Cartelera", "Vanilla JS", "Python"],
+    url: "https://sessio-continua.mgarciap.workers.dev/",
+    preview: "/projects/sessio-continua.png",
+    github: "https://github.com/mgarcia333/sessio-continua",
+  },
 };
 
 export function buildProjects(

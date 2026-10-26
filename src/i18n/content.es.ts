@@ -158,6 +158,11 @@ export const contentEs: SiteContent = {
         description:
           "Action-RPG 2D de fantasía oscura hecho en Unity — combate con espada y hechizos de fuego, exploración y progreso guardado en local — recuperado y publicado en WebGL para jugarlo directo desde el navegador.",
       },
+      "sessio-continua": {
+        title: "Sessió Contínua",
+        description:
+          "Toda la cartelera de cines de Barcelona en una sola página — 28 salas, horarios, versión y el precio real de cada sesión, con filtros, búsqueda y plano de la ciudad.",
+      },
     }),
   },
   aboutPage: {

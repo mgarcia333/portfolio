@@ -158,6 +158,11 @@ export const contentCa: SiteContent = {
         description:
           "Action-RPG 2D de fantasia fosca fet a Unity — combat amb espasa i fetills de foc, exploració i progrés desat en local — recuperat i publicat en WebGL per jugar-hi directe des del navegador.",
       },
+      "sessio-continua": {
+        title: "Sessió Contínua",
+        description:
+          "Tota la cartellera dels cinemes de Barcelona en una sola pàgina — 28 sales, horaris, versió i el preu real de cada sessió, amb filtres, cerca i plànol de la ciutat.",
+      },
     }),
   },
   aboutPage: {
