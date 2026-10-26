@@ -1,0 +1,9 @@
+import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/seo";
+
+const ROUTES = ["", "/work", "/about", "/stack", "/experience", "/contact"];
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date();
+  return ROUTES.map((route) => ({ url: `${SITE_URL}${route}`, lastModified }));
+}

@@ -7,11 +7,11 @@ Personal portfolio and CV site: a single scrolling home plus a page each for wor
 ## Sections
 
 - **Hero** — the positioning statement as the headline (the name is just a small byline), the two main actions (see the work / email me) and a short list with the basics.
-- **Work** — the six featured projects on the home page as an index with a large preview; `/work` lists all of them with a filter by type.
+- **Work** — the six featured projects on the home page as a ruled grid, three over three; `/work` lists all of them in the same grid, with a filter by type.
 - **About** — short bio; `/about` has the long version next to the list with the basics.
 - **Stack** — every technology laid out by layer; `/stack` adds why each layer looks the way it does.
 - **Experience** — roles and education; `/experience` adds highlights and the tech used.
-- **Contact** — email (mailto and copy-to-clipboard), GitHub/LinkedIn.
+- **Contact** — its own page (`/contact`) with the email (mailto and copy-to-clipboard), GitHub, LinkedIn and base; the home page closes with a short version of it.
 
 ## Design
 
@@ -19,11 +19,19 @@ A printed-page look, on purpose the opposite of the usual dark-gradient-and-card
 
 The palette is taken from EVA-01: violet-black ink, the unit's purple as the only accent, and its neon green in micro-doses (text selection, the active project row, the one CTA on the contact band). Light is the default theme; the dark theme swaps paper and ink. The contact band and footer stay dark in both.
 
-The signature piece is the project index: one ruled row per project and a large sticky preview that follows whichever row is hovered or focused (below `lg` each row carries its own image). The headline is a statement, not the name, which stays small.
+Projects are a gapless, ruled grid (three across) where the hovered or focused cell inverts to ink, on the home page and on `/work`. The headline is a statement, not the name, which stays small; the home link in the navbar is a monogram.
 
 Deliberately **not** in here: boot screens, custom cursors, noise/scanline overlays, tilt/magnetic effects, sticky notes, handwriting, rotated stickers, marker highlights, hard shadows, numbered mono kickers, greetings, availability badges. Everything that needs a hover also works without one; motion is a single entrance on load.
 
-Usability details worth keeping: the whole project row is one click target with the GitHub link as a separate real link, copy-email button with feedback, `/work` filters announced to screen readers, skip link, visible focus rings, mobile menu closes on Escape / navigation, no horizontally-scrolling lists.
+Usability details worth keeping: the whole project cell is one click target with the GitHub link as a separate real link, copy-email button with feedback, `/work` filters announced to screen readers, skip link, visible focus rings, mobile menu closes on Escape / navigation, no horizontally-scrolling lists.
+
+## SEO
+
+- Every page has its own title, description and canonical URL, plus matching Open Graph and Twitter tags and the share image (`src/lib/seo.ts`, `app/opengraph-image.tsx`). Page-level `openGraph` replaces the layout's, so the image is named explicitly there.
+- Structured data: a schema.org `WebSite` + `Person` graph (`src/components/seo/json-ld.tsx`), without the email.
+- `app/robots.ts` and `app/sitemap.ts` (six pages), and a custom, `noindex` 404 page.
+- One `h1` per page and no skipped heading levels (project and role titles are `h3` on the home page and `h2` on their own pages); project previews carry a descriptive `alt`.
+- The interface language is chosen on the client, so there is one URL per page and the metadata is in the default language (Spanish). Separate language URLs with `hreflang` would be the next step if search traffic in Catalan or English matters.
 
 ## Content and localization
 
@@ -51,12 +59,14 @@ src/
 │   ├── layout/           # Navbar, footer, page header, skip link
 │   ├── sections/         # Home page sections
 │   ├── ui/               # Primitives (button, section, marked text, copy-email, toggles...)
-│   ├── work/             # Project index and the /work page content
+│   ├── work/             # Project grid and the /work page content
+│   ├── contact/          # The /contact page content
+│   ├── seo/              # JSON-LD
 │   ├── about/            # Fact list and the /about page content
 │   ├── stack/            # Stack list and the /stack page content
 │   └── experience/       # Experience list and the /experience page content
 ├── i18n/                 # Locale types, provider, shared project data and per-language content
-├── lib/                  # Utilities (class merging, OG font loader)
+├── lib/                  # Utilities (class merging, SEO helpers, OG font loader)
 └── theme/                # Light/dark theme context
 ```
 

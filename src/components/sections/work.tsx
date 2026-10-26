@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ButtonLink } from "@/components/ui/button";
-import { WorkIndex } from "@/components/work/work-index";
+import { ProjectGrid } from "@/components/work/project-grid";
 import { useLanguage } from "@/i18n/language-context";
 
 export function Work() {
@@ -22,7 +22,7 @@ export function Work() {
         </ButtonLink>
       </div>
 
-      <WorkIndex projects={featured} />
+      <ProjectGrid projects={featured} />
     </Section>
   );
 }

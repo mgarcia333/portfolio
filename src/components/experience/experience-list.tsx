@@ -3,7 +3,13 @@ import { cn } from "@/lib/utils";
 
 type Entry = ExperienceEntry & { highlights?: string[]; stack?: string[] };
 
-export function ExperienceList({ entries }: { entries: Entry[] }) {
+interface ExperienceListProps {
+  entries: Entry[];
+  /** Heading level for each role, so the page keeps a clean outline. */
+  headingAs?: "h2" | "h3";
+}
+
+export function ExperienceList({ entries, headingAs: Heading = "h3" }: ExperienceListProps) {
   return (
     <ol className="border-t border-ink">
       {entries.map((entry) => (
@@ -13,21 +19,17 @@ export function ExperienceList({ entries }: { entries: Entry[] }) {
         >
           <p
             className={cn(
-              "flex items-center gap-2 pt-2 text-sm font-medium",
+              "pt-2 text-sm font-medium",
               entry.current ? "text-ink" : "text-ink-muted"
             )}
           >
-            {entry.current ? (
-              <span
-                className="size-2 rounded-full bg-signal ring-1 ring-ink/40"
-                aria-hidden="true"
-              />
-            ) : null}
             {entry.status}
           </p>
 
           <div>
-            <h3 className="display text-[clamp(1.75rem,3vw,2.5rem)] text-balance">{entry.org}</h3>
+            <Heading className="display text-[clamp(1.75rem,3vw,2.5rem)] text-balance">
+              {entry.org}
+            </Heading>
             <p className="mt-2 font-semibold text-accent">{entry.role}</p>
             <p className="mt-3 max-w-xl text-pretty text-ink-soft">{entry.description}</p>
 

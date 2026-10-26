@@ -15,32 +15,16 @@ export function Navbar() {
   const { content } = useLanguage();
   const { nav, profile } = content;
   const pathname = usePathname();
-  const [activeHref, setActiveHref] = useState("");
   // The menu is "open for" the page it was opened on, so navigating
   // anywhere closes it without an effect.
   const [openAt, setOpenAt] = useState<string | null>(null);
   const menuOpen = openAt === pathname;
 
-  useEffect(() => {
-    if (pathname !== "/") return;
-
-    const sections = nav
-      .filter((item) => item.type === "anchor")
-      .map((item) => document.getElementById(item.href.split("#")[1]))
-      .filter((el): el is HTMLElement => Boolean(el));
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          setActiveHref(entry.isIntersecting ? `/#${entry.target.id}` : "");
-        }
-      },
-      { rootMargin: "-40% 0px -40% 0px", threshold: 0 }
-    );
-
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
-  }, [pathname, nav]);
+  // Home link is a monogram, not the name: "Moisés García" -> "MG".
+  const monogram = profile.name
+    .split(" ")
+    .map((word) => word[0])
+    .join("");
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -56,31 +40,35 @@ export function Navbar() {
     };
   }, [menuOpen]);
 
-  function isActive(item: { href: string; type: "anchor" | "route" }) {
-    return item.type === "route" ? pathname === item.href : activeHref === item.href;
-  }
-
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-ink bg-paper">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <Link href="/" className="shrink-0 text-base font-bold tracking-tight min-[360px]:text-lg">
-          {profile.name}
+        <Link
+          href="/"
+          aria-label={content.ui.home}
+          title={content.ui.home}
+          className="display shrink-0 text-[2rem] leading-none transition-colors hover:text-accent"
+        >
+          {monogram}
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-9 lg:flex">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              aria-current={isActive(item) ? "page" : undefined}
-              className={cn(
-                "py-2 text-[0.95rem] font-medium underline-offset-[10px] decoration-2 transition-colors hover:text-accent",
-                isActive(item) ? "text-ink underline" : "text-ink-soft"
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {nav.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={isActive ? "page" : undefined}
+                className={cn(
+                  "py-2 text-[0.95rem] font-medium underline-offset-[10px] decoration-2 transition-colors hover:text-accent",
+                  isActive ? "text-ink underline" : "text-ink-soft"
+                )}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-1 sm:gap-3">
@@ -106,25 +94,28 @@ export function Navbar() {
         >
           <div className="flex min-h-full flex-col">
             <nav aria-label="Main" className="flex flex-col px-4 sm:px-6">
-              {nav.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpenAt(null)}
-                  aria-current={isActive(item) ? "page" : undefined}
-                  className="group flex items-center justify-between gap-4 border-b border-line py-5"
-                >
-                  <span
-                    className={cn(
-                      "display text-[2.5rem] transition-colors group-active:text-accent",
-                      isActive(item) && "text-accent"
-                    )}
+              {nav.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setOpenAt(null)}
+                    aria-current={isActive ? "page" : undefined}
+                    className="group flex items-center justify-between gap-4 border-b border-line py-5"
                   >
-                    {item.label}
-                  </span>
-                  <ArrowUpRight className="size-5 shrink-0 text-ink-muted" />
-                </Link>
-              ))}
+                    <span
+                      className={cn(
+                        "display text-[2.5rem] transition-colors group-active:text-accent",
+                        isActive && "text-accent"
+                      )}
+                    >
+                      {item.label}
+                    </span>
+                    <ArrowUpRight className="size-5 shrink-0 text-ink-muted" />
+                  </Link>
+                );
+              })}
             </nav>
 
             <div className="mt-auto flex flex-col gap-5 px-4 py-8 sm:px-6">

@@ -45,7 +45,6 @@ export interface Social {
 export interface NavItem {
   label: string;
   href: string;
-  type: "anchor" | "route";
 }
 
 export interface Fact {
@@ -78,6 +77,9 @@ export interface SiteContent {
     copyFailed: string;
     backToTop: string;
     language: string;
+    home: string;
+    /** Use `{title}` where the project name goes. */
+    previewAlt: string;
   };
   /** Wrap a phrase in `*asterisks*` to emphasise it (rendered bold). */
   hero: {
@@ -153,6 +155,26 @@ export interface SiteContent {
     title: string;
     description: string;
     entries: (ExperienceEntry & { highlights: string[]; stack: string[] })[];
+  };
+  contactPage: {
+    metaTitle: string;
+    metaDescription: string;
+    backHome: string;
+    title: string;
+    description: string;
+    channels: { email: string; github: string; linkedin: string; base: string };
+    baseValue: string;
+  };
+  notFound: {
+    metaTitle: string;
+    title: string;
+    description: string;
+    cta: string;
+  };
+  /** Site-wide defaults for search engines and link previews. */
+  seo: {
+    title: string;
+    description: string;
   };
   footer: {
     note: string;

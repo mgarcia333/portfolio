@@ -7,11 +7,11 @@ export const contentEn: SiteContent = {
     role: "Full-stack developer",
   },
   nav: [
-    { label: "Work", href: "/work", type: "route" },
-    { label: "About", href: "/about", type: "route" },
-    { label: "Stack", href: "/stack", type: "route" },
-    { label: "Experience", href: "/experience", type: "route" },
-    { label: "Contact", href: "/#contact", type: "anchor" },
+    { label: "Work", href: "/work" },
+    { label: "About", href: "/about" },
+    { label: "Stack", href: "/stack" },
+    { label: "Experience", href: "/experience" },
+    { label: "Contact", href: "/contact" },
   ],
   menuOpen: "Open menu",
   menuClose: "Close menu",
@@ -27,6 +27,8 @@ export const contentEn: SiteContent = {
     copyFailed: "Couldn't copy",
     backToTop: "Back to top",
     language: "Language",
+    home: "Home",
+    previewAlt: "Preview of {title}",
   },
   hero: {
     statement: "Complete websites,\n*from interface*\n*to server.*",
@@ -301,6 +303,28 @@ export const contentEn: SiteContent = {
         stack: ["HTML", "CSS", "Java", "Android Studio"],
       },
     ],
+  },
+  contactPage: {
+    metaTitle: "Contact — Moisés García",
+    metaDescription:
+      "Get in touch with Moisés García, a full-stack developer in Barcelona. He works remotely or on site.",
+    backHome: "Back home",
+    title: "Contact",
+    description:
+      "I'm in Barcelona and work remotely or on site. Email me, or find me on GitHub and LinkedIn.",
+    channels: { email: "Email", github: "GitHub", linkedin: "LinkedIn", base: "Base" },
+    baseValue: "Barcelona, ES · remote or on site",
+  },
+  notFound: {
+    metaTitle: "Page not found — Moisés García",
+    title: "Page not found",
+    description: "The address you're looking for doesn't exist or has moved.",
+    cta: "Back home",
+  },
+  seo: {
+    title: "Moisés García — Full-stack developer in Barcelona",
+    description:
+      "Portfolio of Moisés García, a full-stack developer in Barcelona. Interfaces in Vue and React, services in Node, PHP and Java, and self-managed infrastructure.",
   },
   footer: {
     note: "Made in Barcelona with Next.js and Tailwind. Deployed on Cloudflare.",

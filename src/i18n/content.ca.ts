@@ -7,11 +7,11 @@ export const contentCa: SiteContent = {
     role: "Desenvolupador full-stack",
   },
   nav: [
-    { label: "Feina", href: "/work", type: "route" },
-    { label: "Sobre mi", href: "/about", type: "route" },
-    { label: "Stack", href: "/stack", type: "route" },
-    { label: "Experiència", href: "/experience", type: "route" },
-    { label: "Contacte", href: "/#contact", type: "anchor" },
+    { label: "Feina", href: "/work" },
+    { label: "Sobre mi", href: "/about" },
+    { label: "Stack", href: "/stack" },
+    { label: "Experiència", href: "/experience" },
+    { label: "Contacte", href: "/contact" },
   ],
   menuOpen: "Obre el menú",
   menuClose: "Tanca el menú",
@@ -27,6 +27,8 @@ export const contentCa: SiteContent = {
     copyFailed: "No s'ha pogut copiar",
     backToTop: "Tornar a dalt",
     language: "Idioma",
+    home: "Inici",
+    previewAlt: "Vista prèvia de {title}",
   },
   hero: {
     statement: "Webs completes,\n*de la interfície*\n*al servidor.*",
@@ -301,6 +303,28 @@ export const contentCa: SiteContent = {
         stack: ["HTML", "CSS", "Java", "Android Studio"],
       },
     ],
+  },
+  contactPage: {
+    metaTitle: "Contacte — Moisés García",
+    metaDescription:
+      "Escriu a Moisés García, desenvolupador full-stack a Barcelona. Treballa en remot o en persona.",
+    backHome: "Tornar a l'inici",
+    title: "Contacte",
+    description:
+      "Sóc a Barcelona i treballo en remot o en persona. Escriu-me per correu o troba'm a GitHub i LinkedIn.",
+    channels: { email: "Correu", github: "GitHub", linkedin: "LinkedIn", base: "Base" },
+    baseValue: "Barcelona, ES · remot o presencial",
+  },
+  notFound: {
+    metaTitle: "Pàgina no trobada — Moisés García",
+    title: "Pàgina no trobada",
+    description: "L'adreça que busques no existeix o ha canviat de lloc.",
+    cta: "Tornar a l'inici",
+  },
+  seo: {
+    title: "Moisés García — Desenvolupador full-stack a Barcelona",
+    description:
+      "Portafoli de Moisés García, desenvolupador full-stack a Barcelona. Interfícies en Vue i React, serveis en Node, PHP i Java i infraestructura pròpia.",
   },
   footer: {
     note: "Fet a Barcelona amb Next.js i Tailwind. Desplegat a Cloudflare.",

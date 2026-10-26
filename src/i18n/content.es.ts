@@ -7,11 +7,11 @@ export const contentEs: SiteContent = {
     role: "Desarrollador full-stack",
   },
   nav: [
-    { label: "Trabajo", href: "/work", type: "route" },
-    { label: "Sobre mí", href: "/about", type: "route" },
-    { label: "Stack", href: "/stack", type: "route" },
-    { label: "Experiencia", href: "/experience", type: "route" },
-    { label: "Contacto", href: "/#contact", type: "anchor" },
+    { label: "Trabajo", href: "/work" },
+    { label: "Sobre mí", href: "/about" },
+    { label: "Stack", href: "/stack" },
+    { label: "Experiencia", href: "/experience" },
+    { label: "Contacto", href: "/contact" },
   ],
   menuOpen: "Abrir menú",
   menuClose: "Cerrar menú",
@@ -27,6 +27,8 @@ export const contentEs: SiteContent = {
     copyFailed: "No se pudo copiar",
     backToTop: "Volver arriba",
     language: "Idioma",
+    home: "Inicio",
+    previewAlt: "Vista previa de {title}",
   },
   hero: {
     statement: "Webs completas,\n*de la interfaz*\n*al servidor.*",
@@ -301,6 +303,28 @@ export const contentEs: SiteContent = {
         stack: ["HTML", "CSS", "Java", "Android Studio"],
       },
     ],
+  },
+  contactPage: {
+    metaTitle: "Contacto — Moisés García",
+    metaDescription:
+      "Escribe a Moisés García, desarrollador full-stack en Barcelona. Trabaja en remoto o en persona.",
+    backHome: "Volver al inicio",
+    title: "Contacto",
+    description:
+      "Estoy en Barcelona y trabajo en remoto o en persona. Escríbeme por email o encuéntrame en GitHub y LinkedIn.",
+    channels: { email: "Email", github: "GitHub", linkedin: "LinkedIn", base: "Base" },
+    baseValue: "Barcelona, ES · remoto o presencial",
+  },
+  notFound: {
+    metaTitle: "Página no encontrada — Moisés García",
+    title: "Página no encontrada",
+    description: "La dirección que buscas no existe o ha cambiado de sitio.",
+    cta: "Volver al inicio",
+  },
+  seo: {
+    title: "Moisés García — Desarrollador full-stack en Barcelona",
+    description:
+      "Portafolio de Moisés García, desarrollador full-stack en Barcelona. Interfaces en Vue y React, servicios en Node, PHP y Java e infraestructura propia.",
   },
   footer: {
     note: "Hecho en Barcelona con Next.js y Tailwind. Desplegado en Cloudflare.",

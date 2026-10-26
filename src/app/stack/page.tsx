@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
 import { StackPageContent } from "@/components/stack/stack-page-content";
 import { contentByLocale, DEFAULT_LOCALE } from "@/i18n";
+import { pageMetadata } from "@/lib/seo";
 
-const defaultStack = contentByLocale[DEFAULT_LOCALE].stackPage;
+const page = contentByLocale[DEFAULT_LOCALE].stackPage;
 
-export const metadata: Metadata = {
-  title: defaultStack.metaTitle,
-  description: defaultStack.metaDescription,
-};
+export const metadata = pageMetadata({
+  title: page.metaTitle,
+  description: page.metaDescription,
+  path: "/stack",
+});
 
 export default function StackPage() {
   return <StackPageContent />;

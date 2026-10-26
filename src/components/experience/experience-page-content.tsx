@@ -16,7 +16,7 @@ export function ExperiencePageContent() {
           title={experiencePage.title}
           description={experiencePage.description}
         />
-        <ExperienceList entries={experiencePage.entries} />
+        <ExperienceList entries={experiencePage.entries} headingAs="h2" />
       </div>
     </main>
   );

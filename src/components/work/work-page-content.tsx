@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PageHeader } from "@/components/layout/page-header";
-import { WorkIndex } from "@/components/work/work-index";
+import { ProjectGrid } from "@/components/work/project-grid";
 import { useLanguage } from "@/i18n/language-context";
 import type { ProjectCategory } from "@/i18n/types";
 import { cn } from "@/lib/utils";
@@ -65,7 +65,7 @@ export function WorkPageContent() {
           {countText}
         </p>
 
-        <WorkIndex projects={visible} />
+        <ProjectGrid projects={visible} headingAs="h2" />
       </div>
     </main>
   );

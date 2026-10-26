@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
 import { ExperiencePageContent } from "@/components/experience/experience-page-content";
 import { contentByLocale, DEFAULT_LOCALE } from "@/i18n";
+import { pageMetadata } from "@/lib/seo";
 
-const defaultExperience = contentByLocale[DEFAULT_LOCALE].experiencePage;
+const page = contentByLocale[DEFAULT_LOCALE].experiencePage;
 
-export const metadata: Metadata = {
-  title: defaultExperience.metaTitle,
-  description: defaultExperience.metaDescription,
-};
+export const metadata = pageMetadata({
+  title: page.metaTitle,
+  description: page.metaDescription,
+  path: "/experience",
+});
 
 export default function ExperiencePage() {
   return <ExperiencePageContent />;
