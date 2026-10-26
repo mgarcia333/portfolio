@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, Mail, Menu, X } from "lucide-react";
 import { useLanguage } from "@/i18n/language-context";
 import { ButtonLink } from "@/components/ui/button";
 import { CopyEmail } from "@/components/ui/copy-email";
@@ -19,6 +19,17 @@ export function Navbar() {
   // anywhere closes it without an effect.
   const [openAt, setOpenAt] = useState<string | null>(null);
   const menuOpen = openAt === pathname;
+
+  // Quick links as bare icons (no boxes): GitHub, LinkedIn, email.
+  const quickLinks = [
+    ...content.socials.map((social) => ({
+      label: social.label,
+      href: social.href,
+      icon: social.icon,
+      external: true,
+    })),
+    { label: content.ui.emailMe, href: `mailto:${profile.email}`, icon: Mail, external: false },
+  ];
 
   // Home link is a monogram, not the name: "Moisés García" -> "MG".
   const monogram = profile.name
@@ -47,12 +58,12 @@ export function Navbar() {
           href="/"
           aria-label={content.ui.home}
           title={content.ui.home}
-          className="display shrink-0 text-[2rem] leading-none transition-colors hover:text-accent"
+          className="display inline-flex h-11 min-w-11 shrink-0 items-center text-[2rem] leading-none transition-colors hover:text-accent"
         >
           {monogram}
         </Link>
 
-        <nav aria-label="Main" className="hidden items-center gap-9 lg:flex">
+        <nav aria-label="Main" className="hidden items-center gap-6 lg:flex xl:gap-9">
           {nav.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -71,7 +82,22 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="flex items-center gap-1 sm:gap-3">
+        <div className="flex items-center gap-1 sm:gap-2">
+          <div className="hidden items-center sm:flex">
+            {quickLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                aria-label={link.label}
+                title={link.label}
+                {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
+                className="inline-flex size-10 items-center justify-center text-ink-soft transition-colors hover:text-accent"
+              >
+                <link.icon className="size-[1.15rem]" />
+              </a>
+            ))}
+            <span aria-hidden="true" className="mx-2 h-5 w-px bg-line" />
+          </div>
           <LanguageSwitcher />
           <ThemeToggle className="hidden min-[380px]:inline-flex" />
           <button

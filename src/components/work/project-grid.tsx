@@ -28,11 +28,11 @@ export function ProjectGrid({
   const { ui, work } = content;
 
   return (
-    <ul className="grid grid-cols-1 border-t border-l border-ink md:grid-cols-2 lg:grid-cols-3">
+    <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
       {projects.map((project) => (
         <li
           key={project.id}
-          className="group relative flex border-r border-b border-ink transition-colors duration-200 hover:bg-ink hover:text-paper focus-within:bg-ink focus-within:text-paper"
+          className="group relative flex border border-ink transition-colors duration-200 hover:bg-ink hover:text-paper focus-within:bg-ink focus-within:text-paper"
         >
           <article className="flex w-full flex-col">
             <div className="relative aspect-[16/10] overflow-hidden border-b border-ink bg-ink">
@@ -82,7 +82,7 @@ export function ProjectGrid({
                       target="_blank"
                       rel="noreferrer"
                       aria-label={`${ui.codeLabel.replace("{title}", project.title)} (${ui.opensInNewTab})`}
-                      className="relative z-10 inline-flex shrink-0 items-center gap-1.5 underline decoration-2 underline-offset-4 transition-colors hover:text-accent group-hover:hover:text-signal group-focus-within:hover:text-signal"
+                      className="relative z-10 -my-2.5 inline-flex shrink-0 items-center gap-1.5 py-2.5 underline decoration-2 underline-offset-4 transition-colors hover:text-accent group-hover:hover:text-signal group-focus-within:hover:text-signal"
                     >
                       <SiGithub className="size-4" />
                       {ui.viewCode}

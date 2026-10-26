@@ -19,7 +19,7 @@ export function Contact() {
 
         <a
           href={`mailto:${profile.email}`}
-          className="display mt-14 block text-[clamp(2rem,8vw,5.5rem)] leading-none break-all normal-case! underline decoration-signal decoration-[0.06em] underline-offset-[0.14em] transition-[text-decoration-thickness] hover:decoration-[0.14em]"
+          className="display -my-2 mt-14 block py-2 text-[clamp(2rem,8vw,5.5rem)] leading-none break-all normal-case! underline decoration-signal decoration-[0.06em] underline-offset-[0.14em] transition-[text-decoration-thickness] hover:decoration-[0.14em]"
         >
           {profile.email}
         </a>

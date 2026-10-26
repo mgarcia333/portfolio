@@ -77,6 +77,7 @@ export interface SiteContent {
     copyFailed: string;
     backToTop: string;
     language: string;
+    emailMe: string;
     home: string;
     /** Use `{title}` where the project name goes. */
     previewAlt: string;
@@ -164,6 +165,34 @@ export interface SiteContent {
     description: string;
     channels: { email: string; github: string; linkedin: string; base: string };
     baseValue: string;
+  };
+  contactForm: {
+    title: string;
+    description: string;
+    fields: { name: string; email: string; topic: string; message: string };
+    placeholders: { name: string; email: string; message: string };
+    topics: Record<"project" | "collaboration" | "job" | "other", string>;
+    /** Use `{n}` and `{max}`. */
+    counter: string;
+    consent: string;
+    privacy: string;
+    submit: string;
+    sending: string;
+    errors: {
+      name: string;
+      email: string;
+      message: string;
+      consent: string;
+      summary: string;
+      generic: string;
+      rate: string;
+      unavailable: string;
+      network: string;
+    };
+    fallback: string;
+    fallbackCta: string;
+    /** `text` uses `{name}` and `{email}`. */
+    success: { title: string; text: string; again: string };
   };
   notFound: {
     metaTitle: string;

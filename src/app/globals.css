@@ -30,6 +30,8 @@
 
   --focus: #5a2d9c;
 
+  --danger: #b42318;
+
   color-scheme: light;
 }
 
@@ -49,6 +51,8 @@
   --band: #1b1628;
 
   --focus: #b4ff39;
+
+  --danger: #ff7b72;
 
   color-scheme: dark;
 }
@@ -73,6 +77,8 @@
   --color-on-band: var(--on-band);
   --color-on-band-soft: var(--on-band-soft);
   --color-band-line: var(--band-line);
+
+  --color-danger: var(--danger);
 
   --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
 }

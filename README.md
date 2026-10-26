@@ -11,7 +11,7 @@ Personal portfolio and CV site: a single scrolling home plus a page each for wor
 - **About** — short bio; `/about` has the long version next to the list with the basics.
 - **Stack** — every technology laid out by layer; `/stack` adds why each layer looks the way it does.
 - **Experience** — roles and education; `/experience` adds highlights and the tech used.
-- **Contact** — its own page (`/contact`) with the email (mailto and copy-to-clipboard), GitHub, LinkedIn and base; the home page closes with a short version of it.
+- **Contact** — its own page (`/contact`): a message form that delivers to the inbox, plus the email (mailto and copy-to-clipboard), GitHub, LinkedIn and base. The home page closes with a short version of it.
 
 ## Design
 
@@ -23,7 +23,19 @@ Projects are a gapless, ruled grid (three across) where the hovered or focused c
 
 Deliberately **not** in here: boot screens, custom cursors, noise/scanline overlays, tilt/magnetic effects, sticky notes, handwriting, rotated stickers, marker highlights, hard shadows, numbered mono kickers, greetings, availability badges. Everything that needs a hover also works without one; motion is a single entrance on load.
 
-Usability details worth keeping: the whole project cell is one click target with the GitHub link as a separate real link, copy-email button with feedback, `/work` filters announced to screen readers, skip link, visible focus rings, mobile menu closes on Escape / navigation, no horizontally-scrolling lists.
+The navbar carries GitHub, LinkedIn and email as bare icon links (they move into the mobile menu on phones). Usability details worth keeping: the whole project cell is one click target with the GitHub link as a separate real link, copy-email button with feedback, `/work` filters announced to screen readers, skip link, visible focus rings, mobile menu closes on Escape / navigation, no horizontally-scrolling lists.
+
+## Contact form
+
+The form on `/contact` posts to `app/api/contact/route.ts`. The rules (lengths, email format, allowed topics) live in `src/lib/contact.ts` and are shared by the form and the route. The route drops bots quietly (a hidden honeypot field, a two-second minimum fill time, three messages per ten minutes per IP, best effort per Worker instance) and sends the email with [Resend](https://resend.com) over plain `fetch`. Nothing is stored on the site; replies go straight to the visitor (`reply_to`).
+
+**One-time setup** (until it is done the form shows "not available right now" and offers a prefilled `mailto:`, so no message is lost):
+
+1. Create a Resend account **with the address that should receive the messages**. The sandbox sender (`onboarding@resend.dev`) can only deliver to the account's own email, which is exactly this case.
+2. Create an API key and add it to the Worker as a secret: `npx wrangler secret put RESEND_API_KEY` (or Cloudflare dashboard → Workers & Pages → `portfolio` → Settings → Variables and Secrets → add a *Secret*).
+3. For local development put `RESEND_API_KEY=...` in `.dev.vars` (it is git-ignored).
+
+Optional variables: `CONTACT_TO` (default: the email in the profile) and `CONTACT_FROM` (default `Portafolio <onboarding@resend.dev>`; once a domain is verified in Resend, something like `Portafolio <hola@yourdomain.com>`). `RESEND_API_URL` exists only so the test suite can point the route at a fake provider.
 
 ## SEO
 
@@ -54,13 +66,13 @@ Project metadata (URLs, stack, preview image, repo, category) lives once in `src
 
 ```
 src/
-├── app/                  # Routes: home, /work, /about, /stack, /experience, metadata, icons
+├── app/                  # Routes: home, /work, /about, /stack, /experience, /contact, /api/contact, metadata, icons
 ├── components/
 │   ├── layout/           # Navbar, footer, page header, skip link
 │   ├── sections/         # Home page sections
 │   ├── ui/               # Primitives (button, section, marked text, copy-email, toggles...)
 │   ├── work/             # Project grid and the /work page content
-│   ├── contact/          # The /contact page content
+│   ├── contact/          # The /contact page and its form
 │   ├── seo/              # JSON-LD
 │   ├── about/            # Fact list and the /about page content
 │   ├── stack/            # Stack list and the /stack page content
