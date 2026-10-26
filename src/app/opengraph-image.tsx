@@ -16,41 +16,35 @@ export default async function OpengraphImage() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          background: "#0e0a18",
-          color: "#eeeaf7",
+          justifyContent: "space-between",
+          padding: "72px 84px",
+          background: "#eeeae2",
+          color: "#15121d",
           fontFamily: family,
+          borderTop: "14px solid #15121d",
         }}
       >
-        <div style={{ display: "flex", height: 12, width: "100%" }}>
-          <div style={{ display: "flex", width: "72%", background: "#7b3fd0" }} />
-          <div style={{ display: "flex", width: "16%", background: "#8dff3b" }} />
-          <div style={{ display: "flex", width: "12%", background: "#7b3fd0" }} />
+        <div style={{ display: "flex", fontSize: 30, fontWeight: 700 }}>Moisés García</div>
+
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              fontSize: 92,
+              fontWeight: 700,
+              letterSpacing: -3,
+              lineHeight: 1.05,
+              whiteSpace: "nowrap",
+            }}
+          >
+            <div style={{ display: "flex" }}>Webs completas,</div>
+            <div style={{ display: "flex", color: "#5a2d9c" }}>de la interfaz al servidor.</div>
+          </div>
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            flex: 1,
-            justifyContent: "center",
-            padding: "0 96px",
-          }}
-        >
-          <div
-            style={{ display: "flex", fontSize: 112, fontWeight: 700, letterSpacing: -4, lineHeight: 1 }}
-          >
-            Moisés García
-          </div>
-          <div
-            style={{ display: "flex", marginTop: 28, fontSize: 44, fontWeight: 700, color: "#b48cf2" }}
-          >
-            Full-stack developer
-          </div>
-          <div
-            style={{ display: "flex", marginTop: 12, fontSize: 32, fontWeight: 400, color: "#9b92b4" }}
-          >
-            Barcelona · Vue, React, Node, Docker, Cloudflare
-          </div>
+        <div style={{ display: "flex", fontSize: 30, fontWeight: 400, color: "#4a4556" }}>
+          Desarrollador full-stack · Barcelona
         </div>
       </div>
     ),

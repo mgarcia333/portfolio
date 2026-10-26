@@ -5,7 +5,7 @@ import { locales } from "@/i18n";
 import { useLanguage } from "@/i18n/language-context";
 import { cn } from "@/lib/utils";
 
-/** Plain text switch (ES / CA / EN): no boxes, the active one is underlined in green. */
+/** Plain text switch (ES / CA / EN): the active language is just underlined. */
 export function LanguageSwitcher({ className }: { className?: string }) {
   const { locale, setLocale, content } = useLanguage();
 
@@ -20,7 +20,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         return (
           <Fragment key={item.code}>
             {index > 0 ? (
-              <span aria-hidden="true" className="text-line-strong">
+              <span aria-hidden="true" className="text-ink-muted">
                 /
               </span>
             ) : null}
@@ -32,17 +32,11 @@ export function LanguageSwitcher({ className }: { className?: string }) {
               lang={item.code}
               title={item.label}
               className={cn(
-                "relative h-10 min-w-9 px-1.5 text-sm font-semibold transition-colors",
-                isActive ? "text-fg" : "text-fg-muted hover:text-fg"
+                "h-10 min-w-9 px-1.5 text-sm font-semibold underline-offset-[7px] decoration-2 transition-colors",
+                isActive ? "text-ink underline" : "text-ink-muted hover:text-ink"
               )}
             >
               {item.shortLabel}
-              {isActive ? (
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-x-1.5 bottom-1.5 h-0.5 rounded-full bg-signal"
-                />
-              ) : null}
             </button>
           </Fragment>
         );

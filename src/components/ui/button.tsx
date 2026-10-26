@@ -2,20 +2,20 @@ import Link from "next/link";
 import type { ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
-export type ButtonVariant = "primary" | "outline" | "signal" | "onband";
+export type ButtonVariant = "solid" | "outline" | "text" | "signal" | "onband";
 export type ButtonSize = "md" | "sm";
 
 const VARIANTS: Record<ButtonVariant, string> = {
-  primary: "bg-brand text-on-brand hover:bg-brand-hover",
-  outline:
-    "border border-line-strong text-fg hover:border-brand-text hover:bg-surface-hover",
-  // The one neon-green call to action, for use on the deep-purple band.
-  signal: "bg-signal text-on-signal hover:brightness-110",
-  onband: "border border-white/30 text-on-band hover:border-white/60 hover:bg-white/10",
+  solid: "bg-ink text-paper hover:bg-accent",
+  outline: "border border-ink text-ink hover:bg-ink hover:text-paper",
+  // Just an underlined line of text with an arrow, for secondary actions.
+  text: "px-0 underline decoration-2 underline-offset-[6px] hover:text-accent hover:decoration-accent",
+  signal: "bg-signal text-on-signal hover:brightness-95",
+  onband: "border border-on-band/40 text-on-band hover:bg-on-band hover:text-band",
 };
 
 const SIZES: Record<ButtonSize, string> = {
-  md: "h-12 px-6 text-[0.95rem]",
+  md: "h-12 px-6",
   sm: "h-10 px-4 text-sm",
 };
 
@@ -25,8 +25,8 @@ export function buttonClass(
   className?: string
 ) {
   return cn(
-    "inline-flex items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap select-none",
-    "transition-[background-color,border-color,color,transform,filter] duration-150 active:scale-[0.97]",
+    "inline-flex items-center justify-center gap-2 rounded-[2px] font-semibold whitespace-nowrap select-none",
+    "transition-[background-color,color,border-color,transform] duration-150 active:translate-y-px",
     SIZES[size],
     VARIANTS[variant],
     className

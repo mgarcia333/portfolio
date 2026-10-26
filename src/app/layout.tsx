@@ -21,6 +21,7 @@ const NO_FLASH_THEME_SCRIPT = `
 
 const archivo = Archivo({
   subsets: ["latin"],
+  axes: ["wdth"],
   variable: "--font-archivo",
   display: "swap",
 });
@@ -72,7 +73,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={archivo.variable}
     >
-      <body className="bg-canvas text-fg antialiased" suppressHydrationWarning>
+      <body className="bg-paper text-ink antialiased" suppressHydrationWarning>
         <Script
           id="theme-init"
           strategy="beforeInteractive"

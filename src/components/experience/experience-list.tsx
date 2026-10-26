@@ -1,4 +1,3 @@
-import { TechChip } from "@/components/ui/tech-chip";
 import type { ExperienceEntry } from "@/i18n";
 import { cn } from "@/lib/utils";
 
@@ -6,41 +5,37 @@ type Entry = ExperienceEntry & { highlights?: string[]; stack?: string[] };
 
 export function ExperienceList({ entries }: { entries: Entry[] }) {
   return (
-    <ol className="border-b border-line">
+    <ol className="border-t border-ink">
       {entries.map((entry) => (
         <li
           key={entry.org}
-          className="grid gap-4 border-t border-line py-7 md:grid-cols-[9rem_1fr] md:gap-8"
+          className="grid gap-3 border-b border-line py-8 md:grid-cols-[8rem_minmax(0,1fr)] md:gap-8"
         >
-          <div>
-            <span
-              className={cn(
-                "inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm font-medium",
-                entry.current
-                  ? "border-signal/50 bg-signal/10 text-fg"
-                  : "border-line-strong text-fg-muted"
-              )}
-            >
-              {entry.current ? (
-                <span className="size-1.5 rounded-full bg-signal" aria-hidden="true" />
-              ) : null}
-              {entry.status}
-            </span>
-          </div>
+          <p
+            className={cn(
+              "flex items-center gap-2 pt-2 text-sm font-medium",
+              entry.current ? "text-ink" : "text-ink-muted"
+            )}
+          >
+            {entry.current ? (
+              <span
+                className="size-2 rounded-full bg-signal ring-1 ring-ink/40"
+                aria-hidden="true"
+              />
+            ) : null}
+            {entry.status}
+          </p>
 
           <div>
-            <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">{entry.org}</h3>
-            <p className="mt-1 font-medium text-brand-text">{entry.role}</p>
-            <p className="mt-3 max-w-xl text-pretty text-fg-soft">{entry.description}</p>
+            <h3 className="display text-[clamp(1.75rem,3vw,2.5rem)] text-balance">{entry.org}</h3>
+            <p className="mt-2 font-semibold text-accent">{entry.role}</p>
+            <p className="mt-3 max-w-xl text-pretty text-ink-soft">{entry.description}</p>
 
             {entry.highlights ? (
               <ul className="mt-5 max-w-xl space-y-2.5">
                 {entry.highlights.map((point) => (
-                  <li key={point} className="flex gap-3 text-fg-soft">
-                    <span
-                      className="mt-[0.7em] size-1.5 shrink-0 rounded-full bg-brand-text"
-                      aria-hidden="true"
-                    />
+                  <li key={point} className="flex gap-3 text-ink-soft">
+                    <span className="mt-[0.8em] h-px w-4 shrink-0 bg-ink" aria-hidden="true" />
                     <span className="text-pretty">{point}</span>
                   </li>
                 ))}
@@ -48,13 +43,7 @@ export function ExperienceList({ entries }: { entries: Entry[] }) {
             ) : null}
 
             {entry.stack ? (
-              <ul className="mt-5 flex flex-wrap gap-2">
-                {entry.stack.map((tech) => (
-                  <li key={tech}>
-                    <TechChip label={tech} />
-                  </li>
-                ))}
-              </ul>
+              <p className="mt-5 text-sm text-ink-muted">{entry.stack.join(" · ")}</p>
             ) : null}
           </div>
         </li>

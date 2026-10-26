@@ -6,7 +6,6 @@ export type StackIcon = ComponentType<{ className?: string }>;
 
 export interface StackItem {
   name: string;
-  icon: StackIcon;
 }
 
 export interface StackCategory {
@@ -82,6 +81,8 @@ export interface SiteContent {
   };
   /** Wrap a phrase in `*asterisks*` to emphasise it (rendered bold). */
   hero: {
+    /** Big headline: one line per `\n`; wrap a line in `*asterisks*` to colour it. */
+    statement: string;
     tagline: string;
     ctaWork: string;
     ctaContact: string;

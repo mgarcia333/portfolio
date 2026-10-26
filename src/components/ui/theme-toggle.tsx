@@ -23,8 +23,8 @@ export function ThemeToggle({ className, withLabel = false }: ThemeToggleProps) 
       aria-label={content.themeToggle}
       title={content.themeToggle}
       className={cn(
-        "inline-flex h-10 items-center justify-center gap-2 rounded-full text-fg-soft transition-colors hover:bg-surface-hover hover:text-fg",
-        withLabel ? "px-3 font-medium" : "w-10",
+        "inline-flex h-10 items-center justify-center gap-2 text-ink-soft transition-colors hover:text-ink",
+        withLabel ? "font-medium" : "w-10",
         className
       )}
     >

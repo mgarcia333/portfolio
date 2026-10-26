@@ -3,16 +3,15 @@ import { cn } from "@/lib/utils";
 interface SectionHeadingProps {
   title: string;
   description?: string;
-  as?: "h1" | "h2";
   className?: string;
 }
 
-export function SectionHeading({ title, description, as: Tag = "h2", className }: SectionHeadingProps) {
+export function SectionHeading({ title, description, className }: SectionHeadingProps) {
   return (
     <div className={className}>
-      <Tag className={cn(Tag === "h1" ? "h1" : "h2", "text-balance")}>{title}</Tag>
+      <h2 className="display text-[clamp(2.25rem,4.6vw,3.75rem)] text-balance">{title}</h2>
       {description ? (
-        <p className="mt-4 max-w-xl text-lg text-pretty text-fg-soft">{description}</p>
+        <p className={cn("mt-5 max-w-md text-lg text-pretty text-ink-soft")}>{description}</p>
       ) : null}
     </div>
   );

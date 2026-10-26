@@ -6,22 +6,24 @@ Personal portfolio and CV site: a single scrolling home plus a page each for wor
 
 ## Sections
 
-- **Hero** — name, role, the two main actions (see the work / email me) and a card with the basics.
-- **Work** — the six featured projects on the home page; `/work` lists all of them with a filter by type.
-- **About** — short bio; `/about` has the long version next to the card with the basics.
+- **Hero** — the positioning statement as the headline (the name is just a small byline), the two main actions (see the work / email me) and a short list with the basics.
+- **Work** — the six featured projects on the home page as an index with a large preview; `/work` lists all of them with a filter by type.
+- **About** — short bio; `/about` has the long version next to the list with the basics.
 - **Stack** — every technology laid out by layer; `/stack` adds why each layer looks the way it does.
 - **Experience** — roles and education; `/experience` adds highlights and the tech used.
 - **Contact** — email (mailto and copy-to-clipboard), GitHub/LinkedIn.
 
 ## Design
 
-Serious and orderly: a two-column editorial grid (title on the left, content on the right), hairline rules, restrained rounded cards and pill buttons, one sans family (Archivo) in sentence case.
+A printed-page look, on purpose the opposite of the usual dark-gradient-and-cards portfolio template: bone paper, violet-black ink, hairline rules, a single sans family (Archivo) set heavy and condensed in upper case for headlines and plain for text, a two-column editorial grid (title on the left, content on the right). No cards, chips, icons-in-boxes, pills, glow, glass or rounded corners.
 
-The palette is taken from EVA-01 and used sparingly: a near-black violet canvas, the unit's purple as the brand colour (buttons, links, accents) and its neon green only as a small signal (active nav item, focus ring, the one CTA on the contact band). Dark is the default theme; the light theme swaps the canvas for a lavender white and keeps the same purple. The contact band and footer stay deep purple in both.
+The palette is taken from EVA-01: violet-black ink, the unit's purple as the only accent, and its neon green in micro-doses (text selection, the active project row, the one CTA on the contact band). Light is the default theme; the dark theme swaps paper and ink. The contact band and footer stay dark in both.
 
-Deliberately **not** in here: boot screens, custom cursors, noise/scanline overlays, glow, glass, tilt/magnetic effects, sticky notes, handwriting, rotated stickers, numbered mono kickers, greetings. Everything that needs a hover also works without one.
+The signature piece is the project index: one ruled row per project and a large sticky preview that follows whichever row is hovered or focused (below `lg` each row carries its own image). The headline is a statement, not the name, which stays small.
 
-Usability details worth keeping: the whole project card is one click target with the GitHub link as a separate real link, copy-email button with feedback, `/work` filters announced to screen readers, skip link, visible focus rings, mobile menu closes on Escape / navigation, no horizontally-scrolling lists.
+Deliberately **not** in here: boot screens, custom cursors, noise/scanline overlays, tilt/magnetic effects, sticky notes, handwriting, rotated stickers, marker highlights, hard shadows, numbered mono kickers, greetings, availability badges. Everything that needs a hover also works without one; motion is a single entrance on load.
+
+Usability details worth keeping: the whole project row is one click target with the GitHub link as a separate real link, copy-email button with feedback, `/work` filters announced to screen readers, skip link, visible focus rings, mobile menu closes on Escape / navigation, no horizontally-scrolling lists.
 
 ## Content and localization
 
@@ -48,9 +50,9 @@ src/
 ├── components/
 │   ├── layout/           # Navbar, footer, page header, skip link
 │   ├── sections/         # Home page sections
-│   ├── ui/               # Primitives (button, section, accent bar, marked text, copy-email, chips, toggles...)
-│   ├── work/             # Project card and the /work page content
-│   ├── about/            # Profile card and the /about page content
+│   ├── ui/               # Primitives (button, section, marked text, copy-email, toggles...)
+│   ├── work/             # Project index and the /work page content
+│   ├── about/            # Fact list and the /about page content
 │   ├── stack/            # Stack list and the /stack page content
 │   └── experience/       # Experience list and the /experience page content
 ├── i18n/                 # Locale types, provider, shared project data and per-language content

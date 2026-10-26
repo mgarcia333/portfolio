@@ -16,7 +16,7 @@ export function Experience() {
       <div className="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,8fr)] lg:gap-16">
         <div>
           <SectionHeading title={experience.title} />
-          <ButtonLink href="/experience" className="mt-8">
+          <ButtonLink href="/experience" variant="text" className="mt-6">
             {experience.viewMore}
             <ArrowRight className="size-4" />
           </ButtonLink>

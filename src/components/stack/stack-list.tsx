@@ -1,26 +1,28 @@
-import { TechChip } from "@/components/ui/tech-chip";
 import type { StackCategory } from "@/i18n";
 
 type Category = StackCategory & { description?: string };
 
-/** Every category laid out flat, so nothing hides behind a horizontal scroll. */
+/** A typographic index: category on the left, the tools set as a line of type. */
 export function StackList({ categories }: { categories: Category[] }) {
   return (
-    <dl className="border-b border-line">
+    <dl className="border-t border-ink">
       {categories.map((category) => (
         <div
           key={category.id}
-          className="grid gap-3 border-t border-line py-6 md:grid-cols-[10rem_1fr] md:gap-8"
+          className="grid gap-2 border-b border-line py-6 md:grid-cols-[10rem_minmax(0,1fr)] md:gap-8"
         >
-          <dt className="font-semibold">{category.label}</dt>
+          <dt className="pt-1.5 text-sm font-medium text-ink-muted">{category.label}</dt>
           <dd>
             {category.description ? (
-              <p className="mb-4 max-w-2xl text-pretty text-fg-soft">{category.description}</p>
+              <p className="mb-3 max-w-2xl text-pretty text-ink-soft">{category.description}</p>
             ) : null}
-            <ul className="flex flex-wrap gap-2">
+            <ul className="flex flex-wrap text-xl font-semibold tracking-tight sm:text-2xl">
               {category.items.map((item) => (
-                <li key={item.name}>
-                  <TechChip icon={item.icon} label={item.name} className="px-3 py-1.5" />
+                <li
+                  key={item.name}
+                  className="after:mx-3 after:font-normal after:text-ink-muted after:content-['/'] last:after:hidden"
+                >
+                  {item.name}
                 </li>
               ))}
             </ul>

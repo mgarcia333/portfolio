@@ -16,7 +16,7 @@ export default async function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0e0a18",
+          background: "#eeeae2",
         }}
       >
         <div
@@ -27,9 +27,8 @@ export default async function AppleIcon() {
             justifyContent: "center",
             width: 140,
             height: 140,
-            background: "#7b3fd0",
-            borderRadius: 30,
-            color: "#ffffff",
+            background: "#15121d",
+            color: "#eeeae2",
             fontSize: 64,
             fontWeight: 700,
             fontFamily: family,
@@ -37,14 +36,7 @@ export default async function AppleIcon() {
         >
           MG
           <div
-            style={{
-              display: "flex",
-              width: 44,
-              height: 6,
-              marginTop: 6,
-              borderRadius: 3,
-              background: "#8dff3b",
-            }}
+            style={{ display: "flex", width: 44, height: 6, marginTop: 6, background: "#b4ff39" }}
           />
         </div>
       </div>

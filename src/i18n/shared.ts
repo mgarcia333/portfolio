@@ -1,26 +1,4 @@
-import { Cable, Cloud } from "lucide-react";
-import {
-  SiAndroid,
-  SiCloudflare,
-  SiDocker,
-  SiFramer,
-  SiGit,
-  SiGithub,
-  SiHtml5,
-  SiJavascript,
-  SiLaravel,
-  SiMongodb,
-  SiMysql,
-  SiNodedotjs,
-  SiPhp,
-  SiPostgresql,
-  SiReact,
-  SiTailwindcss,
-  SiUnity,
-  SiVuedotjs,
-  SiVuetify,
-} from "react-icons/si";
-import { DiCss3, DiJava } from "react-icons/di";
+import { SiGithub } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
 import type { Project, ProjectCategory, Social, StackItem } from "./types";
 
@@ -37,39 +15,23 @@ export const socials: Social[] = [
   { label: "LinkedIn", href: profileShared.linkedin, icon: FaLinkedin },
 ];
 
+const names = (...list: string[]): StackItem[] => list.map((name) => ({ name }));
+
 export const stackItemsByCategory: Record<string, StackItem[]> = {
-  frontend: [
-    { name: "Vue.js", icon: SiVuedotjs },
-    { name: "Vuetify", icon: SiVuetify },
-    { name: "React", icon: SiReact },
-    { name: "Tailwind CSS", icon: SiTailwindcss },
-    { name: "Framer Motion", icon: SiFramer },
-    { name: "JavaScript", icon: SiJavascript },
-    { name: "HTML", icon: SiHtml5 },
-    { name: "CSS", icon: DiCss3 },
-  ],
-  databases: [
-    { name: "MongoDB", icon: SiMongodb },
-    { name: "MySQL", icon: SiMysql },
-    { name: "PostgreSQL", icon: SiPostgresql },
-  ],
-  infra: [
-    { name: "Docker", icon: SiDocker },
-    { name: "Oracle Cloud", icon: Cloud },
-    { name: "Cloudflare", icon: SiCloudflare },
-  ],
-  backend: [
-    { name: "Node.js", icon: SiNodedotjs },
-    { name: "PHP", icon: SiPhp },
-    { name: "Laravel", icon: SiLaravel },
-    { name: "Java", icon: DiJava },
-    { name: "Sockets", icon: Cable },
-  ],
-  tools: [
-    { name: "Git", icon: SiGit },
-    { name: "Android Studio", icon: SiAndroid },
-    { name: "Unity", icon: SiUnity },
-  ],
+  frontend: names(
+    "Vue.js",
+    "Vuetify",
+    "React",
+    "Tailwind CSS",
+    "Framer Motion",
+    "JavaScript",
+    "HTML",
+    "CSS"
+  ),
+  databases: names("MongoDB", "MySQL", "PostgreSQL"),
+  infra: names("Docker", "Oracle Cloud", "Cloudflare"),
+  backend: names("Node.js", "PHP", "Laravel", "Java", "Sockets"),
+  tools: names("Git", "Android Studio", "Unity"),
 };
 
 interface ProjectShared {

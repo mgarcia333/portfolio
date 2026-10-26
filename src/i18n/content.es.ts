@@ -29,8 +29,9 @@ export const contentEs: SiteContent = {
     language: "Idioma",
   },
   hero: {
+    statement: "Webs completas,\n*de la interfaz*\n*al servidor.*",
     tagline:
-      "Desarrollo *webs completas*: la interfaz (Vue, React), los servicios que corren por detrás (Node, PHP, Java) y la infraestructura donde se despliegan, que también gestiono yo.",
+      "Construyo la interfaz (Vue, React), los servicios que corren por detrás (Node, PHP, Java) y la infraestructura donde se despliegan, que también gestiono yo.",
     ctaWork: "Ver proyectos",
     ctaContact: "Escríbeme",
   },

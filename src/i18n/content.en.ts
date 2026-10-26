@@ -29,8 +29,9 @@ export const contentEn: SiteContent = {
     language: "Language",
   },
   hero: {
+    statement: "Complete websites,\n*from interface*\n*to server.*",
     tagline:
-      "I build *complete websites*: the interface (Vue, React), the services running behind it (Node, PHP, Java) and the infrastructure it's deployed on, which I also manage myself.",
+      "I build the interface (Vue, React), the services running behind it (Node, PHP, Java) and the infrastructure it's deployed on, which I also manage myself.",
     ctaWork: "See my work",
     ctaContact: "Email me",
   },

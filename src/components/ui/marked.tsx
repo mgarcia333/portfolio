@@ -1,14 +1,21 @@
 import { Fragment } from "react";
+import { cn } from "@/lib/utils";
 
-/** Renders a string where `*phrases*` are emphasised (bold). */
-export function Marked({ text }: { text: string }) {
+interface MarkedProps {
+  text: string;
+  /** `strong` renders bold (body copy); `accent` colours the phrase (headlines). */
+  tone?: "strong" | "accent";
+}
+
+/** Renders a string where `*phrases*` are emphasised. */
+export function Marked({ text, tone = "strong" }: MarkedProps) {
   return (
     <>
       {text.split("*").map((part, index) =>
         index % 2 === 1 ? (
-          <strong key={index} className="font-semibold text-fg">
+          <span key={index} className={cn(tone === "accent" ? "text-accent" : "font-semibold text-ink")}>
             {part}
-          </strong>
+          </span>
         ) : (
           <Fragment key={index}>{part}</Fragment>
         )

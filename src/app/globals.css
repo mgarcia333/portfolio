@@ -1,117 +1,98 @@
 @import "tailwindcss";
 
 /*
- * EVA-01 palette, used with restraint: a near-black violet canvas, the unit's
- * purple as the brand colour and its neon green only as a small signal
- * (status, active state, focus, one CTA). Dark is the default theme.
+ * Printed-page palette: bone paper, violet-black ink, EVA-01 purple as the one
+ * accent, and its neon green in micro-doses (text selection, the active project
+ * row, buttons on the dark band). Light is the default; dark swaps the paper
+ * for the ink and vice versa.
  */
 :root {
-  --canvas: #0e0a18;
-  --canvas-alt: #130e22;
-  --surface: #19122b;
-  --surface-hover: #21183a;
+  --paper: #eeeae2;
+  --paper-2: #e6e1d7;
 
-  --line: #2d2248;
-  --line-strong: #46356f;
+  --ink: #15121d;
+  --ink-soft: #4a4556;
+  --ink-muted: #6e687c;
 
-  --fg: #eeeaf7;
-  --fg-soft: #c6bfdb;
-  --fg-muted: #9b92b4;
+  --line: #cdc7bb;
 
-  --brand: #7b3fd0;
-  --brand-hover: #8b52e0;
-  --on-brand: #ffffff;
-  --brand-text: #b48cf2;
+  --accent: #5a2d9c;
+  --accent-hover: #6f3ab8;
 
-  --signal: #8dff3b;
-  --on-signal: #0e0a18;
+  --signal: #b4ff39;
+  --on-signal: #15121d;
 
-  /* Contact band + footer: always deep purple, in both themes. */
-  --band: #2a1457;
-  --footer: #160b2e;
-  --on-band: #f2edfb;
-  --on-band-soft: #cdc2e8;
+  /* Closing band + footer. */
+  --band: #15121d;
+  --on-band: #eeeae2;
+  --on-band-soft: #b9b3c6;
+  --band-line: rgb(238 234 226 / 0.2);
 
-  --focus: #8dff3b;
-  --lift: 0 14px 34px -14px rgb(0 0 0 / 0.7);
-
-  color-scheme: dark;
-}
-
-:root[data-theme="light"] {
-  --canvas: #f7f5fb;
-  --canvas-alt: #eeeaf6;
-  --surface: #ffffff;
-  --surface-hover: #f3effa;
-
-  --line: #e0d9ee;
-  --line-strong: #c4b8dc;
-
-  --fg: #140e22;
-  --fg-soft: #403656;
-  --fg-muted: #665c7e;
-
-  --brand: #5b2d99;
-  --brand-hover: #6e3cb5;
-  --on-brand: #ffffff;
-  --brand-text: #5b2d99;
-
-  --signal: #66d11f;
-  --on-signal: #0e0a18;
-
-  --focus: #5b2d99;
-  --lift: 0 14px 34px -16px rgb(42 20 87 / 0.35);
+  --focus: #5a2d9c;
 
   color-scheme: light;
 }
 
+:root[data-theme="dark"] {
+  --paper: #100e17;
+  --paper-2: #16131f;
+
+  --ink: #eeeae2;
+  --ink-soft: #c9c3d6;
+  --ink-muted: #9a94ab;
+
+  --line: #2b2638;
+
+  --accent: #b093f0;
+  --accent-hover: #c4aef5;
+
+  --band: #1b1628;
+
+  --focus: #b4ff39;
+
+  color-scheme: dark;
+}
+
 @theme inline {
-  --color-canvas: var(--canvas);
-  --color-canvas-alt: var(--canvas-alt);
-  --color-surface: var(--surface);
-  --color-surface-hover: var(--surface-hover);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
 
   --color-line: var(--line);
-  --color-line-strong: var(--line-strong);
 
-  --color-fg: var(--fg);
-  --color-fg-soft: var(--fg-soft);
-  --color-fg-muted: var(--fg-muted);
-
-  --color-brand: var(--brand);
-  --color-brand-hover: var(--brand-hover);
-  --color-on-brand: var(--on-brand);
-  --color-brand-text: var(--brand-text);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
 
   --color-signal: var(--signal);
   --color-on-signal: var(--on-signal);
 
   --color-band: var(--band);
-  --color-footer: var(--footer);
   --color-on-band: var(--on-band);
   --color-on-band-soft: var(--on-band-soft);
+  --color-band-line: var(--band-line);
 
   --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
-
-  --shadow-lift: var(--lift);
 }
 
 @layer base {
   *,
   ::before,
   ::after {
-    border-color: var(--line);
+    border-color: var(--ink);
   }
 
   html {
-    background: var(--canvas);
+    background: var(--paper);
     scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: 5rem;
   }
 
   body {
-    background: var(--canvas);
-    color: var(--fg);
+    background: var(--paper);
+    color: var(--ink);
     font-family: var(--font-sans);
     font-size: 1.0625rem;
     line-height: 1.65;
@@ -119,68 +100,44 @@
   }
 
   ::selection {
-    background: var(--brand);
-    color: var(--on-brand);
+    background: var(--signal);
+    color: var(--on-signal);
   }
 
   :focus-visible {
     outline: 2px solid var(--focus);
     outline-offset: 3px;
-    border-radius: 4px;
   }
 
-  /* Deep-purple surfaces always get the green ring. */
   .on-band :focus-visible {
     outline-color: var(--signal);
   }
 }
 
 @layer utilities {
-  /* Headings: one scale, sentence case, tight. */
-  .h1 {
-    font-size: clamp(2.25rem, 4.6vw, 3.75rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1.05;
-  }
-  .h2 {
-    font-size: clamp(1.875rem, 3.2vw, 2.5rem);
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 1.1;
-  }
-  .h3 {
-    font-size: 1.25rem;
-    font-weight: 650;
-    letter-spacing: -0.012em;
-    line-height: 1.3;
+  /* Headlines: heavy, condensed, upper-case. The same family as the text, just set differently. */
+  .display {
+    font-weight: 900;
+    font-stretch: 64%;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    line-height: 0.95;
   }
 
-  /* Text link: purple, underline thickens on hover. */
-  .link {
-    color: var(--brand-text);
-    text-decoration: underline;
-    text-decoration-color: color-mix(in srgb, var(--brand-text) 45%, transparent);
-    text-decoration-thickness: 1px;
-    text-underline-offset: 4px;
-    transition:
-      text-decoration-color 0.15s ease,
-      text-decoration-thickness 0.15s ease;
-  }
-  .link:hover {
-    text-decoration-color: currentColor;
-    text-decoration-thickness: 2px;
+  /* Page-load: things settle into place once, in sequence. */
+  .rise {
+    animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.4em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -192,5 +149,16 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
