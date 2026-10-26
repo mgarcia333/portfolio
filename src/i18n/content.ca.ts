@@ -118,6 +118,7 @@ export const contentCa: SiteContent = {
     title: "Projectes en producció",
     description: "Lliurats, desplegats i funcionant ara mateix — entra a provar qualsevol d'ells.",
     categories: {
+      client: "Clients reals",
       webapp: "Apps web",
       unity: "Unity · Videojocs",
       template: "Plantilles",
@@ -167,6 +168,11 @@ export const contentCa: SiteContent = {
         title: "Mado",
         description:
           "Una pestanya nova per a Chrome a la teva mida — fons propi i quadres amb imatge que obren les teves webs, que es col·loquen i redimensionen arrossegant. Sense comptes ni rastreig.",
+      },
+      adictalia: {
+        title: "Adictalia Control Center",
+        description:
+          "Web corporativa d'un servei de tractament d'addiccions en línia i suport a la família — presenta el programa, els serveis, els preus i el procés, amb contacte directe per telèfon, WhatsApp i formulari.",
       },
     }),
   },

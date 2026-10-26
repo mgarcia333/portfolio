@@ -24,7 +24,7 @@ export interface ExperienceEntry {
   description: string;
 }
 
-export type ProjectCategory = "webapp" | "unity" | "template";
+export type ProjectCategory = "client" | "webapp" | "unity" | "template";
 
 export interface Project {
   id: string;

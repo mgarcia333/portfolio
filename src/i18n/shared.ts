@@ -157,6 +157,13 @@ export const projectsShared: Record<string, ProjectShared> = {
     preview: "/projects/mado.png",
     github: "https://github.com/mgarcia333/mado",
   },
+  adictalia: {
+    category: "client",
+    tag: "CLIENT_01",
+    stack: ["Next.js", "Web corporativa", "Formulario de contacto"],
+    url: "https://adictaliacontrolcenter.es/",
+    preview: "/projects/adictalia.png",
+  },
 };
 
 export function buildProjects(

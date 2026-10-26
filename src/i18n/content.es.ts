@@ -118,6 +118,7 @@ export const contentEs: SiteContent = {
     title: "Proyectos en producción",
     description: "Entregados, desplegados y funcionando ahora mismo — entra a probar cualquiera de ellos.",
     categories: {
+      client: "Clientes reales",
       webapp: "Apps web",
       unity: "Unity · Videojuegos",
       template: "Plantillas",
@@ -167,6 +168,11 @@ export const contentEs: SiteContent = {
         title: "Mado",
         description:
           "Una nueva pestaña para Chrome a tu medida — fondo propio y cuadros con imagen que abren tus webs, que se colocan y redimensionan arrastrando. Sin cuentas ni rastreo.",
+      },
+      adictalia: {
+        title: "Adictalia Control Center",
+        description:
+          "Web corporativa de un servicio de tratamiento de adicciones online y apoyo a la familia — presenta el programa, los servicios, los precios y el proceso, con contacto directo por teléfono, WhatsApp y formulario.",
       },
     }),
   },

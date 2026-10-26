@@ -118,6 +118,7 @@ export const contentEn: SiteContent = {
     title: "Live projects",
     description: "Shipped, deployed and running right now — click through to try any of them.",
     categories: {
+      client: "Real clients",
       webapp: "Web Apps",
       unity: "Unity · Games",
       template: "Templates",
@@ -167,6 +168,11 @@ export const contentEn: SiteContent = {
         title: "Mado",
         description:
           "A new-tab page for Chrome, your way — your own background and image tiles that open your favorite sites, moved and resized by dragging. No accounts, no tracking.",
+      },
+      adictalia: {
+        title: "Adictalia Control Center",
+        description:
+          "Corporate website for an online addiction treatment and family support service — presents the program, services, pricing and process, with direct contact by phone, WhatsApp and form.",
       },
     }),
   },

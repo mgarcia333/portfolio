@@ -6,7 +6,7 @@ import { ProjectCard } from "@/components/work/project-card";
 import { useLanguage } from "@/i18n/language-context";
 import type { ProjectCategory } from "@/i18n/types";
 
-const CATEGORY_ORDER: ProjectCategory[] = ["webapp", "unity", "template"];
+const CATEGORY_ORDER: ProjectCategory[] = ["client", "webapp", "unity", "template"];
 
 export function WorkPageContent() {
   const { content } = useLanguage();
