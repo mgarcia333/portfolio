@@ -31,11 +31,11 @@ export function WorkPageContent() {
   );
 
   return (
-    <main id="main" className="pt-28 pb-24 sm:pt-32">
+    <main id="main" className="pt-32 pb-24 sm:pt-36">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <PageHeader backLabel={work.backHome} title={work.title} description={work.description} />
 
-        <div role="group" aria-label={work.filterLabel} className="flex flex-wrap gap-3">
+        <div role="group" aria-label={work.filterLabel} className="flex flex-wrap gap-2">
           {options.map((option) => {
             const isActive = option === filter;
             return (
@@ -45,14 +45,14 @@ export function WorkPageContent() {
                 onClick={() => setFilter(option)}
                 aria-pressed={isActive}
                 className={cn(
-                  "inline-flex min-h-11 items-center gap-2 border-2 border-ink px-4 font-bold transition-[transform,box-shadow,background-color] duration-100",
+                  "inline-flex h-10 items-center gap-2 rounded-full border px-4 text-sm font-medium transition-[background-color,border-color,color,transform] duration-150 active:scale-[0.97]",
                   isActive
-                    ? "translate-x-0.5 translate-y-0.5 bg-ink text-paper"
-                    : "bg-card shadow-hard-sm hover:-translate-x-px hover:-translate-y-px hover:bg-highlight hover:text-highlight-ink hover:shadow-hard active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+                    ? "border-brand bg-brand text-on-brand"
+                    : "border-line-strong text-fg-soft hover:border-brand-text hover:bg-surface-hover hover:text-fg"
                 )}
               >
                 {option === "all" ? work.filterAll : work.categories[option]}
-                <span className="text-sm tabular-nums opacity-70">{countFor(option)}</span>
+                <span className="tabular-nums opacity-70">{countFor(option)}</span>
               </button>
             );
           })}
@@ -62,7 +62,7 @@ export function WorkPageContent() {
           {countText}
         </p>
 
-        <ul className="mt-12 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((project) => (
             <li key={project.id}>
               <ProjectCard project={project} sizes={CARD_SIZES} />

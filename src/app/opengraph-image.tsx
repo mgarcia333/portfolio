@@ -1,12 +1,12 @@
 import { ImageResponse } from "next/og";
-import { loadArchivoBlack, OG_FONT_NAME, ogFonts } from "@/lib/og-font";
+import { loadOgFonts } from "@/lib/og-font";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Moisés García Poveda — Full-Stack Software Developer";
+export const alt = "Moisés García — Full-Stack Software Developer";
 
 export default async function OpengraphImage() {
-  const font = await loadArchivoBlack();
+  const { fonts, family } = await loadOgFonts();
 
   return new ImageResponse(
     (
@@ -16,47 +16,44 @@ export default async function OpengraphImage() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
-          padding: "72px 84px",
-          background: "#f3eee3",
-          color: "#16130e",
-          fontFamily: font ? OG_FONT_NAME : "sans-serif",
+          background: "#0e0a18",
+          color: "#eeeaf7",
+          fontFamily: family,
         }}
       >
-        <div style={{ display: "flex", fontSize: 40, fontWeight: 400 }}>¡Hola! Soy</div>
+        <div style={{ display: "flex", height: 12, width: "100%" }}>
+          <div style={{ display: "flex", width: "72%", background: "#7b3fd0" }} />
+          <div style={{ display: "flex", width: "16%", background: "#8dff3b" }} />
+          <div style={{ display: "flex", width: "12%", background: "#7b3fd0" }} />
+        </div>
+
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            fontSize: 112,
-            fontWeight: 400,
-            lineHeight: 1,
-            whiteSpace: "nowrap",
-            marginTop: 20,
-            textTransform: "uppercase",
-            letterSpacing: -2,
+            flex: 1,
+            justifyContent: "center",
+            padding: "0 96px",
           }}
         >
-          <div style={{ display: "flex" }}>Moisés García</div>
-          <div style={{ display: "flex" }}>Poveda</div>
-        </div>
-        <div style={{ display: "flex", marginTop: 44 }}>
           <div
-            style={{
-              display: "flex",
-              fontSize: 36,
-              fontWeight: 400,
-              padding: "12px 24px",
-              background: "#ff5a36",
-              border: "4px solid #16130e",
-              boxShadow: "8px 8px 0 #16130e",
-            }}
+            style={{ display: "flex", fontSize: 112, fontWeight: 700, letterSpacing: -4, lineHeight: 1 }}
           >
-            Full-stack developer · Barcelona
+            Moisés García
+          </div>
+          <div
+            style={{ display: "flex", marginTop: 28, fontSize: 44, fontWeight: 700, color: "#b48cf2" }}
+          >
+            Full-stack developer
+          </div>
+          <div
+            style={{ display: "flex", marginTop: 12, fontSize: 32, fontWeight: 400, color: "#9b92b4" }}
+          >
+            Barcelona · Vue, React, Node, Docker, Cloudflare
           </div>
         </div>
       </div>
     ),
-    { ...size, fonts: ogFonts(font) }
+    { ...size, fonts }
   );
 }

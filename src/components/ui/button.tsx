@@ -2,40 +2,52 @@ import Link from "next/link";
 import type { ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "ink" | "outline";
+export type ButtonVariant = "primary" | "outline" | "signal" | "onband";
+export type ButtonSize = "md" | "sm";
 
-const VARIANTS: Record<Variant, string> = {
-  primary: "bg-accent text-accent-ink",
-  ink: "bg-ink text-paper",
-  outline: "bg-card text-ink",
+const VARIANTS: Record<ButtonVariant, string> = {
+  primary: "bg-brand text-on-brand hover:bg-brand-hover",
+  outline:
+    "border border-line-strong text-fg hover:border-brand-text hover:bg-surface-hover",
+  // The one neon-green call to action, for use on the deep-purple band.
+  signal: "bg-signal text-on-signal hover:brightness-110",
+  onband: "border border-white/30 text-on-band hover:border-white/60 hover:bg-white/10",
 };
 
-/**
- * Chunky button that physically presses in: it lifts on hover and sinks onto
- * its own shadow while the mouse is down, so every click has feedback.
- */
-export function buttonClass(variant: Variant = "outline", className?: string) {
+const SIZES: Record<ButtonSize, string> = {
+  md: "h-12 px-6 text-[0.95rem]",
+  sm: "h-10 px-4 text-sm",
+};
+
+export function buttonClass(
+  variant: ButtonVariant = "outline",
+  size: ButtonSize = "md",
+  className?: string
+) {
   return cn(
-    "inline-flex min-h-12 items-center justify-center gap-2 border-2 border-ink px-5 py-2.5 leading-none font-bold whitespace-nowrap shadow-hard select-none",
-    "transition-[transform,box-shadow] duration-100 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg active:translate-x-1 active:translate-y-1 active:shadow-none",
+    "inline-flex items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap select-none",
+    "transition-[background-color,border-color,color,transform,filter] duration-150 active:scale-[0.97]",
+    SIZES[size],
     VARIANTS[variant],
     className
   );
 }
 
 interface CommonProps {
-  variant?: Variant;
+  variant?: ButtonVariant;
+  size?: ButtonSize;
   className?: string;
 }
 
 export function ButtonLink({
   href,
   variant,
+  size,
   className,
   children,
   ...rest
 }: CommonProps & { href: string } & Omit<ComponentPropsWithoutRef<"a">, "href" | "className">) {
-  const classes = buttonClass(variant, className);
+  const classes = buttonClass(variant, size, className);
 
   if (href.startsWith("/")) {
     return (
@@ -54,13 +66,14 @@ export function ButtonLink({
 
 export function Button({
   variant,
+  size,
   className,
   type = "button",
   children,
   ...rest
 }: CommonProps & Omit<ComponentPropsWithoutRef<"button">, "className">) {
   return (
-    <button type={type} className={buttonClass(variant, className)} {...rest}>
+    <button type={type} className={buttonClass(variant, size, className)} {...rest}>
       {children}
     </button>
   );

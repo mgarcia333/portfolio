@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ButtonLink } from "@/components/ui/button";
 import { ExperienceList } from "@/components/experience/experience-list";
@@ -11,19 +12,18 @@ export function Experience() {
   const { experience } = content;
 
   return (
-    <section id="experience" className="border-b-2 border-ink bg-paper-deep py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionHeading title={experience.title} />
-
-        <ExperienceList entries={experience.entries} />
-
-        <div className="mt-12">
-          <ButtonLink href="/experience">
+    <Section id="experience" tone="alt">
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,8fr)] lg:gap-16">
+        <div>
+          <SectionHeading title={experience.title} />
+          <ButtonLink href="/experience" className="mt-8">
             {experience.viewMore}
-            <ArrowRight className="size-5" />
+            <ArrowRight className="size-4" />
           </ButtonLink>
         </div>
+
+        <ExperienceList entries={experience.entries} />
       </div>
-    </section>
+    </Section>
   );
 }

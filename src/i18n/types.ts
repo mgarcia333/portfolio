@@ -57,12 +57,8 @@ export interface Fact {
 export interface SiteContent {
   profile: {
     name: string;
-    nameLines: [string, string];
-    initials: string;
     role: string;
     location: string;
-    timeZone: string;
-    status: string;
     email: string;
     github: string;
     linkedin: string;
@@ -84,13 +80,11 @@ export interface SiteContent {
     backToTop: string;
     language: string;
   };
-  /** Wrap a phrase in `*asterisks*` to get the marker highlight. */
+  /** Wrap a phrase in `*asterisks*` to emphasise it (rendered bold). */
   hero: {
-    greeting: string;
     tagline: string;
     ctaWork: string;
     ctaContact: string;
-    scrollNote: string;
   };
   about: {
     title: string;
@@ -100,7 +94,6 @@ export interface SiteContent {
   };
   homeWork: {
     title: string;
-    note: string;
     description: string;
     viewAll: string;
   };
@@ -119,7 +112,6 @@ export interface SiteContent {
     title: string;
     description: string;
     emailCta: string;
-    localTime: string;
   };
   work: {
     metaTitle: string;

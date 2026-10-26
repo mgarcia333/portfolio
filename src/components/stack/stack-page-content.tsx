@@ -9,7 +9,7 @@ export function StackPageContent() {
   const { stackPage } = content;
 
   return (
-    <main id="main" className="pt-28 pb-24 sm:pt-32">
+    <main id="main" className="pt-32 pb-24 sm:pt-36">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <PageHeader
           backLabel={stackPage.backHome}

@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
-import { THEME_COLORS, THEME_STORAGE_KEY } from "./constants";
+import { DEFAULT_THEME, THEME_COLORS, THEME_STORAGE_KEY } from "./constants";
 import type { Theme } from "./constants";
 
 export type { Theme };
@@ -21,21 +21,17 @@ function applyTheme(theme: Theme) {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("light");
+  const [theme, setThemeState] = useState<Theme>(DEFAULT_THEME);
 
   useEffect(() => {
     // The inline no-flash script already put the right theme on <html> before
     // paint; this only brings React state (and the theme-color meta) in line.
     const stored = window.localStorage.getItem(THEME_STORAGE_KEY);
-    const resolved: Theme =
-      stored === "dark" || stored === "light"
-        ? stored
-        : window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setThemeState(resolved);
-    applyTheme(resolved);
+    if (stored === "dark" || stored === "light") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setThemeState(stored);
+      applyTheme(stored);
+    }
   }, []);
 
   const setTheme = useCallback((next: Theme) => {

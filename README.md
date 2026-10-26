@@ -1,4 +1,4 @@
-# Portfolio — Moisés García Poveda
+# Portfolio — Moisés García
 
 Personal portfolio and CV site: a single scrolling home plus a page each for work, about, stack and experience. Available in Spanish, Catalan and English.
 
@@ -6,26 +6,28 @@ Personal portfolio and CV site: a single scrolling home plus a page each for wor
 
 ## Sections
 
-- **Hero** — name, role, availability and the two main actions (see the work / email me).
+- **Hero** — name, role, the two main actions (see the work / email me) and a card with the basics.
 - **Work** — the six featured projects on the home page; `/work` lists all of them with a filter by type.
-- **About** — short bio plus an index-card "ficha" with the basics; `/about` has the long version.
+- **About** — short bio; `/about` has the long version next to the card with the basics.
 - **Stack** — every technology laid out by layer; `/stack` adds why each layer looks the way it does.
 - **Experience** — roles and education; `/experience` adds highlights and the tech used.
-- **Contact** — email (mailto and copy-to-clipboard), GitHub/LinkedIn, local time in Barcelona.
+- **Contact** — email (mailto and copy-to-clipboard), GitHub/LinkedIn.
 
 ## Design
 
-Paper and ink: warm off-white (or warm black in dark mode), 2px rules, hard offset shadows, one loud orange-red accent and a yellow highlighter. Headlines are a heavy condensed upper-case Archivo (the width axis of the variable font); small handwritten notes use Reenie Beanie. Buttons and cards physically press in on click.
+Serious and orderly: a two-column editorial grid (title on the left, content on the right), hairline rules, restrained rounded cards and pill buttons, one sans family (Archivo) in sentence case.
 
-Deliberately **not** in here: boot screens, custom cursors, noise/scanline overlays, glow, glass, tilt/magnetic effects, numbered mono kickers. Everything that needs a hover also works without one.
+The palette is taken from EVA-01 and used sparingly: a near-black violet canvas, the unit's purple as the brand colour (buttons, links, accents) and its neon green only as a small signal (active nav item, focus ring, the one CTA on the contact band). Dark is the default theme; the light theme swaps the canvas for a lavender white and keeps the same purple. The contact band and footer stay deep purple in both.
 
-Usability details worth keeping: the whole project card is one click target with the GitHub link as a separate real link, copy-email button with feedback, `/work` filters announced to screen readers, skip link, visible focus rings, mobile menu closes on Escape / navigation, no horizontally-scrolling lists, theme follows the OS until you pick one.
+Deliberately **not** in here: boot screens, custom cursors, noise/scanline overlays, glow, glass, tilt/magnetic effects, sticky notes, handwriting, rotated stickers, numbered mono kickers, greetings. Everything that needs a hover also works without one.
+
+Usability details worth keeping: the whole project card is one click target with the GitHub link as a separate real link, copy-email button with feedback, `/work` filters announced to screen readers, skip link, visible focus rings, mobile menu closes on Escape / navigation, no horizontally-scrolling lists.
 
 ## Content and localization
 
 There is no CMS: all copy lives in three parallel, fully-typed files — `src/i18n/content.es.ts`, `content.ca.ts`, `content.en.ts` — conforming to the shared `SiteContent` interface (`src/i18n/types.ts`). The active locale is picked via `LanguageProvider` (`src/i18n/language-context.tsx`) and persisted in `localStorage`. Editing or adding content means updating all three files; TypeScript will flag anything left out.
 
-Wrap a phrase in `*asterisks*` in any string that goes through `<Marked>` (hero tagline, bios) to get the highlighter-marker treatment.
+Wrap a phrase in `*asterisks*` in any string that goes through `<Marked>` (hero tagline, bios) to render it bold.
 
 ### Projects
 
@@ -46,9 +48,9 @@ src/
 ├── components/
 │   ├── layout/           # Navbar, footer, page header, skip link
 │   ├── sections/         # Home page sections
-│   ├── ui/               # Primitives (button, doodles, marked text, copy-email, chips, toggles...)
+│   ├── ui/               # Primitives (button, section, accent bar, marked text, copy-email, chips, toggles...)
 │   ├── work/             # Project card and the /work page content
-│   ├── about/            # Index-card note and the /about page content
+│   ├── about/            # Profile card and the /about page content
 │   ├── stack/            # Stack list and the /stack page content
 │   └── experience/       # Experience list and the /experience page content
 ├── i18n/                 # Locale types, provider, shared project data and per-language content

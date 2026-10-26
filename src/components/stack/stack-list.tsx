@@ -6,21 +6,21 @@ type Category = StackCategory & { description?: string };
 /** Every category laid out flat, so nothing hides behind a horizontal scroll. */
 export function StackList({ categories }: { categories: Category[] }) {
   return (
-    <dl className="border-t-2 border-ink">
+    <dl className="border-b border-line">
       {categories.map((category) => (
         <div
           key={category.id}
-          className="grid gap-4 border-b-2 border-ink py-7 md:grid-cols-[15rem_1fr] md:gap-10"
+          className="grid gap-3 border-t border-line py-6 md:grid-cols-[10rem_1fr] md:gap-8"
         >
-          <dt className="display text-4xl">{category.label}</dt>
+          <dt className="font-semibold">{category.label}</dt>
           <dd>
             {category.description ? (
-              <p className="mb-5 max-w-2xl text-pretty text-ink-soft">{category.description}</p>
+              <p className="mb-4 max-w-2xl text-pretty text-fg-soft">{category.description}</p>
             ) : null}
-            <ul className="flex flex-wrap gap-2.5">
+            <ul className="flex flex-wrap gap-2">
               {category.items.map((item) => (
                 <li key={item.name}>
-                  <TechChip icon={item.icon} label={item.name} className="px-3 py-1.5 text-base" />
+                  <TechChip icon={item.icon} label={item.name} className="px-3 py-1.5" />
                 </li>
               ))}
             </ul>

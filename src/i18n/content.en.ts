@@ -5,7 +5,6 @@ export const contentEn: SiteContent = {
   profile: {
     ...profileShared,
     role: "Full-stack developer",
-    status: "Available for new projects",
   },
   nav: [
     { label: "Work", href: "/work", type: "route" },
@@ -30,18 +29,16 @@ export const contentEn: SiteContent = {
     language: "Language",
   },
   hero: {
-    greeting: "Hi! I'm",
     tagline:
-      "I build *whole websites*: what you see on screen (Vue, React), what runs behind it (Node, PHP, Java) and the server it lives on. I set up and run that last part myself too.",
+      "I build *complete websites*: the interface (Vue, React), the services running behind it (Node, PHP, Java) and the infrastructure it's deployed on, which I also manage myself.",
     ctaWork: "See my work",
     ctaContact: "Email me",
-    scrollNote: "see what I've built",
   },
   about: {
     title: "About me",
     bio: [
-      "I'm Moisés and I work from Barcelona. I'm at Seven Sector Technologies now, and before that I was at Reset Soluciones. I touch every layer: screens in Vue and React, and services in Node, PHP and Java underneath.",
-      "I have the DAW and DAM Higher Degree. My own projects run in Docker on an Oracle Cloud server with Cloudflare in front. I care as much about it *looking good* as about it *holding up* when people show up.",
+      "I'm Moisés and I work from Barcelona. I'm at Seven Sector Technologies now, and before that I was at Reset Soluciones. I work across every layer: interfaces in Vue and React, and services in Node, PHP and Java underneath.",
+      "I have the DAW and DAM Higher Degree. My own projects run in Docker on an Oracle Cloud server with Cloudflare in front. I care as much about how a product looks as about how it ships and scales.",
     ],
     facts: [
       { label: "Based in", value: "Barcelona, ES" },
@@ -53,8 +50,7 @@ export const contentEn: SiteContent = {
   },
   homeWork: {
     title: "Featured work",
-    note: "start here",
-    description: "Six projects, live and running right now. Go in and try them.",
+    description: "Six projects, live and running right now. You can go in and try them.",
     viewAll: "See all projects",
   },
   stack: {
@@ -103,12 +99,11 @@ export const contentEn: SiteContent = {
     title: "Let's talk?",
     description: "I'm in Barcelona. I work remotely or on site.",
     emailCta: "Email me",
-    localTime: "It's now",
   },
   work: {
-    metaTitle: "Projects — Moisés García Poveda",
+    metaTitle: "Projects — Moisés García",
     metaDescription:
-      "Live, running projects built by Moisés García Poveda, a full-stack developer in Barcelona.",
+      "Live, running projects built by Moisés García, a full-stack developer in Barcelona.",
     backHome: "Back home",
     title: "All projects",
     description: "Everything I have live. Go in and try it.",
@@ -167,7 +162,7 @@ export const contentEn: SiteContent = {
       "chatbot-movies": {
         title: "CineRoulette",
         description:
-          "A terminal-looking chatbot that helps you decide what to watch. It asks about your mood and who you're with, then narrows it down until something fits.",
+          "A terminal-style chatbot that helps you decide what to watch. It asks about your mood and who you're with, then narrows it down until something fits.",
       },
       "clothes-template": {
         title: "Shop Template",
@@ -182,14 +177,14 @@ export const contentEn: SiteContent = {
     }),
   },
   aboutPage: {
-    metaTitle: "About — Moisés García Poveda",
+    metaTitle: "About — Moisés García",
     metaDescription:
       "Full-stack developer in Barcelona: Vue and React interfaces, Node, PHP and Java services, and my own infrastructure on Docker, Oracle Cloud and Cloudflare.",
     backHome: "Back home",
     title: "About me",
     intro: [
-      "I'm Moisés and I work from Barcelona. I'm at Seven Sector Technologies now, and before that I was at Reset Soluciones. I touch every layer: screens in Vue and React, and services in Node, PHP and Java underneath.",
-      "I have the DAW and DAM Higher Degree. My own projects run in Docker on an Oracle Cloud server with Cloudflare in front. I care as much about it *looking good* as about it *holding up* when people show up.",
+      "I'm Moisés and I work from Barcelona. I'm at Seven Sector Technologies now, and before that I was at Reset Soluciones. I work across every layer: interfaces in Vue and React, and services in Node, PHP and Java underneath.",
+      "I have the DAW and DAM Higher Degree. My own projects run in Docker on an Oracle Cloud server with Cloudflare in front. I care as much about how a product looks as about how it ships and scales.",
       "I'd rather understand the whole problem before writing the first line. That's why I'm just as comfortable in the interface, the API and the server behind them: seeing the full system helps me find bugs fast, instead of treating each layer as a black box.",
     ],
     principles: [
@@ -203,7 +198,7 @@ export const contentEn: SiteContent = {
       },
       {
         heading: "What you see is running",
-        body: "The projects in the Work section aren't demos that live on my laptop. They're published and running right now, on the same infrastructure I use for everything else.",
+        body: "The projects in the Work section are published and running right now, on the same infrastructure I use for the rest of my work.",
       },
     ],
     education: {
@@ -212,7 +207,7 @@ export const contentEn: SiteContent = {
     },
   },
   stackPage: {
-    metaTitle: "Stack — Moisés García Poveda",
+    metaTitle: "Stack — Moisés García",
     metaDescription:
       "Technologies I work with every day, from interface to infrastructure: Vue, React, Node, PHP, Java, Docker, Oracle Cloud and Cloudflare.",
     backHome: "Back home",
@@ -257,9 +252,9 @@ export const contentEn: SiteContent = {
     ],
   },
   experiencePage: {
-    metaTitle: "Experience — Moisés García Poveda",
+    metaTitle: "Experience — Moisés García",
     metaDescription:
-      "Experience of Moisés García Poveda as a full-stack developer, from DAW and DAM training to his current job at Seven Sector Technologies.",
+      "Experience of Moisés García as a full-stack developer, from DAW and DAM training to his current job at Seven Sector Technologies.",
     backHome: "Back home",
     title: "Full experience",
     description: "Every stage, with the role and the technologies I used.",

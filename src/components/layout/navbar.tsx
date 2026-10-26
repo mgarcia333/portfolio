@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useLanguage } from "@/i18n/language-context";
+import { AccentBar } from "@/components/ui/accent-bar";
 import { ButtonLink } from "@/components/ui/button";
 import { CopyEmail } from "@/components/ui/copy-email";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
@@ -66,56 +67,55 @@ export function Navbar() {
   }
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b-2 border-ink bg-paper">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-canvas">
+      <AccentBar />
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <Link
-          href="/"
-          aria-label={profile.name}
-          className="group flex shrink-0 items-center gap-3"
-        >
-          <span className="display flex size-10 -rotate-3 items-center justify-center border-2 border-ink bg-accent text-2xl text-accent-ink shadow-hard-sm transition-transform group-hover:rotate-2">
-            {profile.initials}
-          </span>
-          <span className="hidden text-lg leading-none font-bold sm:block">
-            {profile.nameLines[0]}
-          </span>
+        <Link href="/" className="shrink-0 text-base font-semibold tracking-tight min-[360px]:text-lg">
+          {profile.name}
         </Link>
 
-        <nav aria-label="Main" className="hidden items-center gap-8 lg:flex">
+        <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
           {desktopLinks.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               aria-current={isActive(item) ? "page" : undefined}
               className={cn(
-                "py-2 font-bold decoration-accent decoration-[3px] underline-offset-[6px] hover:underline",
-                isActive(item) && "underline"
+                "relative rounded-full px-4 py-2 text-[0.95rem] font-medium transition-colors hover:bg-surface-hover hover:text-fg",
+                isActive(item) ? "text-fg" : "text-fg-soft"
               )}
             >
               {item.label}
+              {isActive(item) ? (
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-x-4 bottom-0.5 h-0.5 rounded-full bg-signal"
+                />
+              ) : null}
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-1 sm:gap-2">
           <ButtonLink
             href={CONTACT_HREF}
             variant="primary"
-            className="hidden min-h-10 px-4 text-sm lg:inline-flex"
+            size="sm"
+            className="mr-2 hidden lg:inline-flex"
           >
             {contactLabel}
           </ButtonLink>
           <LanguageSwitcher />
-          <ThemeToggle />
+          <ThemeToggle className="hidden min-[380px]:inline-flex" />
           <button
             type="button"
             onClick={() => setOpenAt(menuOpen ? null : pathname)}
-            className="inline-flex size-10 items-center justify-center border-2 border-ink bg-ink text-paper lg:hidden"
+            className="inline-flex size-10 items-center justify-center rounded-full text-fg transition-colors hover:bg-surface-hover lg:hidden"
             aria-label={menuOpen ? content.menuClose : content.menuOpen}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
           >
-            {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+            {menuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
           </button>
         </div>
       </div>
@@ -123,7 +123,7 @@ export function Navbar() {
       {menuOpen && (
         <div
           id="mobile-menu"
-          className="fixed inset-x-0 top-16 bottom-0 z-40 animate-[menu-in_0.18s_ease-out] overflow-y-auto border-t-2 border-ink bg-paper lg:hidden"
+          className="fixed inset-x-0 top-[67px] bottom-0 z-40 animate-[menu-in_0.18s_ease-out] overflow-y-auto border-t border-line bg-canvas lg:hidden"
         >
           <div className="flex min-h-full flex-col">
             <nav aria-label="Main" className="flex flex-col px-4 pt-2 sm:px-6">
@@ -133,27 +133,28 @@ export function Navbar() {
                   href={item.href}
                   onClick={() => setOpenAt(null)}
                   aria-current={isActive(item) ? "page" : undefined}
-                  className="group flex items-center justify-between gap-4 border-b-2 border-ink py-5 active:bg-highlight active:text-highlight-ink"
+                  className="group flex items-center justify-between gap-4 border-b border-line py-5 active:bg-surface-hover"
                 >
                   <span
                     className={cn(
-                      "display text-5xl decoration-accent decoration-[6px] underline-offset-[8px]",
-                      isActive(item) && "underline"
+                      "text-2xl font-semibold tracking-tight",
+                      isActive(item) && "text-brand-text"
                     )}
                   >
                     {item.label}
                   </span>
-                  <ArrowUpRight className="size-7 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  <ArrowUpRight className="size-5 shrink-0 text-fg-muted transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
               ))}
             </nav>
 
             <div className="mt-auto flex flex-col gap-5 px-4 py-8 sm:px-6">
-              <a href={`mailto:${profile.email}`} className="link text-xl font-bold break-all">
+              <a href={`mailto:${profile.email}`} className="link text-lg font-medium break-all">
                 {profile.email}
               </a>
+              <ThemeToggle withLabel className="self-start min-[380px]:hidden" />
               <div className="flex flex-wrap items-center gap-3">
-                <CopyEmail email={profile.email} className="min-w-44" />
+                <CopyEmail email={profile.email} />
                 {content.socials.map((social) => (
                   <ButtonLink
                     key={social.label}
@@ -161,7 +162,7 @@ export function Navbar() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={social.label}
-                    className="px-3.5"
+                    className="w-12 px-0"
                   >
                     <social.icon className="size-5" />
                   </ButtonLink>

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Check, Copy } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button, type ButtonVariant } from "@/components/ui/button";
 import { useLanguage } from "@/i18n/language-context";
 
 type CopyState = "idle" | "copied" | "failed";
@@ -23,7 +23,13 @@ function legacyCopy(text: string) {
   }
 }
 
-export function CopyEmail({ email, className }: { email: string; className?: string }) {
+interface CopyEmailProps {
+  email: string;
+  variant?: ButtonVariant;
+  className?: string;
+}
+
+export function CopyEmail({ email, variant = "outline", className }: CopyEmailProps) {
   const { content } = useLanguage();
   const [state, setState] = useState<CopyState>("idle");
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
@@ -52,7 +58,7 @@ export function CopyEmail({ email, className }: { email: string; className?: str
 
   return (
     <>
-      <Button onClick={copy} className={className ?? "min-w-44"}>
+      <Button onClick={copy} variant={variant} className={className ?? "min-w-44"}>
         {state === "copied" ? <Check className="size-4" /> : <Copy className="size-4" />}
         {label}
       </Button>

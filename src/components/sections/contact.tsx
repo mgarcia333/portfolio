@@ -3,7 +3,6 @@
 import { Mail } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
 import { CopyEmail } from "@/components/ui/copy-email";
-import { LiveClock } from "@/components/ui/live-clock";
 import { useLanguage } from "@/i18n/language-context";
 
 export function Contact() {
@@ -11,46 +10,41 @@ export function Contact() {
   const { profile, contact } = content;
 
   return (
-    <section
-      id="contact"
-      className="border-b-2 border-ink bg-accent py-20 text-accent-ink sm:py-28"
-    >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="[container-type:inline-size]">
-          <h2 className="display text-[min(19cqw,13rem)] leading-[0.88]">{contact.title}</h2>
+    <section id="contact" className="on-band bg-band py-20 text-on-band sm:py-24">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,8fr)] lg:gap-16">
+        <div>
+          <h2 className="h2">{contact.title}</h2>
+          <p className="mt-4 max-w-sm text-lg text-on-band-soft">{contact.description}</p>
         </div>
-        <p className="mt-6 text-xl font-medium sm:text-2xl">{contact.description}</p>
 
-        <a
-          href={`mailto:${profile.email}`}
-          className="display mt-10 block text-[clamp(1.9rem,6.4vw,5.25rem)] leading-none break-all normal-case! underline decoration-[0.07em] underline-offset-[0.14em] transition-[text-decoration-thickness] hover:decoration-[0.2em]"
-        >
-          {profile.email}
-        </a>
+        <div>
+          <a
+            href={`mailto:${profile.email}`}
+            className="inline-block text-2xl font-semibold tracking-tight break-all underline decoration-signal decoration-2 underline-offset-8 transition-[text-decoration-thickness] hover:decoration-4 sm:text-4xl"
+          >
+            {profile.email}
+          </a>
 
-        <div className="mt-10 flex flex-wrap items-center gap-4">
-          <ButtonLink href={`mailto:${profile.email}`} variant="ink">
-            <Mail className="size-5" />
-            {contact.emailCta}
-          </ButtonLink>
-          <CopyEmail email={profile.email} />
-          {content.socials.map((social) => (
-            <ButtonLink
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <social.icon className="size-5" />
-              {social.label}
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <ButtonLink href={`mailto:${profile.email}`} variant="signal">
+              <Mail className="size-4" />
+              {contact.emailCta}
             </ButtonLink>
-          ))}
+            <CopyEmail email={profile.email} variant="onband" />
+            {content.socials.map((social) => (
+              <ButtonLink
+                key={social.label}
+                href={social.href}
+                variant="onband"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <social.icon className="size-4" />
+                {social.label}
+              </ButtonLink>
+            ))}
+          </div>
         </div>
-
-        <p className="mt-14 font-bold">
-          {contact.localTime}{" "}
-          <LiveClock timeZone={profile.timeZone} className="border-b-[3px] border-ink tabular-nums" />
-        </p>
       </div>
     </section>
   );

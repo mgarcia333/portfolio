@@ -5,7 +5,6 @@ export const contentEs: SiteContent = {
   profile: {
     ...profileShared,
     role: "Desarrollador full-stack",
-    status: "Disponible para proyectos nuevos",
   },
   nav: [
     { label: "Trabajo", href: "/work", type: "route" },
@@ -30,18 +29,16 @@ export const contentEs: SiteContent = {
     language: "Idioma",
   },
   hero: {
-    greeting: "¡Hola! Soy",
     tagline:
-      "Hago *webs completas*: lo que se ve en pantalla (Vue, React), lo que corre por detrás (Node, PHP, Java) y el servidor donde viven. Ese último también lo monto y lo llevo yo.",
+      "Desarrollo *webs completas*: la interfaz (Vue, React), los servicios que corren por detrás (Node, PHP, Java) y la infraestructura donde se despliegan, que también gestiono yo.",
     ctaWork: "Ver proyectos",
     ctaContact: "Escríbeme",
-    scrollNote: "mira lo que he hecho",
   },
   about: {
     title: "Sobre mí",
     bio: [
-      "Soy Moisés y trabajo desde Barcelona. Ahora estoy en Seven Sector Technologies y antes pasé por Reset Soluciones. Toco todas las capas: pantallas en Vue y React, y por debajo servicios en Node, PHP y Java.",
-      "Tengo el Grado Superior de DAW y DAM. Mis proyectos propios están en Docker, sobre un servidor de Oracle Cloud con Cloudflare por delante. Me importa tanto que *se vea bien* como que *aguante* cuando entra gente.",
+      "Soy Moisés y trabajo desde Barcelona. Ahora estoy en Seven Sector Technologies y antes pasé por Reset Soluciones. Trabajo en todas las capas: interfaces en Vue y React, y por debajo servicios en Node, PHP y Java.",
+      "Tengo el Grado Superior de DAW y DAM. Mis proyectos propios están en Docker, sobre un servidor de Oracle Cloud con Cloudflare por delante. Me importa tanto cómo se ve un producto como cómo se despliega y escala.",
     ],
     facts: [
       { label: "Base", value: "Barcelona, ES" },
@@ -53,8 +50,7 @@ export const contentEs: SiteContent = {
   },
   homeWork: {
     title: "Trabajos destacados",
-    note: "empieza por aquí",
-    description: "Seis proyectos publicados y funcionando ahora mismo. Entra y pruébalos.",
+    description: "Seis proyectos publicados y funcionando ahora mismo. Puedes entrar y probarlos.",
     viewAll: "Ver todos los proyectos",
   },
   stack: {
@@ -103,12 +99,11 @@ export const contentEs: SiteContent = {
     title: "¿Hablamos?",
     description: "Estoy en Barcelona. Trabajo en remoto o en persona.",
     emailCta: "Escríbeme",
-    localTime: "En Barcelona ahora son las",
   },
   work: {
-    metaTitle: "Proyectos — Moisés García Poveda",
+    metaTitle: "Proyectos — Moisés García",
     metaDescription:
-      "Proyectos publicados y funcionando, hechos por Moisés García Poveda, desarrollador full-stack en Barcelona.",
+      "Proyectos publicados y funcionando, hechos por Moisés García, desarrollador full-stack en Barcelona.",
     backHome: "Volver al inicio",
     title: "Todos los proyectos",
     description: "Todo lo que tengo publicado. Entra y pruébalo.",
@@ -167,7 +162,7 @@ export const contentEs: SiteContent = {
       "chatbot-movies": {
         title: "CineRoulette",
         description:
-          "Un chatbot con pinta de terminal que te ayuda a decidir qué ver. Te pregunta qué ánimo tienes y con quién estás, y va acotando hasta dar con algo.",
+          "Un chatbot con estética de terminal que te ayuda a decidir qué ver. Te pregunta qué ánimo tienes y con quién estás, y va acotando hasta dar con algo.",
       },
       "clothes-template": {
         title: "Plantilla Tienda",
@@ -182,14 +177,14 @@ export const contentEs: SiteContent = {
     }),
   },
   aboutPage: {
-    metaTitle: "Sobre mí — Moisés García Poveda",
+    metaTitle: "Sobre mí — Moisés García",
     metaDescription:
       "Desarrollador full-stack en Barcelona: interfaces en Vue y React, servicios en Node, PHP y Java, e infraestructura propia en Docker sobre Oracle Cloud y Cloudflare.",
     backHome: "Volver al inicio",
     title: "Sobre mí",
     intro: [
-      "Soy Moisés y trabajo desde Barcelona. Ahora estoy en Seven Sector Technologies y antes pasé por Reset Soluciones. Toco todas las capas: pantallas en Vue y React, y por debajo servicios en Node, PHP y Java.",
-      "Tengo el Grado Superior de DAW y DAM. Mis proyectos propios están en Docker, sobre un servidor de Oracle Cloud con Cloudflare por delante. Me importa tanto que *se vea bien* como que *aguante* cuando entra gente.",
+      "Soy Moisés y trabajo desde Barcelona. Ahora estoy en Seven Sector Technologies y antes pasé por Reset Soluciones. Trabajo en todas las capas: interfaces en Vue y React, y por debajo servicios en Node, PHP y Java.",
+      "Tengo el Grado Superior de DAW y DAM. Mis proyectos propios están en Docker, sobre un servidor de Oracle Cloud con Cloudflare por delante. Me importa tanto cómo se ve un producto como cómo se despliega y escala.",
       "Prefiero entender el problema entero antes de escribir la primera línea. Por eso me muevo igual de cómodo entre la interfaz, la API y el servidor que las sirve: ver el sistema completo me ayuda a encontrar los fallos rápido, en vez de tratar cada capa como una caja negra.",
     ],
     principles: [
@@ -203,7 +198,7 @@ export const contentEs: SiteContent = {
       },
       {
         heading: "Lo que ves está en marcha",
-        body: "Los proyectos de la sección Trabajo no son demos que viven en mi ordenador. Están publicados y funcionando ahora mismo, en la misma infraestructura que uso para todo lo demás.",
+        body: "Los proyectos de la sección Trabajo están publicados y funcionando ahora mismo, en la misma infraestructura que uso para el resto de mi trabajo.",
       },
     ],
     education: {
@@ -212,7 +207,7 @@ export const contentEs: SiteContent = {
     },
   },
   stackPage: {
-    metaTitle: "Stack — Moisés García Poveda",
+    metaTitle: "Stack — Moisés García",
     metaDescription:
       "Tecnologías con las que trabajo a diario, de la interfaz a la infraestructura: Vue, React, Node, PHP, Java, Docker, Oracle Cloud y Cloudflare.",
     backHome: "Volver al inicio",
@@ -257,9 +252,9 @@ export const contentEs: SiteContent = {
     ],
   },
   experiencePage: {
-    metaTitle: "Experiencia — Moisés García Poveda",
+    metaTitle: "Experiencia — Moisés García",
     metaDescription:
-      "Experiencia de Moisés García Poveda como desarrollador full-stack, de la formación en DAW y DAM a su puesto actual en Seven Sector Technologies.",
+      "Experiencia de Moisés García como desarrollador full-stack, de la formación en DAW y DAM a su puesto actual en Seven Sector Technologies.",
     backHome: "Volver al inicio",
     title: "Experiencia completa",
     description: "Cada etapa, con su rol y las tecnologías que usé.",

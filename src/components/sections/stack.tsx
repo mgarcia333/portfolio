@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ButtonLink } from "@/components/ui/button";
 import { StackList } from "@/components/stack/stack-list";
@@ -11,19 +12,18 @@ export function Stack() {
   const { stack } = content;
 
   return (
-    <section id="stack" className="border-b-2 border-ink py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionHeading title={stack.title} description={stack.description} />
-
-        <StackList categories={stack.categories} />
-
-        <div className="mt-12">
-          <ButtonLink href="/stack">
+    <Section id="stack">
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,8fr)] lg:gap-16">
+        <div>
+          <SectionHeading title={stack.title} description={stack.description} />
+          <ButtonLink href="/stack" className="mt-8">
             {stack.viewMore}
-            <ArrowRight className="size-5" />
+            <ArrowRight className="size-4" />
           </ButtonLink>
         </div>
+
+        <StackList categories={stack.categories} />
       </div>
-    </section>
+    </Section>
   );
 }

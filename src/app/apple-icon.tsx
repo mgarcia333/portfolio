@@ -1,11 +1,11 @@
 import { ImageResponse } from "next/og";
-import { loadArchivoBlack, OG_FONT_NAME, ogFonts } from "@/lib/og-font";
+import { loadOgFonts } from "@/lib/og-font";
 
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
 export default async function AppleIcon() {
-  const font = await loadArchivoBlack();
+  const { fonts, family } = await loadOgFonts();
 
   return new ImageResponse(
     (
@@ -16,29 +16,39 @@ export default async function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#f3eee3",
+          background: "#0e0a18",
         }}
       >
         <div
           style={{
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            width: 132,
-            height: 132,
-            background: "#ff5a36",
-            border: "6px solid #16130e",
-            boxShadow: "8px 8px 0 #16130e",
-            color: "#16130e",
-            fontSize: 76,
-            fontWeight: 400,
-            fontFamily: font ? OG_FONT_NAME : "sans-serif",
+            width: 140,
+            height: 140,
+            background: "#7b3fd0",
+            borderRadius: 30,
+            color: "#ffffff",
+            fontSize: 64,
+            fontWeight: 700,
+            fontFamily: family,
           }}
         >
           MG
+          <div
+            style={{
+              display: "flex",
+              width: 44,
+              height: 6,
+              marginTop: 6,
+              borderRadius: 3,
+              background: "#8dff3b",
+            }}
+          />
         </div>
       </div>
     ),
-    { ...size, fonts: ogFonts(font) }
+    { ...size, fonts }
   );
 }

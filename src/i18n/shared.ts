@@ -25,11 +25,8 @@ import { FaLinkedin } from "react-icons/fa";
 import type { Project, ProjectCategory, Social, StackItem } from "./types";
 
 export const profileShared = {
-  name: "Moisés García Poveda",
-  nameLines: ["Moisés García", "Poveda"] as [string, string],
-  initials: "MG",
+  name: "Moisés García",
   location: "Barcelona, ES",
-  timeZone: "Europe/Madrid",
   email: "moisesgp15@gmail.com",
   github: "https://github.com/mgarcia333",
   linkedin: "https://www.linkedin.com/in/MoisesGarPov",

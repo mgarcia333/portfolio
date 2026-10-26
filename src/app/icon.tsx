@@ -1,11 +1,11 @@
 import { ImageResponse } from "next/og";
-import { loadArchivoBlack, OG_FONT_NAME, ogFonts } from "@/lib/og-font";
+import { loadOgFonts } from "@/lib/og-font";
 
 export const size = { width: 32, height: 32 };
 export const contentType = "image/png";
 
 export default async function Icon() {
-  const font = await loadArchivoBlack();
+  const { fonts, family } = await loadOgFonts();
 
   return new ImageResponse(
     (
@@ -16,17 +16,17 @@ export default async function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#ff5a36",
-          border: "3px solid #16130e",
-          color: "#16130e",
-          fontSize: 20,
-          fontWeight: 400,
-          fontFamily: font ? OG_FONT_NAME : "sans-serif",
+          background: "#7b3fd0",
+          borderRadius: 7,
+          color: "#ffffff",
+          fontSize: 21,
+          fontWeight: 700,
+          fontFamily: family,
         }}
       >
         M
       </div>
     ),
-    { ...size, fonts: ogFonts(font) }
+    { ...size, fonts }
   );
 }
